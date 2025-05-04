@@ -40,13 +40,41 @@ const entryListType = z.object({
     ]))
 })
 
+const entryQuoteType = z.object({
+    type: z.string(), // quote
+    entries: z.array(z.string()),
+    by: z.string(),
+})
+
+const entryTableType = z.object({
+    type: z.string(), // table
+    caption: z.string().optional(),
+    colLabels: z.array(z.string()),
+    colStyles: z.array(z.string()),
+    rows: z.array(z.array(z.union([
+        z.string(),
+        z.object({
+            type: z.string(), // cell
+            roll: z.union([
+                z.object({
+                    exact: z.number()
+                }),
+                z.object({
+                    min: z.number(),
+                    max: z.number()
+                })
+            ])
+        })
+    ])))
+});
+
 const spells = defineCollection({
-    loader: glob({ pattern: ["**/spells-xphb.json", "**/spells-scc.json"], base: "./src/data/spells"}),
+    loader: glob({ pattern: "**/spells-*.json", base: "./src/data/spells"}),
     schema: z.object({
         spell: z.array(z.object({
             name: z.string(),
             source: z.string(),
-            page: z.number(),
+            page: z.number().optional(),
             srd52: z.union([z.boolean(), z.string()]).optional(),
             basicRules2024: z.boolean().optional(),
             level: z.number(),
@@ -60,7 +88,7 @@ const spells = defineCollection({
                 distance: z.object({
                     type: z.string(),
                     amount: z.number().optional(),
-                })
+                }).optional()
             }),
             components: z.object({
                 v: z.boolean().optional(),
@@ -70,7 +98,7 @@ const spells = defineCollection({
                     z.object({
                         text: z.string(),
                         cost: z.number().optional(),
-                        consume: z.boolean().optional(),
+                        consume: z.union([z.boolean(), z.string()]).optional(),
                     })
                 ]).optional(),
             }),
@@ -101,6 +129,7 @@ const spells = defineCollection({
             entries: z.array(z.union([
                 z.string(),
                 entryListType,
+                entryQuoteType,
                 z.object({
                     type: z.string(), // entries
                     name: z.string(),
@@ -109,13 +138,7 @@ const spells = defineCollection({
                         entryListType
                         ]))
                 }),
-                z.object({
-                    type: z.string(), // table
-                    caption: z.string().optional(),
-                    colStyles: z.array(z.string()),
-                    colLabels: z.array(z.string()),
-                    rows: z.array(z.array(z.string()))
-                })
+                entryTableType
             ])),
             entriesHigherLevel: z.array(z.object({
                 type: z.string(), // entries
