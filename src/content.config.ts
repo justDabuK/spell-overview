@@ -41,7 +41,7 @@ const entryListType = z.object({
 })
 
 const spells = defineCollection({
-    loader: glob({ pattern: "**/spells-xphb.json", base: "./src/data/spells"}),
+    loader: glob({ pattern: ["**/spells-xphb.json", "**/spells-scc.json"], base: "./src/data/spells"}),
     schema: z.object({
         spell: z.array(z.object({
             name: z.string(),

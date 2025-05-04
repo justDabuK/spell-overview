@@ -2,7 +2,7 @@
 import { getCollection, type CollectionEntry } from "astro:content";
 
 const spells = await getCollection("spells");
-const spellList = spells[0].data.spell;
+const spellList = spells.flatMap((spellCollection: CollectionEntry<"spells">) => spellCollection.data.spell)
 const spellsAsString = JSON.stringify(spellList, undefined, 2)
 ---
 
