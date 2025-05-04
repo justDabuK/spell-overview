@@ -1,5 +1,8 @@
 ---
+import { getCollection, type CollectionEntry } from "astro:content";
 
+const spells = await getCollection("spells");
+const spellsAsString = JSON.stringify(spells[0].data.spell, undefined, 2)
 ---
 
 <html lang="en">
@@ -11,6 +14,7 @@
 		<title>Astro</title>
 	</head>
 	<body>
-		<h1>Astro</h1>
+		<h1>nope</h1>
+		<span>CHANGED</span>
 	</body>
 </html>
