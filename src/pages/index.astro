@@ -1,26 +1,9 @@
 ---
-import { getCollection, type CollectionEntry } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
 
-const spells = await getCollection("spells");
-const spellList = spells.flatMap((spellCollection: CollectionEntry<"spells">) => spellCollection.data.spell)
-const spellsAsString = JSON.stringify(spellList, undefined, 2)
+
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Spell list</h1>
-		<ul>
-			{spellList.map((spell) => (
-				<li>{spell.name}</li>
-			))}
-		</ul>
-		<pre>{ spellsAsString }</pre>
-	</body>
-</html>
+<BaseLayout>
+    <span>your way to <a href="/characters">characters</a></span>
+</BaseLayout>

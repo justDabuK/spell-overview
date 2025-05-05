@@ -1,0 +1,18 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+import { getCollection, type CollectionEntry } from "astro:content";
+
+const spells = await getCollection("spells");
+const spellList = spells.flatMap((spellCollection: CollectionEntry<"spells">) => spellCollection.data.spell)
+const spellsAsString = JSON.stringify(spellList, undefined, 2)
+---
+<BaseLayout>
+    <h1>Spell list</h1>
+    <ul>
+        {spellList.map((spell) => (
+                <li>{spell.name}</li>
+        ))}
+    </ul>
+    <pre>{ spellsAsString }</pre>
+</BaseLayout>

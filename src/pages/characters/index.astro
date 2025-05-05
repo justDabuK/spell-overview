@@ -1,0 +1,17 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+const subpages = Object.values(import.meta.glob('./*.astro', { eager: true }));
+---
+
+<BaseLayout>
+  <h1>List of character</h1>
+  <ul>
+    {
+      subpages.map((page) => (
+        <li>
+          <a href={page.url}>{page.url}</a>
+        </li>
+      ))
+    }
+  </ul>
+</BaseLayout>
