@@ -4,15 +4,63 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getCollection, type CollectionEntry } from "astro:content";
 
 const spells = await getCollection("spells");
-const spellList = spells.flatMap((spellCollection: CollectionEntry<"spells">) => spellCollection.data.spell)
-const spellsAsString = JSON.stringify(spellList, undefined, 2)
+const spellList = spells.flatMap<CollectionEntry<"spells">["data"]["spell"]>((spellCollection: CollectionEntry<"spells">) => spellCollection.data.spell)
+const fjordsSpellNameList = [
+    "Elementalism",
+    "Message",
+    "Shillelagh",
+    "Starry Wisp",
+    "Thorn Whip",
+    "Guidance",
+    "Faerie Fire",
+    "Healing Word",
+    "Ice Knife",
+    "Speak with Animals",
+    "Thunderwave",
+    "Aid",
+    "Heat Metal",
+    "Spike Growth",
+    "Wither and Bloom",
+]
+const fjordsSpellList = spellList
+    .filter((spell: CollectionEntry<"spells">["data"]["spell"]) => fjordsSpellNameList.includes(spell.name) && ["XPHB", "SCC"].includes(spell.source))
+    .sort((a, b) => a.level - b.level || a.name.localeCompare(b.name))
+const spellsAsString = JSON.stringify(fjordsSpellList, undefined, 2)
 ---
 <BaseLayout>
     <h1>Spell list</h1>
-    <ul>
-        {spellList.map((spell) => (
-                <li>{spell.name}</li>
+    <div class="spell-card-layout">
+        {fjordsSpellList.map((spell) => (
+                <div class="spell-card">
+                    <h2>{spell.name}</h2>
+                    <p>Level: {spell.level}</p>
+                    <p>School: {spell.school}</p>
+                    {spell.time.map((time) => (
+                        <p>Time: {`${time.number} ${time.unit}`}</p>
+                    ))}
+                    {spell.entries.map((entry) => {
+                        if(typeof entry === "string") {
+                            return <p>{entry}</p>
+                        } else {
+                            return <pre>{JSON.stringify(entry, undefined, 2)}</pre>
+                        }
+                    })}
+                </div>
         ))}
-    </ul>
+    </div>
     <pre>{ spellsAsString }</pre>
 </BaseLayout>
+
+<style>
+    .spell-card-layout {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: var(--size-8);
+
+        .spell-card {
+            display: flex;
+            flex-direction: column;
+            gap: var(--size-4);
+        }
+    }
+</style>
