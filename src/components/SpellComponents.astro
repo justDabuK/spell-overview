@@ -11,7 +11,7 @@ const { class: className, components, ...rest } = Astro.props;
 const isMultiComponent = components.v && components.s;
 ---
 <div class:list={[className, { "multi-component": isMultiComponent }]} {...rest}>
-    {components.v ? <Icon class="verbal" name="waveform" /> : null}
+    {components.v ? <Icon class="verbal" name="volume-high" /> : null}
     {components.s ? <Icon class="somatic" name="hand-wave" /> : null}
 </div>
 
