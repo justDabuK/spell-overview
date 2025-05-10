@@ -10,8 +10,10 @@ interface Props {
     spell: CollectionEntry<"spells">["data"]["spell"];
 }
 const { spell } = Astro.props;
+const numberWordArray = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
+
 ---
-<div class="spell-card">
+<div class:list={["spell-card", numberWordArray[spell.level]]}>
     <div class="name">{spell.name}</div>
     <SpellSchool class="school" school={spell.school}/>
     <SpellDuration class="duration" durationList={spell.duration} />
@@ -35,6 +37,7 @@ const { spell } = Astro.props;
         --min-size: var(--size-32);
         --border-radius: var(--size-8);
 
+        position: relative;
         display: grid;
         grid-template-areas:
     "duration name range"
@@ -82,6 +85,72 @@ const { spell } = Astro.props;
         .cost {
             min-width: var(--min-size);
             min-height: var(--min-size);
+        }
+
+        &::before {
+            content: "20";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            color: color-mix(in hsl, var(--subtext1), transparent 80%);
+            font-size: var(--size-256);
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+        }
+
+        &.zero {
+            &::before {
+                content: "0";
+            }
+        }
+        &.one {
+            &::before {
+                content: "1";
+            }
+        }
+        &.two {
+            &::before {
+                content: "2";
+            }
+        }
+        &.three {
+            &::before {
+                content: "3";
+            }
+        }
+        &.four {
+            &::before {
+                content: "4";
+            }
+        }
+        &.five {
+            &::before {
+                content: "5";
+            }
+        }
+        &.six {
+            &::before {
+                content: "6";
+            }
+        }
+        &.seven {
+            &::before {
+                content: "7";
+            }
+        }
+        &.eight {
+            &::before {
+                content: "8";
+            }
+        }
+        &.nine {
+            &::before {
+                content: "9";
+            }
         }
     }
 </style>
