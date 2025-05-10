@@ -1,0 +1,23 @@
+---
+import { type CollectionEntry } from "astro:content";
+
+interface Props {
+    spell: CollectionEntry<"spells">["data"]["spell"];
+}
+const { spell } = Astro.props;
+---
+<div class="spell-card">
+    <h2>{spell.name}</h2>
+    <p>Level: {spell.level}</p>
+    <p>School: {spell.school}</p>
+    {spell.time.map((time) => (
+            <p>Time: {`${time.number} ${time.unit}`}</p>
+    ))}
+    {spell.entries.map((entry) => {
+        if(typeof entry === "string") {
+            return <p>{entry}</p>
+        } else {
+            return <pre>{JSON.stringify(entry, undefined, 2)}</pre>
+        }
+    })}
+</div>

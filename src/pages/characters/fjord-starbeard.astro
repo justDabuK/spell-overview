@@ -2,6 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 import { getCollection, type CollectionEntry } from "astro:content";
+import SpellCard from "../../components/SpellCard.astro";
 
 const spells = await getCollection("spells");
 const spellList = spells.flatMap<CollectionEntry<"spells">["data"]["spell"]>((spellCollection: CollectionEntry<"spells">) => spellCollection.data.spell)
@@ -30,23 +31,7 @@ const spellsAsString = JSON.stringify(fjordsSpellList, undefined, 2)
 <BaseLayout>
     <h1>Spell list</h1>
     <div class="spell-card-layout">
-        {fjordsSpellList.map((spell) => (
-                <div class="spell-card">
-                    <h2>{spell.name}</h2>
-                    <p>Level: {spell.level}</p>
-                    <p>School: {spell.school}</p>
-                    {spell.time.map((time) => (
-                        <p>Time: {`${time.number} ${time.unit}`}</p>
-                    ))}
-                    {spell.entries.map((entry) => {
-                        if(typeof entry === "string") {
-                            return <p>{entry}</p>
-                        } else {
-                            return <pre>{JSON.stringify(entry, undefined, 2)}</pre>
-                        }
-                    })}
-                </div>
-        ))}
+        {fjordsSpellList.map((spell) => (<SpellCard spell={spell} />))}
     </div>
     <pre>{ spellsAsString }</pre>
 </BaseLayout>
