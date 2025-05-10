@@ -1,5 +1,6 @@
 ---
 import { type CollectionEntry } from "astro:content";
+import SpellSchool from "./SpellSchool.astro";
 
 interface Props {
     spell: CollectionEntry<"spells">["data"]["spell"];
@@ -8,7 +9,7 @@ const { spell } = Astro.props;
 ---
 <div class="spell-card">
     <div class="name">{spell.name}</div>
-    <div class="school">School: {spell.school}</div>
+    <SpellSchool class="school" school={spell.school}/>
     <div class="duration">
     </div>
     <div class="range">
@@ -66,7 +67,6 @@ const { spell } = Astro.props;
         }
         .school {
             grid-area: school;
-            background: yellow;
         }
 
         .duration,
@@ -74,9 +74,7 @@ const { spell } = Astro.props;
         .range,
         .description,
         .components,
-        .cost,
-        .school {
-            overflow: auto;
+        .cost {
             min-width: var(--min-size);
             min-height: var(--min-size);
         }

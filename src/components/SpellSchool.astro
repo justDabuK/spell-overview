@@ -1,0 +1,31 @@
+---
+import { type CollectionEntry } from "astro:content";
+import { Icon } from 'astro-icon/components'
+
+interface Props {
+    school: CollectionEntry<"spells">["data"]["spell"][0]["school"];
+    class?: string;
+}
+
+const { class: className, school, ...rest } = Astro.props;
+
+const schoolIcon = {
+    "A": "abjuration",
+    "C": "conjuration",
+    "D": "divination",
+    "E": "enchantment",
+    "V": "evocation",
+    "I": "illusion",
+    "N": "necromancy",
+    "T": "transmutation",
+}[school];
+---
+<div class={className} {...rest}>
+    {schoolIcon ? <Icon name={schoolIcon} /> : <span>{school}</span>}
+</div>
+
+<style>
+    [data-icon] {
+        font-size: var(--size-32);
+    }
+</style>
