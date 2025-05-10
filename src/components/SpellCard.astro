@@ -2,6 +2,7 @@
 import { type CollectionEntry } from "astro:content";
 import SpellSchool from "./SpellSchool.astro";
 import SpellRange from "./SpellRange.astro";
+import SpellComponents from "./SpellComponents.astro";
 
 interface Props {
     spell: CollectionEntry<"spells">["data"]["spell"];
@@ -14,8 +15,7 @@ const { spell } = Astro.props;
     <div class="duration">
     </div>
     <SpellRange class="range" range={spell.range} />
-    <div class="components">
-    </div>
+    <SpellComponents class="components" components={spell.components} />
     <div class="cost"></div>
     <div class="description">
         <!--
@@ -58,7 +58,6 @@ const { spell } = Astro.props;
         }
         .components {
             grid-area: components;
-            background: green;
         }
         .cost {
             grid-area: cost;
