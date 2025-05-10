@@ -19,7 +19,7 @@ const { spell } = Astro.props;
     <SpellComponents class="components" components={spell.components} />
     { spell.components?.m ? <SpellMaterialComponent class="cost" materialComponents={spell.components.m} /> : null}
     <div class="description">
-        <!--
+        <!-- TODO: maybe do something details and summary? --!>
          {spell.entries.map((entry) => {
              if(typeof entry === "string") {
                  return <p>{entry}</p>
@@ -27,7 +27,6 @@ const { spell } = Astro.props;
                  return <p>{JSON.stringify(entry, undefined, 2)}</p>
              }
          })}
-        -->
     </div>
 </div>
 
@@ -63,6 +62,7 @@ const { spell } = Astro.props;
         }
         .description {
             grid-area: description;
+            font-size: var(--font-size-14)
         }
         .components {
             grid-area: components;
