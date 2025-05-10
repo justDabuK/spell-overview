@@ -3,6 +3,7 @@ import { type CollectionEntry } from "astro:content";
 import SpellSchool from "./SpellSchool.astro";
 import SpellRange from "./SpellRange.astro";
 import SpellComponents from "./SpellComponents.astro";
+import SpellMaterialComponent from "./SpellMaterialComponent.astro";
 
 interface Props {
     spell: CollectionEntry<"spells">["data"]["spell"];
@@ -16,7 +17,7 @@ const { spell } = Astro.props;
     </div>
     <SpellRange class="range" range={spell.range} />
     <SpellComponents class="components" components={spell.components} />
-    <div class="cost"></div>
+    { spell.components?.m ? <SpellMaterialComponent class="cost" materialComponents={spell.components.m} /> : null}
     <div class="description">
         <!--
          {spell.entries.map((entry) => {
@@ -41,6 +42,7 @@ const { spell } = Astro.props;
     "components cost school";
         grid-template-columns: auto 1fr auto;
         grid-template-rows: auto 1fr auto;
+        gap: var(--size-8);
 
         .duration {
             grid-area: duration;
@@ -61,7 +63,6 @@ const { spell } = Astro.props;
         }
         .cost {
             grid-area: cost;
-            background: purple;
         }
         .school {
             grid-area: school;
