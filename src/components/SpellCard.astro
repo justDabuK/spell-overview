@@ -7,16 +7,13 @@ interface Props {
 const { spell } = Astro.props;
 ---
 <div class="spell-card">
-    <p class="name">{spell.name}</p>
-    <p class="school">School: {spell.school}</p>
+    <div class="name">{spell.name}</div>
+    <div class="school">School: {spell.school}</div>
     <div class="duration">
-        <!--<p>{JSON.stringify(spell.duration, undefined, 2)}</p>-->
     </div>
     <div class="range">
-        <!--<p>{JSON.stringify(spell.range, undefined, 2)}</p>-->
     </div>
     <div class="components">
-        <!--<p>{JSON.stringify(spell.components, undefined, 2)}</p>-->
     </div>
     <div class="cost"></div>
     <div class="description">
@@ -34,6 +31,8 @@ const { spell } = Astro.props;
 
 <style>
     .spell-card {
+        --min-size: var(--size-32);
+
         display: grid;
         grid-template-areas:
     "duration name range"
@@ -42,53 +41,44 @@ const { spell } = Astro.props;
         grid-template-columns: auto 1fr auto;
         grid-template-rows: auto 1fr auto;
 
-    }
+        .duration {
+            grid-area: duration;
+            background: red;
+        }
+        .name {
+            grid-area: name;
+            background: orange;
+        }
+        .range {
+            grid-area: range;
+            background: blue;
+        }
+        .description {
+            grid-area: description;
+        }
+        .components {
+            grid-area: components;
+            background: green;
+        }
+        .cost {
+            grid-area: cost;
+            background: purple;
+        }
+        .school {
+            grid-area: school;
+            background: yellow;
+        }
 
-    .duration {
-        grid-area: duration;
-        overflow: auto;
-        background: red;
-        min-width: var(--size-16);
-        min-height: var(--size-16);
-    }
-
-    .name {
-        grid-area: name;
-        overflow: auto;
-        background: orange;
-    }
-    .range {
-        grid-area: range;
-        overflow: auto;
-        background: blue;
-        min-width: var(--size-16);
-        min-height: var(--size-16);
-    }
-    .description {
-        grid-area: description;
-        overflow: auto;
-        min-width: var(--size-16);
-        min-height: var(--size-48);
-    }
-    .components {
-        grid-area: components;
-        overflow: auto;
-        background: green;
-        min-width: var(--size-16);
-        min-height: var(--size-16);
-    }
-    .cost {
-        grid-area: cost;
-        overflow: auto;
-        background: purple;
-        min-width: var(--size-16);
-        min-height: var(--size-16);
-    }
-    .school {
-        grid-area: school;
-        overflow: auto;
-        background: yellow;
-        min-width: var(--size-16);
-        min-height: var(--size-16);
+        .duration,
+        .name,
+        .range,
+        .description,
+        .components,
+        .cost,
+        .school {
+            overflow: auto;
+            min-width: var(--min-size);
+            min-height: var(--min-size);
+        }
     }
 </style>
