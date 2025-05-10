@@ -39,13 +39,7 @@ const spellsAsString = JSON.stringify(fjordsSpellList, undefined, 2)
 <style>
     .spell-card-layout {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(var(--size-384), 1fr));
         gap: var(--size-8);
-
-        .spell-card {
-            display: flex;
-            flex-direction: column;
-            gap: var(--size-4);
-        }
     }
 </style>
