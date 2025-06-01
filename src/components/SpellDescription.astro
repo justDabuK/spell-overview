@@ -1,0 +1,22 @@
+---
+import type {CollectionEntry} from "astro:content";
+import SpellDescriptionEntryList from "./SpellDescriptionEntryList.astro";
+
+interface Props {
+    entryList: CollectionEntry<"spells">["data"]["spell"][0]["entries"];
+    class?: string;
+}
+
+const { class: className, entryList,  ...rest } = Astro.props;
+---
+
+<div class:list={[className ]} {...rest}>
+    <!-- TODO: maybe do something details and summary? --!>
+    {entryList.map((entry) => {
+        if(typeof entry === "string") {
+            return <p>{entry}</p>
+        } else {
+            return <SpellDescriptionEntryList entryListObject={entry}/>
+        }
+    })}
+</div>

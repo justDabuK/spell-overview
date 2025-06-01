@@ -5,6 +5,7 @@ import SpellRange from "./SpellRange.astro";
 import SpellComponents from "./SpellComponents.astro";
 import SpellMaterialComponent from "./SpellMaterialComponent.astro";
 import SpellDuration from "./SpellDuration.astro";
+import SpellDescription from "./SpellDescription.astro";
 
 interface Props {
     spell: CollectionEntry<"spells">["data"]["spell"];
@@ -20,16 +21,7 @@ const numberWordArray = ["zero", "one", "two", "three", "four", "five", "six", "
     <SpellRange class="range" range={spell.range} />
     <SpellComponents class="components" components={spell.components} />
     { spell.components?.m ? <SpellMaterialComponent class="cost" materialComponents={spell.components.m} /> : null}
-    <div class="description">
-        <!-- TODO: maybe do something details and summary? --!>
-         {spell.entries.map((entry) => {
-             if(typeof entry === "string") {
-                 return <p>{entry}</p>
-             } else {
-                 return <p>{JSON.stringify(entry, undefined, 2)}</p>
-             }
-         })}
-    </div>
+    <SpellDescription class="description" entryList={spell.entries}/>
 </div>
 
 <style>
