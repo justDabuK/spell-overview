@@ -12,9 +12,14 @@ interface Props {
 }
 const { spell } = Astro.props;
 const numberWordArray = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
-
+const actionColorMap = {
+    "action": "var(--maroon)",
+    "bonus": "var(--yellow)",
+    "reaction": "var(--blue)",
+    "unknown": "var(--mauve)"
+}
 ---
-<div class:list={["spell-card", numberWordArray[spell.level]]}>
+<div class:list={["spell-card", numberWordArray[spell.level]]} style={`--action-color: ${actionColorMap[spell.time[0]?.unit] ?? actionColorMap["unknown"]};`}>
     <div class="name">{spell.name}</div>
     <SpellSchool class="school" school={spell.school}/>
     <SpellDuration class="duration" durationList={spell.duration} />
@@ -26,6 +31,7 @@ const numberWordArray = ["zero", "one", "two", "three", "four", "five", "six", "
 
 <style>
     .spell-card {
+        --action-color: var(--teal);
         --min-size: var(--size-32);
         --border-radius: var(--size-8);
 
@@ -38,7 +44,7 @@ const numberWordArray = ["zero", "one", "two", "three", "four", "five", "six", "
         grid-template-columns: auto 1fr auto;
         grid-template-rows: auto 1fr auto;
         gap: var(--size-8);
-        border: var(--size-4) solid var(--overlay0);
+        border: var(--size-4) solid color-mix(in oklch, var(--action-color), transparent 20%);
         border-radius: var(--border-radius);
         padding: var(--size-8);
 
@@ -87,7 +93,7 @@ const numberWordArray = ["zero", "one", "two", "three", "four", "five", "six", "
             width: 100%;
             height: 100%;
             display: flex;
-            color: color-mix(in hsl, var(--subtext1), transparent 80%);
+            color: color-mix(in hsl, var(--action-color), transparent 80%);
             font-size: var(--size-256);
             text-align: center;
             justify-content: center;
