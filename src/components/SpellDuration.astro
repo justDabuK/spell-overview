@@ -26,6 +26,8 @@ const needsConcentration = durationList.some((duration) => Object.keys(duration)
                     <Icon name="infinity" />
                     {duration.ends.map((end) => (<span>{end}</span>))}
                 </div>)
+            } else {
+                return (<pre>{JSON.stringify(duration, undefined, 2)}</pre>)
             }
 
         })
