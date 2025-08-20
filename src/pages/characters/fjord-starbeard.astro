@@ -18,6 +18,7 @@ const fjordsSpellNameList = [
     "Ice Knife",
     "Speak with Animals",
     "Thunderwave",
+    "Guiding Bolt",
     "Aid",
     "Heat Metal",
     "Spike Growth",
@@ -33,7 +34,6 @@ const spellsAsString = JSON.stringify(fjordsSpellList, undefined, 2)
     <div class="spell-card-layout">
         {fjordsSpellList.map((spell) => (<SpellCard spell={spell} />))}
     </div>
-    <pre>{ spellsAsString }</pre>
 </BaseLayout>
 
 <style>
