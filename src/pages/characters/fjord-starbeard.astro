@@ -13,6 +13,8 @@ const fjordsSpellNameList = [
     "Starry Wisp",
     "Thorn Whip",
     "Guidance",
+    "Druidcraft",
+    "Mage Hand",
     "Faerie Fire",
     "Healing Word",
     "Ice Knife",
@@ -20,19 +22,43 @@ const fjordsSpellNameList = [
     "Thunderwave",
     "Guiding Bolt",
     "Aid",
-    "Heat Metal",
+    "Enhance Ability",
     "Spike Growth",
     "Wither and Bloom",
+    "Moonbeam",
 ]
+
+const compareActions = (a: CollectionEntry<"spells">["data"]["spell"], b: CollectionEntry<"spells">["data"]["spell"]) => {
+    const actionOrder = ["action", "bonus", "reaction", "minute", "hour", "day"];
+    const aIndex = actionOrder.indexOf(a.time[0]?.unit ?? "action");
+    const bIndex = actionOrder.indexOf(b.time[0]?.unit ?? "action");
+    return aIndex - bIndex;
+}
+
 const fjordsSpellList = spellList
     .filter((spell: CollectionEntry<"spells">["data"]["spell"]) => fjordsSpellNameList.includes(spell.name) && ["XPHB", "SCC"].includes(spell.source))
-    .sort((a, b) => a.level - b.level || a.name.localeCompare(b.name))
-const spellsAsString = JSON.stringify(fjordsSpellList, undefined, 2)
+    .sort((a, b) => a.level - b.level || compareActions(a, b) || a.name.localeCompare(b.name))
+const groupedAsLists: CollectionEntry<"spells">["data"]["spell"][][] = [];
+let currentLevel = -1;
+
+for (const spell of fjordsSpellList) {
+    if (spell.level !== currentLevel) {
+        // start a new sublist
+        groupedAsLists.push([]);
+        currentLevel = spell.level;
+    }
+    groupedAsLists[groupedAsLists.length - 1].push(spell);
+}
+
 ---
 <BaseLayout>
     <h1>Spell list</h1>
     <div class="spell-card-layout">
-        {fjordsSpellList.map((spell) => (<SpellCard spell={spell} />))}
+        {groupedAsLists.map((spellSubList) => (
+            <div class="same-level-list">
+                {spellSubList.map((spell) => (<SpellCard spell={spell} />))}
+            </div>
+        ))}
     </div>
 </BaseLayout>
 
@@ -41,5 +67,13 @@ const spellsAsString = JSON.stringify(fjordsSpellList, undefined, 2)
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(var(--size-384), 1fr));
         gap: var(--size-16);
+
+        .same-level-list {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: subgrid;
+            gap: inherit;
+        }
+
     }
 </style>
