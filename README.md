@@ -1,7 +1,8 @@
 # spell-overview 
 Looks like this
 
-![screenshot.png](assets/screenshot.png)
+![fjord screenshot](assets/fjord-screenshot-light.png)
+![fjord screenshot](assets/fjord-screenshot-dark.png)
 
 ## I want to develop stuff 👨🏽‍💻
 
