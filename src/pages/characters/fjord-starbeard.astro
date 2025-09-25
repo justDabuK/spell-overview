@@ -7,25 +7,27 @@ import SpellCard from "../../components/SpellCard.astro";
 const spells = await getCollection("spells");
 const spellList = spells.flatMap<CollectionEntry<"spells">["data"]["spell"]>((spellCollection: CollectionEntry<"spells">) => spellCollection.data.spell)
 const fjordsSpellNameList = [
+    // cantrips: 3 + 1 (primal order) + 2 (magic initiate)
     "Elementalism",
     "Message",
     "Shillelagh",
     "Starry Wisp",
     "Thorn Whip",
-    "Guidance",
     "Druidcraft",
-    "Mage Hand",
-    "Faerie Fire",
+    "Guidance", // circle of stars
+    "Mage Hand", // telekinetic
+    // prepared spells: 7 + 1 (magic initiate)
     "Healing Word",
     "Ice Knife",
-    "Speak with Animals",
     "Thunderwave",
-    "Guiding Bolt",
     "Aid",
-    "Enhance Ability",
+    "Barkskin",
     "Spike Growth",
     "Wither and Bloom",
-    "Moonbeam",
+    "Enlarge/Reduce",
+    "Find Familiar", // wild companion
+    "Guiding Bolt", // circle of stars
+    "Speak with Animals", // druidic
 ]
 
 const compareActions = (a: CollectionEntry<"spells">["data"]["spell"], b: CollectionEntry<"spells">["data"]["spell"]) => {
