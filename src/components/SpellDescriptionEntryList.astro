@@ -1,21 +1,23 @@
 ---
-import type {CollectionEntry} from "astro:content";
+import type { CollectionEntry } from "astro:content";
 
 interface Props {
-    entryListObject: CollectionEntry<"spells">["data"]["spell"][0]["entries"][0];
-    class?: string;
+  entryListObject: CollectionEntry<"spells">["data"]["spell"][0]["entries"][0];
+  class?: string;
 }
 
-const { class: className, entryListObject,  ...rest } = Astro.props;
+const { class: className, entryListObject, ...rest } = Astro.props;
 ---
 
-<p class:list={[className ]} {...rest}>
-    <strong>{entryListObject.name}</strong>
-    {entryListObject.entries.map((subEntry) => {
-        if(typeof subEntry === "string") {
-            return <span>{subEntry}</span>
-        } else {
-            return <span>{JSON.stringify(subEntry, undefined, 2)}</span>
-        }
-    })}
+<p class:list={[className]} {...rest}>
+  <strong>{entryListObject.name}</strong>
+  {
+    entryListObject.entries.map((subEntry) => {
+      if (typeof subEntry === "string") {
+        return <span>{subEntry}</span>;
+      } else {
+        return <span>{JSON.stringify(subEntry, undefined, 2)}</span>;
+      }
+    })
+  }
 </p>

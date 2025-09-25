@@ -2,7 +2,8 @@
 import SpellCardLayout from "../../layouts/SpellCardLayout.astro";
 import { type CollectionEntry } from "astro:content";
 
-const characterSpellNameList: CollectionEntry<"spells">["data"]["spell"][0]["name"][] = [
+const characterSpellNameList: CollectionEntry<"spells">["data"]["spell"][0]["name"][] =
+  [
     // cantrips: 3 + 1 (primal order) + 2 (magic initiate)
     "Elementalism",
     "Message",
@@ -24,6 +25,7 @@ const characterSpellNameList: CollectionEntry<"spells">["data"]["spell"][0]["nam
     "Find Familiar", // wild companion
     "Guiding Bolt", // circle of stars
     "Speak with Animals", // druidic
-]
+  ];
 ---
+
 <SpellCardLayout characterSpellNameList={characterSpellNameList} />

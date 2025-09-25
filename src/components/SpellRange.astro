@@ -1,51 +1,55 @@
 ---
 import { type CollectionEntry } from "astro:content";
-import { Icon } from 'astro-icon/components'
+import { Icon } from "astro-icon/components";
 
 interface Props {
-    range: CollectionEntry<"spells">["data"]["spell"][0]["range"];
-    class?: string;
+  range: CollectionEntry<"spells">["data"]["spell"][0]["range"];
+  class?: string;
 }
 
-const { class: className, range,  ...rest } = Astro.props;
+const { class: className, range, ...rest } = Astro.props;
 
 const rangeIcon = {
-    "feet": "bow-arrow",
-    "touch": "gesture-tap",
-    "self": "account-cowboy-hat",
+  feet: "bow-arrow",
+  touch: "gesture-tap",
+  self: "account-cowboy-hat",
 }[range.distance?.type ?? ""];
 ---
-<div class={className} {...rest}>
-    {
-        rangeIcon
-            ? <Icon name={rangeIcon} >
-                </Icon>
-            : <div>
-                    <span>{range.type}</span>
-                </div>
-    }
-    { range.distance?.amount ? <span>{`${range.distance.amount} ft.`}</span> : null }
 
+<div class={className} {...rest}>
+  {
+    rangeIcon ? (
+      <Icon name={rangeIcon}></Icon>
+    ) : (
+      <div>
+        <span>{range.type}</span>
+      </div>
+    )
+  }
+  {
+    range.distance?.amount ? (
+      <span>{`${range.distance.amount} ft.`}</span>
+    ) : null
+  }
 </div>
 
 <style>
-    div {
-        display: flex;
-        flex-direction: column;
-        gap: var(--size-4);
-        align-items: center;
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-4);
+    align-items: center;
+  }
+  [data-icon] {
+    --icon-size: var(--size-32);
 
-    }
-    [data-icon] {
-        --icon-size: var(--size-32);
-
-        width: var(--icon-size);
-        height: var(--icon-size);
-    }
-    [data-icon="bow-arrow"] {
-        --icon-size: var(--size-24);
-    }
-    span {
-        font-size: var(--font-size-12);
-    }
+    width: var(--icon-size);
+    height: var(--icon-size);
+  }
+  [data-icon="bow-arrow"] {
+    --icon-size: var(--size-24);
+  }
+  span {
+    font-size: var(--font-size-12);
+  }
 </style>

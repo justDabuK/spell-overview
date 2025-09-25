@@ -8,147 +8,170 @@ import SpellDuration from "./SpellDuration.astro";
 import SpellDescription from "./SpellDescription.astro";
 
 interface Props {
-    spell: CollectionEntry<"spells">["data"]["spell"];
+  spell: CollectionEntry<"spells">["data"]["spell"];
 }
 const { spell } = Astro.props;
-const numberWordArray = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
+const numberWordArray = [
+  "zero",
+  "one",
+  "two",
+  "three",
+  "four",
+  "five",
+  "six",
+  "seven",
+  "eight",
+  "nine",
+];
 const actionColorMap = {
-    "action": "var(--maroon)",
-    "bonus": "var(--yellow)",
-    "reaction": "var(--blue)",
-    "unknown": "var(--mauve)"
-}
+  action: "var(--maroon)",
+  bonus: "var(--yellow)",
+  reaction: "var(--blue)",
+  unknown: "var(--mauve)",
+};
 ---
-<div class:list={["spell-card", numberWordArray[spell.level]]} style={`--action-color: ${actionColorMap[spell.time[0]?.unit] ?? actionColorMap["unknown"]};`}>
-    <div class="name">{spell.name}</div>
-    <SpellSchool class="school" school={spell.school}/>
-    <SpellDuration class="duration" durationList={spell.duration} />
-    <SpellRange class="range" range={spell.range} />
-    <SpellComponents class="components" components={spell.components} />
-    { spell.components?.m ? <SpellMaterialComponent class="cost" materialComponents={spell.components.m} /> : null}
-    <SpellDescription class="description" entryList={spell.entries}/>
+
+<div
+  class:list={["spell-card", numberWordArray[spell.level]]}
+  style={`--action-color: ${actionColorMap[spell.time[0]?.unit] ?? actionColorMap["unknown"]};`}
+>
+  <div class="name">{spell.name}</div>
+  <SpellSchool class="school" school={spell.school} />
+  <SpellDuration class="duration" durationList={spell.duration} />
+  <SpellRange class="range" range={spell.range} />
+  <SpellComponents class="components" components={spell.components} />
+  {
+    spell.components?.m ? (
+      <SpellMaterialComponent
+        class="cost"
+        materialComponents={spell.components.m}
+      />
+    ) : null
+  }
+  <SpellDescription class="description" entryList={spell.entries} />
 </div>
 
 <style>
-    .spell-card {
-        --action-color: var(--teal);
-        --min-size: var(--size-32);
-        --border-radius: var(--size-8);
+  .spell-card {
+    --action-color: var(--teal);
+    --min-size: var(--size-32);
+    --border-radius: var(--size-8);
 
-        position: relative;
-        display: grid;
-        grid-template-areas:
-    "duration name range"
-    "description description description"
-    "components cost school";
-        grid-template-columns: auto 1fr auto;
-        grid-template-rows: auto 1fr auto;
-        gap: var(--size-8);
-        border: var(--size-4) solid color-mix(in oklch, var(--action-color), transparent 20%);
-        border-radius: var(--border-radius);
-        padding: var(--size-8);
+    position: relative;
+    display: grid;
+    grid-template-areas:
+      "duration name range"
+      "description description description"
+      "components cost school";
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto 1fr auto;
+    gap: var(--size-8);
+    border: var(--size-4) solid
+      color-mix(in oklch, var(--action-color), transparent 20%);
+    border-radius: var(--border-radius);
+    padding: var(--size-8);
 
-        .duration {
-            grid-area: duration;
-        }
-
-        .name {
-            grid-area: name;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .range {
-            grid-area: range;
-        }
-        .description {
-            grid-area: description;
-            font-size: var(--font-size-14)
-        }
-        .components {
-            grid-area: components;
-        }
-        .cost {
-            grid-area: cost;
-        }
-        .school {
-            grid-area: school;
-        }
-
-        .duration,
-        .name,
-        .range,
-        .description,
-        .components,
-        .cost {
-            min-width: var(--min-size);
-            min-height: var(--min-size);
-        }
-
-        &::before {
-            content: "20";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            color: color-mix(in hsl, var(--action-color), transparent 80%);
-            font-size: var(--size-256);
-            text-align: center;
-            justify-content: center;
-            align-items: center;
-        }
-
-        &.zero {
-            &::before {
-                content: "0";
-            }
-        }
-        &.one {
-            &::before {
-                content: "1";
-            }
-        }
-        &.two {
-            &::before {
-                content: "2";
-            }
-        }
-        &.three {
-            &::before {
-                content: "3";
-            }
-        }
-        &.four {
-            &::before {
-                content: "4";
-            }
-        }
-        &.five {
-            &::before {
-                content: "5";
-            }
-        }
-        &.six {
-            &::before {
-                content: "6";
-            }
-        }
-        &.seven {
-            &::before {
-                content: "7";
-            }
-        }
-        &.eight {
-            &::before {
-                content: "8";
-            }
-        }
-        &.nine {
-            &::before {
-                content: "9";
-            }
-        }
+    .duration {
+      grid-area: duration;
     }
+
+    .name {
+      grid-area: name;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .range {
+      grid-area: range;
+    }
+    .description {
+      grid-area: description;
+      font-size: var(--font-size-14);
+    }
+    .components {
+      grid-area: components;
+    }
+    .cost {
+      grid-area: cost;
+    }
+    .school {
+      grid-area: school;
+    }
+
+    .duration,
+    .name,
+    .range,
+    .description,
+    .components,
+    .cost {
+      min-width: var(--min-size);
+      min-height: var(--min-size);
+    }
+
+    &::before {
+      content: "20";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      color: color-mix(in hsl, var(--action-color), transparent 80%);
+      font-size: var(--size-256);
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &.zero {
+      &::before {
+        content: "0";
+      }
+    }
+    &.one {
+      &::before {
+        content: "1";
+      }
+    }
+    &.two {
+      &::before {
+        content: "2";
+      }
+    }
+    &.three {
+      &::before {
+        content: "3";
+      }
+    }
+    &.four {
+      &::before {
+        content: "4";
+      }
+    }
+    &.five {
+      &::before {
+        content: "5";
+      }
+    }
+    &.six {
+      &::before {
+        content: "6";
+      }
+    }
+    &.seven {
+      &::before {
+        content: "7";
+      }
+    }
+    &.eight {
+      &::before {
+        content: "8";
+      }
+    }
+    &.nine {
+      &::before {
+        content: "9";
+      }
+    }
+  }
 </style>

@@ -1,58 +1,68 @@
 ---
 import { type CollectionEntry } from "astro:content";
-import { Icon } from 'astro-icon/components'
+import { Icon } from "astro-icon/components";
 
 interface Props {
-    durationList: CollectionEntry<"spells">["data"]["spell"][0]["duration"];
-    class?: string;
+  durationList: CollectionEntry<"spells">["data"]["spell"][0]["duration"];
+  class?: string;
 }
 
-const { class: className, durationList,  ...rest } = Astro.props;
+const { class: className, durationList, ...rest } = Astro.props;
 
-const needsConcentration = durationList.some((duration) => Object.keys(duration).includes("concentration"));
+const needsConcentration = durationList.some((duration) =>
+  Object.keys(duration).includes("concentration"),
+);
 ---
-<div class:list={[className, { concentration: needsConcentration}]} {...rest}>
-    {
-        durationList.map((duration) => {
-            if (duration.type === "instant") {
-                return (<Icon name="lightning-bolt" />);
-            } else if(duration.type === "timed"){
-                return (<div>
-                    <Icon name="timelapse" />
-                    {duration.duration ? <span>{`${duration.duration.amount} ${duration.duration.type}`}</span> : null}
-                </div>)
-            } else if(duration.type === "permanent"){
-                return (<div>
-                    <Icon name="infinity" />
-                    {duration.ends.map((end) => (<span>{end}</span>))}
-                </div>)
-            } else {
-                return (<pre>{JSON.stringify(duration, undefined, 2)}</pre>)
-            }
 
-        })
-    }
+<div class:list={[className, { concentration: needsConcentration }]} {...rest}>
+  {
+    durationList.map((duration) => {
+      if (duration.type === "instant") {
+        return <Icon name="lightning-bolt" />;
+      } else if (duration.type === "timed") {
+        return (
+          <div>
+            <Icon name="timelapse" />
+            {duration.duration ? (
+              <span>{`${duration.duration.amount} ${duration.duration.type}`}</span>
+            ) : null}
+          </div>
+        );
+      } else if (duration.type === "permanent") {
+        return (
+          <div>
+            <Icon name="infinity" />
+            {duration.ends.map((end) => (
+              <span>{end}</span>
+            ))}
+          </div>
+        );
+      } else {
+        return <pre>{JSON.stringify(duration, undefined, 2)}</pre>;
+      }
+    })
+  }
 </div>
 
 <style>
-    div {
-        display: flex;
-        flex-direction: column;
-        gap: var(--size-4);
-        justify-content: center;
-        align-items: center;
-        border-radius: var(--border-radius);
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-4);
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--border-radius);
 
-        &.concentration {
-            background: var(--teal);
-            color: var(--background-color)
-        }
+    &.concentration {
+      background: var(--teal);
+      color: var(--background-color);
     }
+  }
 
-    [data-icon] {
-        --icon-size: var(--size-32);
+  [data-icon] {
+    --icon-size: var(--size-32);
 
-        width: var(--icon-size);
-        height: var(--icon-size);
-    }
+    width: var(--icon-size);
+    height: var(--icon-size);
+  }
 </style>

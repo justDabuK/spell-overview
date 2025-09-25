@@ -1,38 +1,40 @@
 ---
 import { type CollectionEntry } from "astro:content";
-import { Icon } from 'astro-icon/components'
+import { Icon } from "astro-icon/components";
 
 interface Props {
-    materialComponents: CollectionEntry<"spells">["data"]["spell"][0]["components"]["m"];
-    class?: string;
+  materialComponents: CollectionEntry<"spells">["data"]["spell"][0]["components"]["m"];
+  class?: string;
 }
 
-const { class: className, materialComponents,  ...rest } = Astro.props;
+const { class: className, materialComponents, ...rest } = Astro.props;
 
 const isSimpleString = typeof materialComponents === "string";
-
 ---
+
 <div class={className} {...rest}>
-    {
-        isSimpleString
-            ? <span>{materialComponents}</span>
-            : <template>
-                    <span>{materialComponents?.text}</span>
-                    <span>{materialComponents?.cost}</span>
-                    <span>{materialComponents?.consume}</span>
-                </template>
-    }
+  {
+    isSimpleString ? (
+      <span>{materialComponents}</span>
+    ) : (
+      <template>
+        <span>{materialComponents?.text}</span>
+        <span>{materialComponents?.cost}</span>
+        <span>{materialComponents?.consume}</span>
+      </template>
+    )
+  }
 </div>
 
 <style>
-    div {
-        display: flex;
-        flex-direction: column;
-        gap: var(--size-4);
-        justify-content: center;
-        align-items: center;
-        font-size: var(--font-size-16);
-        margin: 0 var(--size-16);
-        border-top: var(--size-2) solid var(--overlay0);
-    }
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-4);
+    justify-content: center;
+    align-items: center;
+    font-size: var(--font-size-16);
+    margin: 0 var(--size-16);
+    border-top: var(--size-2) solid var(--overlay0);
+  }
 </style>
