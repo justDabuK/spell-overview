@@ -527,7 +527,7 @@
         }
       ],
       "entries": [
-        "A flock of floating spectral hands appear and grasp a target you can see within range. The target must succeed on a Strength saving throw. A target takes  {@damage 3d8} necrotic damage on a failed save, or half as much damage on a successful one.",
+        "A flock of floating spectral hands appear and grasp a target you can see within range. The target must succeed on a Strength saving throw. A target takes {@damage 3d8} necrotic damage on a failed save, or half as much damage on a successful one.",
         "In addition, on a failed saving throw the ghostly hands grapple the target until the end of your next turn, and immediately move the target up to 30 feet in a direction of your choice (but not upward). On its turn, the creature can use an action to attempt to escape the grapple by making a Strength or Dexterity check (its choice) against your spell save DC. If it succeeds, the grapple ends."
       ],
       "entriesHigherLevel": [
@@ -588,6 +588,50 @@
           ]
         }
       ]
+    },
+    {
+      "name": "Ocular Necrosis",
+      "source": "SCGTD",
+      "page": 188,
+      "level": 2,
+      "school": "N",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "feet",
+          "amount": 30
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true
+      },
+      "duration": [
+        {
+          "type": "instant"
+        }
+      ],
+      "entries": [
+        "Make a ranged spell attack against a creature you can see in range. If you hit, you wrack the creature with a deadly toxin that causes their eyes to bleed. The creature takes {@damage 2d6} necrotic damage and is blinded until the end of your next turn."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "Using a Higher-Level Spell Slot",
+          "entries": [
+            "When you cast this spell using a spell slot of 3rd level or higher, the necrotic damage increases by {@damage 1d6} for each slot above 2nd."
+          ]
+        }
+      ],
+      "spellAttack": ["R"],
+      "damageInflict": ["necrotic"],
+      "conditionInflict": ["blinded"]
     }
   ]
 }
