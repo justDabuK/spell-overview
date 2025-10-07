@@ -26,8 +26,7 @@ const compareActions = (
 const characterSpellList = spellList
   .filter(
     (spell: CollectionEntry<"spells">["data"]["spell"]) =>
-      characterSpellNameList.includes(spell.name) &&
-      ["XPHB", "SCC", "XGE"].includes(spell.source),
+      characterSpellNameList.includes(spell.name) && spell.reprintedAs === undefined,
   )
   .sort(
     (a, b) =>
@@ -44,10 +43,13 @@ for (const spell of characterSpellList) {
   }
   groupedAsLists[groupedAsLists.length - 1].push(spell);
 }
+
+const isListsNotMatching =
+  characterSpellList.length !== characterSpellNameList.length;
 ---
 
 <BaseLayout>
-  <h1>Spell list</h1>
+  <h1>Spell list {isListsNotMatching ? `(${characterSpellList.length}/${characterSpellNameList.length})` : ''}</h1>
   <div class="spell-card-layout">
     {
       groupedAsLists.map((spellSubList) => (
