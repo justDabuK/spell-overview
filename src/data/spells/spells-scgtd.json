@@ -312,6 +312,92 @@
       ],
       "damageInflict": ["necrotic"],
       "savingThrow": ["constitution"]
+    },
+    {
+      "name": "Stream of Consumption",
+      "source": "SCGTD",
+      "page": 187,
+      "level": 1,
+      "school": "N",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "feet",
+          "amount": 60
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true
+      },
+      "duration": [
+        {
+          "type": "timed",
+          "duration": {
+            "type": "minute",
+            "amount": 1
+          },
+          "concentration": true
+        }
+      ],
+      "entries": [
+        "For the spell’s duration, your tongue becomes an elongated tether of necrotic green energy you can use to drink the vitality of other creatures. One creature of your choice within 60 feet of you that you can see must make a Constitution saving throw. On a failed save, the target gains 1 level of exhaustion, and you regain hit points equal to {@dice 1d4} + your spellcasting ability modifier.",
+        "On each of your turns until the spell ends, you can use your action to target the same creature or a different one, but can’t target a creature again if it has succeeded on a saving throw against this casting of stream of consumption."
+      ],
+      "savingThrow": ["constitution"]
+    },
+    {
+      "name": "Toxic Shield",
+      "source": "SCGTD",
+      "page": 187,
+      "level": 1,
+      "school": "C",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "self"
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true,
+        "m": "a drop of dwarven blood"
+      },
+      "duration": [
+        {
+          "type": "timed",
+          "duration": {
+            "type": "minute",
+            "amount": 1
+          },
+          "concentration": true
+        }
+      ],
+      "entries": [
+        "You gain resistance to poison damage and advantage on saves against being poisoned for the duration. In addition, whenever a creature within 5 feet of you hits you with a melee attack, the shield sprays them with poison, dealing {@damage 1d8} poison damage to the attacker."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "Using a Higher-Level Spell Slot",
+          "entries": [
+            "When you cast this spell using a spell slot of 2nd level or higher, the poison damage increases by {@damage 1d8} for every 2 slot levels above 1st."
+          ]
+        }
+      ],
+      "savingThrow": ["constitution"]
     }
   ]
 }
