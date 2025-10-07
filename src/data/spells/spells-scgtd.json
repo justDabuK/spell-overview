@@ -211,6 +211,57 @@
       "damageInflict": ["acid"],
       "spellAttack": ["R"],
       "savingThrow": ["dexterity"]
+    },
+    {
+      "name": "Envenom",
+      "source": "SCGTD",
+      "page": 187,
+      "level": 1,
+      "school": "C",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "feet",
+          "amount": 60
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true,
+        "m": "a vial of basic poison"
+      },
+      "duration": [
+        {
+          "type": "timed",
+          "duration": {
+            "type": "minute",
+            "amount": 1
+          },
+          "concentration": true
+        }
+      ],
+      "entries": [
+        "Choose a creature you can see within range to inflict with a magical poison. The target takes {@damage 2d4} poison damage and must make a Constitution saving throw. On a failed saving throw, it becomes poisoned for the spell’s duration.",
+        "While poisoned in this way, the target must make a Constitution saving throw at the end of each of its turns. It takes {@damage 2d4} poison damage on a failed saving throw. On a success, the spell ends on that target.",
+        "A lesser restoration spell cast on the target ends this spell early."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "Using a Higher-Level Spell Slot",
+          "entries": [
+            "If you cast this spell using a spell slot of 2nd level or higher, you can target one additional creature for each slot level above 1st."
+          ]
+        }
+      ],
+      "damageInflict": ["poison"],
+      "savingThrow": ["constitution"]
     }
   ]
 }
