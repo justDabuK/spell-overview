@@ -497,6 +497,52 @@
       "spellAttack": ["M"],
       "conditionInflict": ["restrained"],
       "abilityCheck": ["strength"]
+    },
+    {
+      "name": "Grasping Ghost",
+      "source": "SCGTD",
+      "page": 188,
+      "level": 2,
+      "school": "N",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "feat",
+          "amount": 60
+        }
+      },
+      "components": {
+        "s": true,
+        "m": "a finger bona and a scrap of fabric"
+      },
+      "duration": [
+        {
+          "type": "instant"
+        }
+      ],
+      "entries": [
+        "A flock of floating spectral hands appear and grasp a target you can see within range. The target must succeed on a Strength saving throw. A target takes  {@damage 3d8} necrotic damage on a failed save, or half as much damage on a successful one.",
+        "In addition, on a failed saving throw the ghostly hands grapple the target until the end of your next turn, and immediately move the target up to 30 feet in a direction of your choice (but not upward). On its turn, the creature can use an action to attempt to escape the grapple by making a Strength or Dexterity check (its choice) against your spell save DC. If it succeeds, the grapple ends."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "Using a Higher-Level Spell Slot",
+          "entries": [
+            "If you cast this spell using a spell slot of 3rd level or higher, the grasping ghost can target one additional creature within range for each spell level above 2nd."
+          ]
+        }
+      ],
+      "damageInflict": ["necrotic"],
+      "conditionInflict": ["grappled"],
+      "savingThrow": ["strength"],
+      "abilityCheck": ["strength", "dexterity"]
     }
   ]
 }
