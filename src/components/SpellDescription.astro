@@ -4,10 +4,11 @@ import SpellDescriptionEntryList from "./SpellDescriptionEntryList.astro";
 
 interface Props {
   entryList: CollectionEntry<"spells">["data"]["spell"][0]["entries"];
+    entriesHigherLevelList: CollectionEntry<"spells">["data"]["spell"][0]["entriesHigherLevel"];
   class?: string;
 }
 
-const { class: className, entryList, ...rest } = Astro.props;
+const { class: className, entryList, entriesHigherLevelList,...rest } = Astro.props;
 ---
 
 <div class:list={[className]} {...rest}>
@@ -20,5 +21,8 @@ const { class: className, entryList, ...rest } = Astro.props;
         return <SpellDescriptionEntryList entryListObject={entry} />;
       }
     })
+  }
+    {
+      entriesHigherLevelList !== undefined ? entriesHigherLevelList.map((entry) => (<SpellDescriptionEntryList entryListObject={entry} />)) : null
   }
 </div>

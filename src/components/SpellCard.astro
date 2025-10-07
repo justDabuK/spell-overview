@@ -8,7 +8,7 @@ import SpellDuration from "./SpellDuration.astro";
 import SpellDescription from "./SpellDescription.astro";
 
 interface Props {
-  spell: CollectionEntry<"spells">["data"]["spell"];
+  spell: CollectionEntry<"spells">["data"]["spell"][0];
 }
 const { spell } = Astro.props;
 const numberWordArray = [
@@ -48,7 +48,7 @@ const actionColorMap = {
       />
     ) : null
   }
-  <SpellDescription class="description" entryList={spell.entries} />
+  <SpellDescription class="description" entryList={spell.entries} entriesHigherLevelList={spell.entriesHigherLevel} />
 </div>
 
 <style>

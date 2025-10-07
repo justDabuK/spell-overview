@@ -1,0 +1,60 @@
+{
+  "spell": [
+    {
+      "name": "Acid Burn",
+      "source": "SCGTD",
+      "page": 186,
+      "level": 0,
+      "school": "V",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "range": {
+        "type": "cone",
+        "distance": {
+          "type": "feet",
+          "amount": 15
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true
+      },
+      "duration": [
+        {
+          "type": "instant"
+        }
+      ],
+      "entries": [
+        "You magically produce a spray of acidic formula in a 15-foot {@variantrule Cone [Area of Effect]|XPHB|Cone} in front of you. All creatures in the cone must succeed on a Dexterity saving throw or take {@damage 1d6} acid damage."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "Cantrip Upgrade",
+          "entries": [
+            "This spell’s damage increases by {@damage 1d6} when you reach 5th level ({@damage 2d6}), 11th level ({@damage 3d6}), and 17th level ({@damage 4d6})."
+          ]
+        }
+      ],
+      "scalingLevelDice": {
+        "label": "Acid damage",
+        "scaling": {
+          "1": "1d6",
+          "5": "2d6",
+          "11": "3d6",
+          "17": "4d6"
+        }
+      },
+      "damageInflict": [
+        "acid"
+      ],
+      "savingThrow": [
+        "dexterity"
+      ]
+    }
+  ]
+}
