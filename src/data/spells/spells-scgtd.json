@@ -448,6 +448,55 @@
       "damageInflict": ["poison"],
       "conditionInflict": ["poisoned"],
       "savingThrow": ["constitution"]
+    },
+    {
+      "name": "Caustic Grip",
+      "source": "SCGTD",
+      "page": 188,
+      "level": 2,
+      "school": "V",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "self"
+        }
+      },
+      "components": {
+        "s": true
+      },
+      "duration": [
+        {
+          "type": "timed",
+          "duration": {
+            "type": "minute",
+            "amount": 1
+          },
+          "concentration": true
+        }
+      ],
+      "entries": [
+        "For the spell’s duration, your hand secretes sticky burning acid which you can use to hold a creature in a painful clutch. When you cast this spell, and as an action on your turn until the spell ends, you can make a melee spell attack against one creature within 5 feet of you. On a hit, you deal {@damage 4d4} acid damage to the target, and the creature is restrained in your acidic grip until the end of your next turn. You can attack the same target round after round, or choose a new one at any time. If you switch targets, the prior target is no longer affected by the spell.",
+        "A creature restrained by your grip can use its action to make a Strength check against your spell save DC. If it succeeds, it is no longer restrained. Each time a creature ends its turn restrained by this spell, it takes an additional {@damage 4d4} acid damage"
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "Using a Higher-Level Spell Slot",
+          "entries": [
+            "If you cast this spell using a spell slot of 3rd level or higher, the damage increases by {@damage 2d4} for each slot level above 2nd."
+          ]
+        }
+      ],
+      "damageInflict": ["acid"],
+      "spellAttack": ["M"],
+      "conditionInflict": ["restrained"],
+      "abilityCheck": ["strength"]
     }
   ]
 }
