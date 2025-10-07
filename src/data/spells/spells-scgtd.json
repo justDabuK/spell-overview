@@ -55,6 +55,73 @@
       "savingThrow": [
         "dexterity"
       ]
+    },
+    {
+      "name": "Bacterial Barrage",
+      "source": "SCGTD",
+      "page": 186,
+      "level": 0,
+      "school": "N",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "feet",
+          "amount": 30
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true
+      },
+      "duration": [
+        {
+          "type": "instant"
+        }
+      ],
+      "entries": [
+        "You attack a creature in range with a quick spreading infection that takes advantage of existing conditions. Make a ranged spell attack against a target, on a hit the infection does {@damage 1d8} necrotic damage to the target. If the target is suffering from the poisoned condition or a disease, it instead takes {@damage 1d12} necrotic damage."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "Cantrip Upgrade",
+          "entries": [
+            "The spell’s damage increases by one die when you reach 5th level ({@damage 2d8} or {@damage 2d12}), 11th level ({@damage 3d8} or {@damage 3d12}), and 17th level ({@damage 4d8} or {@damage 4d12})."
+          ]
+        }
+      ],
+      "scalingLevelDice": [
+        {
+          "label": "Necrotic damage",
+          "scaling": {
+            "1": "1d8",
+            "5": "2d8",
+            "11": "3d8",
+            "17": "4d8"
+          }
+        },
+        {
+          "label": "Necrotic damage to poisoned or diseased creature",
+          "scaling": {
+            "1": "1d12",
+            "5": "2d12",
+            "11": "3d12",
+            "17": "4d12"
+          }
+        }
+      ],
+      "damageInflict": [
+        "necrotic"
+      ],
+      "spellAttack": [
+        "R"
+      ]
     }
   ]
 }
