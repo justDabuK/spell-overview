@@ -49,12 +49,8 @@
           "17": "4d6"
         }
       },
-      "damageInflict": [
-        "acid"
-      ],
-      "savingThrow": [
-        "dexterity"
-      ]
+      "damageInflict": ["acid"],
+      "savingThrow": ["dexterity"]
     },
     {
       "name": "Bacterial Barrage",
@@ -116,12 +112,8 @@
           }
         }
       ],
-      "damageInflict": [
-        "necrotic"
-      ],
-      "spellAttack": [
-        "R"
-      ]
+      "damageInflict": ["necrotic"],
+      "spellAttack": ["R"]
     },
     {
       "name": "Poison Needle",
@@ -172,12 +164,53 @@
           "17": "4d10"
         }
       },
-      "damageInflict": [
-        "poison"
+      "damageInflict": ["poison"],
+      "spellAttack": ["R"]
+    },
+    {
+      "name": "Acrid Orb",
+      "source": "SCGTD",
+      "page": 187,
+      "level": 1,
+      "school": "V",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
       ],
-      "spellAttack": [
-        "R"
-      ]
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "feet",
+          "amount": 60
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true,
+        "m": "a vial of stomach acid and a pinch of sulfate"
+      },
+      "duration": [
+        {
+          "type": "instant"
+        }
+      ],
+      "entries": [
+        "You create an orb of acid gel and fling it at one creature within range. Make a ranged spell attack against the target. On a hit, the target takes {@damage 2d6} acid damage. Whether the attack hits or misses, the orb explodes. The target and each creature within 5 feet of it must succeed on a Dexterity saving throw or take {@damage 2d6} acid damage."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "Using a Higher-Level Spell Slot",
+          "entries": [
+            "When you cast this spell using a spell slot of 2nd level or higher, the exploding acid damage increases by {@damage 1d6} for each slot level above 1st."
+          ]
+        }
+      ],
+      "damageInflict": ["acid"],
+      "spellAttack": ["R"],
+      "savingThrow": ["dexterity"]
     }
   ]
 }
