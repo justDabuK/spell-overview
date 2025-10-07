@@ -122,6 +122,62 @@
       "spellAttack": [
         "R"
       ]
+    },
+    {
+      "name": "Poison Needle",
+      "source": "SCGTD",
+      "page": 186,
+      "level": 0,
+      "school": "C",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "feet",
+          "amount": 60
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true
+      },
+      "duration": [
+        {
+          "type": "instant"
+        }
+      ],
+      "entries": [
+        "You launch a conjured dart coated with lethal poison at a creature you can see within range. Make a ranged spell attack against the target. On a hit, the target takes {@damage 1d10} poison damage. If the poison damage reduces the target to 0 hit points, the target is stable but poisoned for 1 hour, even after regaining hit points, and is paralyzed while poisoned in this way."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "Cantrip Upgrade",
+          "entries": [
+            "This spell’s damage increases by {@damage 1d10} when you reach 5th level ({@damage 2d10}), 11th level ({@damage 3d10}), and 17th level ({@damage 4d10})."
+          ]
+        }
+      ],
+      "scalingLevelDice": {
+        "label": "Poison damage",
+        "scaling": {
+          "1": "1d10",
+          "5": "2d10",
+          "11": "3d10",
+          "17": "4d10"
+        }
+      },
+      "damageInflict": [
+        "poison"
+      ],
+      "spellAttack": [
+        "R"
+      ]
     }
   ]
 }
