@@ -663,7 +663,7 @@
         }
       ],
       "entries": [
-        "A spew of acrid chemicals erupts from your hands. Each creature in a 30-foot cone must make a Dexterity saving throw. A creature takes  {@damage 10d4) acid damage on a failed save, or half as much damage on a successful one.",
+        "A spew of acrid chemicals erupts from your hands. Each creature in a 30-foot cone must make a Dexterity saving throw. A creature takes   {@damage 10d4} acid damage on a failed save, or half as much damage on a successful one.",
         "The acid destroys any objects made of organic materials in the spell’s area. A creature killed by this spell has its flesh entirely dissolved, leaving behind only a corroded skeleton."
       ],
       "entriesHigherLevel": [
@@ -671,7 +671,7 @@
           "type": "entries",
           "name": "Using a Higher-Level Spell Slot",
           "entries": [
-            "When you cast this spell using a spell slot of 4th level or higher, the acid damage increases by  {@damage 2d4) for each slot level above 3rd."
+            "When you cast this spell using a spell slot of 4th level or higher, the acid damage increases by   {@damage 2d4} for each slot level above 3rd."
           ]
         }
       ],
@@ -712,7 +712,7 @@
         }
       ],
       "entries": [
-        "You coat a weapon you touch in an acidic substance. Until the spell ends, weapon attacks made with it deal an extra  {@damage 2d4) acid damage on a hit. If the weapon isn’t already a magic weapon, it becomes one for the duration.",
+        "You coat a weapon you touch in an acidic substance. Until the spell ends, weapon attacks made with it deal an extra   {@damage 2d4} acid damage on a hit. If the weapon isn’t already a magic weapon, it becomes one for the duration.",
         "In addition, a creature hit with a melee attack using the weapon must make a Constitution saving throw. On a failed save, it becomes poisoned until the end of the attacker’s next turn."
       ],
       "entriesHigherLevel": [
@@ -720,7 +720,7 @@
           "type": "entries",
           "name": "Using a Higher-Level Spell Slot",
           "entries": [
-            "When you cast this spell using a spell slot of 4th level or higher, the acid damage increases by  {@damage 1d4) for each slot level above 3rd."
+            "When you cast this spell using a spell slot of 4th level or higher, the acid damage increases by   {@damage 1d4} for each slot level above 3rd."
           ]
         }
       ],
@@ -763,11 +763,124 @@
         }
       ],
       "entries": [
-        "You infect up to three creatures you can see within range with a magical disease. At the start of each of the target’s turns, it must make a Constitution saving throw. On a failed saving throw, the creature takes 3d6 necrotic damage and gains 1 level of exhaustion. If a target succeeds on three of these saves, the spell ends for that creature.",
+        "You infect up to three creatures you can see within range with a magical disease. At the start of each of the target’s turns, it must make a Constitution saving throw. On a failed saving throw, the creature takes  {@damage 3d6} necrotic damage and gains 1 level of exhaustion. If a target succeeds on three of these saves, the spell ends for that creature.",
         "A lesser restoration spell cast on a target ends this spell early for that creature."
       ],
       "savingThrow": ["constitution"],
       "damageInflict": ["necrotic"]
+    },
+    {
+      "name": "Purge Contamination",
+      "source": "SCGTD",
+      "page": 189,
+      "level": 3,
+      "school": "A",
+      "time": [
+        {
+          "number": 1,
+          "unit": "hour"
+        }
+      ],
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "touch"
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true,
+        "m": "100 gp of alchemical fluids or holy water, which the spell consumes"
+      },
+      "duration": [
+        {
+          "type": "instant"
+        }
+      ],
+      "entries": [
+        "You apply alchemical fluids or holy water to a contaminated humanoid creature while reciting an exacting magical chant which expels eldritch contaminants from its body. When you finish casting the spell, all contamination levels and mutations are removed from the creature. It then gains 1 level of exhaustion for each contamination level removed with this spell."
+      ]
+    },
+    {
+      "name": "Tranquilizing Toxin",
+      "source": "SCGTD",
+      "page": 189,
+      "level": 3,
+      "school": "V",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "feet",
+          "amount": 60
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true
+      },
+      "duration": [
+        {
+          "type": "instant"
+        }
+      ],
+      "entries": [
+        "One target you choose within range must make a Constitution saving throw or take  {@damage 8d6} poison damage and become poisoned until the end of your next turn. While poisoned in this way, the target is also stunned. On a successful saving throw, the target takes half damage and is not poisoned."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "Using a Higher-Level Spell Slot",
+          "entries": [
+            "When you cast this spell using a spell slot of 4th level or higher, the poison damage increases by  {@damage 1d6} for each slot level above 3rd."
+          ]
+        }
+      ],
+      "damageInflict": ["poison"],
+      "savingThrow": ["constitution"],
+      "conditionInflict": ["poisoned", "stunned"]
+    },
+    {
+      "name": "Venomous Aura",
+      "source": "SCGTD",
+      "page": 189,
+      "level": 3,
+      "school": "V",
+      "time": [
+        {
+          "number": 1,
+          "unit": "bonus"
+        }
+      ],
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "self"
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true,
+        "m": "scales or fangs of a venomous snake"
+      },
+      "duration": [
+        {
+          "type": "timed",
+          "duration": {
+            "type": "minute",
+            "amount": 1
+          }
+        }
+      ],
+      "entries": [
+        "You emit a baleful aura which disorients creatures who approach you. Any creatures that start their turn within 10 feet of you are poisoned until the start of their next turn."
+      ],
+      "conditionInflict": ["poisoned"]
     }
   ]
 }
