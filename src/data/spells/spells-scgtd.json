@@ -632,6 +632,51 @@
       "spellAttack": ["R"],
       "damageInflict": ["necrotic"],
       "conditionInflict": ["blinded"]
+    },
+    {
+      "name": "Corrosive Blast",
+      "source": "SCGTD",
+      "page": 188,
+      "level": 3,
+      "school": "V",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "range": {
+        "type": "cone",
+        "distance": {
+          "type": "feet",
+          "amount": 30
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true,
+        "m": "a vial of acid"
+      },
+      "duration": [
+        {
+          "type": "instant"
+        }
+      ],
+      "entries": [
+        "A spew of acrid chemicals erupts from your hands. Each creature in a 30-foot cone must make a Dexterity saving throw. A creature takes  {@damage 10d4) acid damage on a failed save, or half as much damage on a successful one.",
+        "The acid destroys any objects made of organic materials in the spell’s area. A creature killed by this spell has its flesh entirely dissolved, leaving behind only a corroded skeleton."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "Using a Higher-Level Spell Slot",
+          "entries": [
+            "When you cast this spell using a spell slot of 4th level or higher, the acid damage increases by  {@damage 2d4) for each slot level above 3rd."
+          ]
+        }
+      ],
+      "savingThrow": ["dexterity"],
+      "damageInflict": ["acid"]
     }
   ]
 }
