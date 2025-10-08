@@ -727,6 +727,47 @@
       "savingThrow": ["constitution"],
       "damageInflict": ["acid"],
       "conditionInflict": ["poisoned"]
+    },
+    {
+      "name": "Pestilence",
+      "source": "SCGTD",
+      "page": 189,
+      "level": 3,
+      "school": "N",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "feet",
+          "amount": 90
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true,
+        "m": "a withered flower"
+      },
+      "duration": [
+        {
+          "type": "timed",
+          "duration": {
+            "type": "minute",
+            "amount": 1
+          },
+          "concentration": true
+        }
+      ],
+      "entries": [
+        "You infect up to three creatures you can see within range with a magical disease. At the start of each of the target’s turns, it must make a Constitution saving throw. On a failed saving throw, the creature takes 3d6 necrotic damage and gains 1 level of exhaustion. If a target succeeds on three of these saves, the spell ends for that creature.",
+        "A lesser restoration spell cast on a target ends this spell early for that creature."
+      ],
+      "savingThrow": ["constitution"],
+      "damageInflict": ["necrotic"]
     }
   ]
 }
