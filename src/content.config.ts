@@ -82,10 +82,12 @@ const spells = defineCollection({
         name: z.string(),
         source: z.string(),
         page: z.number().optional(),
+        reprintedAs: z.array(z.string()).optional(),
         srd52: z.union([z.boolean(), z.string()]).optional(),
         basicRules2024: z.boolean().optional(),
         level: z.number(),
         school: z.string(),
+        contaminated: z.boolean().optional(),
         time: z.array(
           z.object({
             number: z.number(),

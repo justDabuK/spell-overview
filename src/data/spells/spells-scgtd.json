@@ -1,0 +1,925 @@
+{
+  "spell": [
+    {
+      "name": "Acid Burn",
+      "source": "SCGTD",
+      "page": 186,
+      "level": 0,
+      "school": "V",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "range": {
+        "type": "cone",
+        "distance": {
+          "type": "feet",
+          "amount": 15
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true
+      },
+      "duration": [
+        {
+          "type": "instant"
+        }
+      ],
+      "entries": [
+        "You magically produce a spray of acidic formula in a 15-foot {@variantrule Cone [Area of Effect]|XPHB|Cone} in front of you. All creatures in the cone must succeed on a Dexterity saving throw or take {@damage 1d6} acid damage."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "Cantrip Upgrade",
+          "entries": [
+            "This spell’s damage increases by {@damage 1d6} when you reach 5th level ({@damage 2d6}), 11th level ({@damage 3d6}), and 17th level ({@damage 4d6})."
+          ]
+        }
+      ],
+      "scalingLevelDice": {
+        "label": "Acid damage",
+        "scaling": {
+          "1": "1d6",
+          "5": "2d6",
+          "11": "3d6",
+          "17": "4d6"
+        }
+      },
+      "damageInflict": ["acid"],
+      "savingThrow": ["dexterity"]
+    },
+    {
+      "name": "Bacterial Barrage",
+      "source": "SCGTD",
+      "page": 186,
+      "level": 0,
+      "school": "N",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "feet",
+          "amount": 30
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true
+      },
+      "duration": [
+        {
+          "type": "instant"
+        }
+      ],
+      "entries": [
+        "You attack a creature in range with a quick spreading infection that takes advantage of existing conditions. Make a ranged spell attack against a target, on a hit the infection does {@damage 1d8} necrotic damage to the target. If the target is suffering from the poisoned condition or a disease, it instead takes {@damage 1d12} necrotic damage."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "Cantrip Upgrade",
+          "entries": [
+            "The spell’s damage increases by one die when you reach 5th level ({@damage 2d8} or {@damage 2d12}), 11th level ({@damage 3d8} or {@damage 3d12}), and 17th level ({@damage 4d8} or {@damage 4d12})."
+          ]
+        }
+      ],
+      "scalingLevelDice": [
+        {
+          "label": "Necrotic damage",
+          "scaling": {
+            "1": "1d8",
+            "5": "2d8",
+            "11": "3d8",
+            "17": "4d8"
+          }
+        },
+        {
+          "label": "Necrotic damage to poisoned or diseased creature",
+          "scaling": {
+            "1": "1d12",
+            "5": "2d12",
+            "11": "3d12",
+            "17": "4d12"
+          }
+        }
+      ],
+      "damageInflict": ["necrotic"],
+      "spellAttack": ["R"]
+    },
+    {
+      "name": "Poison Needle",
+      "source": "SCGTD",
+      "page": 186,
+      "level": 0,
+      "school": "C",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "feet",
+          "amount": 60
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true
+      },
+      "duration": [
+        {
+          "type": "instant"
+        }
+      ],
+      "entries": [
+        "You launch a conjured dart coated with lethal poison at a creature you can see within range. Make a ranged spell attack against the target. On a hit, the target takes {@damage 1d10} poison damage. If the poison damage reduces the target to 0 hit points, the target is stable but poisoned for 1 hour, even after regaining hit points, and is paralyzed while poisoned in this way."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "Cantrip Upgrade",
+          "entries": [
+            "This spell’s damage increases by {@damage 1d10} when you reach 5th level ({@damage 2d10}), 11th level ({@damage 3d10}), and 17th level ({@damage 4d10})."
+          ]
+        }
+      ],
+      "scalingLevelDice": {
+        "label": "Poison damage",
+        "scaling": {
+          "1": "1d10",
+          "5": "2d10",
+          "11": "3d10",
+          "17": "4d10"
+        }
+      },
+      "damageInflict": ["poison"],
+      "spellAttack": ["R"]
+    },
+    {
+      "name": "Acrid Orb",
+      "source": "SCGTD",
+      "page": 187,
+      "level": 1,
+      "school": "V",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "feet",
+          "amount": 60
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true,
+        "m": "a vial of stomach acid and a pinch of sulfate"
+      },
+      "duration": [
+        {
+          "type": "instant"
+        }
+      ],
+      "entries": [
+        "You create an orb of acid gel and fling it at one creature within range. Make a ranged spell attack against the target. On a hit, the target takes {@damage 2d6} acid damage. Whether the attack hits or misses, the orb explodes. The target and each creature within 5 feet of it must succeed on a Dexterity saving throw or take {@damage 2d6} acid damage."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "Using a Higher-Level Spell Slot",
+          "entries": [
+            "When you cast this spell using a spell slot of 2nd level or higher, the exploding acid damage increases by {@damage 1d6} for each slot level above 1st."
+          ]
+        }
+      ],
+      "damageInflict": ["acid"],
+      "spellAttack": ["R"],
+      "savingThrow": ["dexterity"]
+    },
+    {
+      "name": "Envenom",
+      "source": "SCGTD",
+      "page": 187,
+      "level": 1,
+      "school": "C",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "feet",
+          "amount": 60
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true,
+        "m": "a vial of basic poison"
+      },
+      "duration": [
+        {
+          "type": "timed",
+          "duration": {
+            "type": "minute",
+            "amount": 1
+          },
+          "concentration": true
+        }
+      ],
+      "entries": [
+        "Choose a creature you can see within range to inflict with a magical poison. The target takes {@damage 2d4} poison damage and must make a Constitution saving throw. On a failed saving throw, it becomes poisoned for the spell’s duration.",
+        "While poisoned in this way, the target must make a Constitution saving throw at the end of each of its turns. It takes {@damage 2d4} poison damage on a failed saving throw. On a success, the spell ends on that target.",
+        "A lesser restoration spell cast on the target ends this spell early."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "Using a Higher-Level Spell Slot",
+          "entries": [
+            "If you cast this spell using a spell slot of 2nd level or higher, you can target one additional creature for each slot level above 1st."
+          ]
+        }
+      ],
+      "damageInflict": ["poison"],
+      "savingThrow": ["constitution"]
+    },
+    {
+      "name": "Infect",
+      "source": "SCGTD",
+      "page": 187,
+      "level": 1,
+      "school": "N",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "feet",
+          "amount": 60
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true,
+        "m": "a petri dish"
+      },
+      "duration": [
+        {
+          "type": "timed",
+          "duration": {
+            "type": "minute",
+            "amount": 1
+          },
+          "concentration": true
+        }
+      ],
+      "entries": [
+        "You inflict a creature you can see within range with a magical disease. At the start of each of the target’s turns, it must make a Constitution saving throw. The creature takes {@damage 1d12} necrotic damage on a failed saving throw, or half as much on a successful one. If a target succeeds on three of these saves, the spell ends.",
+        "A lesser restoration spell cast on the target ends this spell early."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "Using a Higher-Level Spell Slot",
+          "entries": [
+            "If you cast this spell using a spell slot of 2nd level or higher, the damage increases by {@damage 1d12} for every two slot levels above 1st."
+          ]
+        }
+      ],
+      "damageInflict": ["necrotic"],
+      "savingThrow": ["constitution"]
+    },
+    {
+      "name": "Stream of Consumption",
+      "source": "SCGTD",
+      "page": 187,
+      "level": 1,
+      "school": "N",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "feet",
+          "amount": 60
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true
+      },
+      "duration": [
+        {
+          "type": "timed",
+          "duration": {
+            "type": "minute",
+            "amount": 1
+          },
+          "concentration": true
+        }
+      ],
+      "entries": [
+        "For the spell’s duration, your tongue becomes an elongated tether of necrotic green energy you can use to drink the vitality of other creatures. One creature of your choice within 60 feet of you that you can see must make a Constitution saving throw. On a failed save, the target gains 1 level of exhaustion, and you regain hit points equal to {@dice 1d4} + your spellcasting ability modifier.",
+        "On each of your turns until the spell ends, you can use your action to target the same creature or a different one, but can’t target a creature again if it has succeeded on a saving throw against this casting of stream of consumption."
+      ],
+      "savingThrow": ["constitution"]
+    },
+    {
+      "name": "Toxic Shield",
+      "source": "SCGTD",
+      "page": 187,
+      "level": 1,
+      "school": "C",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "self"
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true,
+        "m": "a drop of dwarven blood"
+      },
+      "duration": [
+        {
+          "type": "timed",
+          "duration": {
+            "type": "minute",
+            "amount": 1
+          },
+          "concentration": true
+        }
+      ],
+      "entries": [
+        "You gain resistance to poison damage and advantage on saves against being poisoned for the duration. In addition, whenever a creature within 5 feet of you hits you with a melee attack, the shield sprays them with poison, dealing {@damage 1d8} poison damage to the attacker."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "Using a Higher-Level Spell Slot",
+          "entries": [
+            "When you cast this spell using a spell slot of 2nd level or higher, the poison damage increases by {@damage 1d8} for every 2 slot levels above 1st."
+          ]
+        }
+      ],
+      "damageInflict": ["poison"],
+      "savingThrow": ["constitution"]
+    },
+    {
+      "name": "Biohazard",
+      "source": "SCGTD",
+      "page": 187,
+      "level": 2,
+      "school": "C",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "feet",
+          "amount": 120
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true,
+        "m": "a withered root and a drop of vinegar"
+      },
+      "duration": [
+        {
+          "type": "timed",
+          "duration": {
+            "type": "minute",
+            "amount": 1
+          }
+        }
+      ],
+      "entries": [
+        "You coat a 15-foot-wide {@variantrule Cube [Area of Effect]|XPHB|Cube} with toxic sludge for the spell’s duration. The area is difficult terrain and filled with dangerous fumes. A creature that enters the area or starts its turn there must make a Constitution saving throw. On a failed saving throw, the creature takes {@damage 1d8} poison damage and is poisoned until the start of its next turn. Creatures are affected even if they hold their breath or don’t need to breathe."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "Using a Higher-Level Spell Slot",
+          "entries": [
+            "If you cast this spell using a spell slot of 3rd level or higher, the damage increases by {@damage 1d8 for each slot level above 2nd."
+          ]
+        }
+      ],
+      "damageInflict": ["poison"],
+      "conditionInflict": ["poisoned"],
+      "savingThrow": ["constitution"]
+    },
+    {
+      "name": "Caustic Grip",
+      "source": "SCGTD",
+      "page": 188,
+      "level": 2,
+      "school": "V",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "self"
+        }
+      },
+      "components": {
+        "s": true
+      },
+      "duration": [
+        {
+          "type": "timed",
+          "duration": {
+            "type": "minute",
+            "amount": 1
+          },
+          "concentration": true
+        }
+      ],
+      "entries": [
+        "For the spell’s duration, your hand secretes sticky burning acid which you can use to hold a creature in a painful clutch. When you cast this spell, and as an action on your turn until the spell ends, you can make a melee spell attack against one creature within 5 feet of you. On a hit, you deal {@damage 4d4} acid damage to the target, and the creature is restrained in your acidic grip until the end of your next turn. You can attack the same target round after round, or choose a new one at any time. If you switch targets, the prior target is no longer affected by the spell.",
+        "A creature restrained by your grip can use its action to make a Strength check against your spell save DC. If it succeeds, it is no longer restrained. Each time a creature ends its turn restrained by this spell, it takes an additional {@damage 4d4} acid damage"
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "Using a Higher-Level Spell Slot",
+          "entries": [
+            "If you cast this spell using a spell slot of 3rd level or higher, the damage increases by {@damage 2d4} for each slot level above 2nd."
+          ]
+        }
+      ],
+      "damageInflict": ["acid"],
+      "spellAttack": ["M"],
+      "conditionInflict": ["restrained"],
+      "abilityCheck": ["strength"]
+    },
+    {
+      "name": "Grasping Ghost",
+      "source": "SCGTD",
+      "page": 188,
+      "level": 2,
+      "school": "N",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "feet",
+          "amount": 60
+        }
+      },
+      "components": {
+        "s": true,
+        "m": "a finger bone and a scrap of fabric"
+      },
+      "duration": [
+        {
+          "type": "instant"
+        }
+      ],
+      "entries": [
+        "A flock of floating spectral hands appear and grasp a target you can see within range. The target must succeed on a Strength saving throw. A target takes {@damage 3d8} necrotic damage on a failed save, or half as much damage on a successful one.",
+        "In addition, on a failed saving throw the ghostly hands grapple the target until the end of your next turn, and immediately move the target up to 30 feet in a direction of your choice (but not upward). On its turn, the creature can use an action to attempt to escape the grapple by making a Strength or Dexterity check (its choice) against your spell save DC. If it succeeds, the grapple ends."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "Using a Higher-Level Spell Slot",
+          "entries": [
+            "If you cast this spell using a spell slot of 3rd level or higher, the grasping ghost can target one additional creature within range for each spell level above 2nd."
+          ]
+        }
+      ],
+      "damageInflict": ["necrotic"],
+      "conditionInflict": ["grappled"],
+      "savingThrow": ["strength"],
+      "abilityCheck": ["strength", "dexterity"]
+    },
+    {
+      "name": "Invigorate",
+      "source": "SCGTD",
+      "page": 188,
+      "level": 2,
+      "school": "A",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "feet",
+          "amount": 30
+        }
+      },
+      "components": {
+        "s": true,
+        "m": "a syringe and a blood sample"
+      },
+      "duration": [
+        {
+          "type": "timed",
+          "duration": {
+            "type": "hour",
+            "amount": 1
+          }
+        }
+      ],
+      "entries": [
+        "Choose up to three creatures within range. Each target gains 10 {@variantrule Temporary Hit Points|XPHB}."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "Using a Higher-Level Spell Slot",
+          "entries": [
+            "When you cast this spell using a spell slot of 2nd level or higher, the temporary hit points increase by 5 for each slot level above 2nd."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Ocular Necrosis",
+      "source": "SCGTD",
+      "page": 188,
+      "level": 2,
+      "school": "N",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "feet",
+          "amount": 30
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true
+      },
+      "duration": [
+        {
+          "type": "instant"
+        }
+      ],
+      "entries": [
+        "Make a ranged spell attack against a creature you can see in range. If you hit, you wrack the creature with a deadly toxin that causes their eyes to bleed. The creature takes {@damage 2d6} necrotic damage and is blinded until the end of your next turn."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "Using a Higher-Level Spell Slot",
+          "entries": [
+            "When you cast this spell using a spell slot of 3rd level or higher, the necrotic damage increases by {@damage 1d6} for each slot above 2nd."
+          ]
+        }
+      ],
+      "spellAttack": ["R"],
+      "damageInflict": ["necrotic"],
+      "conditionInflict": ["blinded"]
+    },
+    {
+      "name": "Corrosive Blast",
+      "source": "SCGTD",
+      "page": 188,
+      "level": 3,
+      "school": "V",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "range": {
+        "type": "cone",
+        "distance": {
+          "type": "feet",
+          "amount": 30
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true,
+        "m": "a vial of acid"
+      },
+      "duration": [
+        {
+          "type": "instant"
+        }
+      ],
+      "entries": [
+        "A spew of acrid chemicals erupts from your hands. Each creature in a 30-foot cone must make a Dexterity saving throw. A creature takes   {@damage 10d4} acid damage on a failed save, or half as much damage on a successful one.",
+        "The acid destroys any objects made of organic materials in the spell’s area. A creature killed by this spell has its flesh entirely dissolved, leaving behind only a corroded skeleton."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "Using a Higher-Level Spell Slot",
+          "entries": [
+            "When you cast this spell using a spell slot of 4th level or higher, the acid damage increases by   {@damage 2d4} for each slot level above 3rd."
+          ]
+        }
+      ],
+      "savingThrow": ["dexterity"],
+      "damageInflict": ["acid"]
+    },
+    {
+      "name": "Ferid Blade",
+      "source": "SCGTD",
+      "page": 188,
+      "level": 3,
+      "school": "V",
+      "time": [
+        {
+          "number": 1,
+          "unit": "bonus"
+        }
+      ],
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "touch"
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true,
+        "m": "a drop of acid and a pinch of iron dust)"
+      },
+      "duration": [
+        {
+          "type": "timed",
+          "duration": {
+            "type": "minute",
+            "amount": 1
+          },
+          "concentration": true
+        }
+      ],
+      "entries": [
+        "You coat a weapon you touch in an acidic substance. Until the spell ends, weapon attacks made with it deal an extra   {@damage 2d4} acid damage on a hit. If the weapon isn’t already a magic weapon, it becomes one for the duration.",
+        "In addition, a creature hit with a melee attack using the weapon must make a Constitution saving throw. On a failed save, it becomes poisoned until the end of the attacker’s next turn."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "Using a Higher-Level Spell Slot",
+          "entries": [
+            "When you cast this spell using a spell slot of 4th level or higher, the acid damage increases by   {@damage 1d4} for each slot level above 3rd."
+          ]
+        }
+      ],
+      "savingThrow": ["constitution"],
+      "damageInflict": ["acid"],
+      "conditionInflict": ["poisoned"]
+    },
+    {
+      "name": "Pestilence",
+      "source": "SCGTD",
+      "page": 189,
+      "level": 3,
+      "school": "N",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "feet",
+          "amount": 90
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true,
+        "m": "a withered flower"
+      },
+      "duration": [
+        {
+          "type": "timed",
+          "duration": {
+            "type": "minute",
+            "amount": 1
+          },
+          "concentration": true
+        }
+      ],
+      "entries": [
+        "You infect up to three creatures you can see within range with a magical disease. At the start of each of the target’s turns, it must make a Constitution saving throw. On a failed saving throw, the creature takes  {@damage 3d6} necrotic damage and gains 1 level of exhaustion. If a target succeeds on three of these saves, the spell ends for that creature.",
+        "A lesser restoration spell cast on a target ends this spell early for that creature."
+      ],
+      "savingThrow": ["constitution"],
+      "damageInflict": ["necrotic"]
+    },
+    {
+      "name": "Purge Contamination",
+      "source": "SCGTD",
+      "page": 189,
+      "level": 3,
+      "school": "A",
+      "time": [
+        {
+          "number": 1,
+          "unit": "hour"
+        }
+      ],
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "touch"
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true,
+        "m": "100 gp of alchemical fluids or holy water, which the spell consumes"
+      },
+      "duration": [
+        {
+          "type": "instant"
+        }
+      ],
+      "entries": [
+        "You apply alchemical fluids or holy water to a contaminated humanoid creature while reciting an exacting magical chant which expels eldritch contaminants from its body. When you finish casting the spell, all contamination levels and mutations are removed from the creature. It then gains 1 level of exhaustion for each contamination level removed with this spell."
+      ]
+    },
+    {
+      "name": "Tranquilizing Toxin",
+      "source": "SCGTD",
+      "page": 189,
+      "level": 3,
+      "school": "V",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "feet",
+          "amount": 60
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true
+      },
+      "duration": [
+        {
+          "type": "instant"
+        }
+      ],
+      "entries": [
+        "One target you choose within range must make a Constitution saving throw or take  {@damage 8d6} poison damage and become poisoned until the end of your next turn. While poisoned in this way, the target is also stunned. On a successful saving throw, the target takes half damage and is not poisoned."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "Using a Higher-Level Spell Slot",
+          "entries": [
+            "When you cast this spell using a spell slot of 4th level or higher, the poison damage increases by  {@damage 1d6} for each slot level above 3rd."
+          ]
+        }
+      ],
+      "damageInflict": ["poison"],
+      "savingThrow": ["constitution"],
+      "conditionInflict": ["poisoned", "stunned"]
+    },
+    {
+      "name": "Venomous Aura",
+      "source": "SCGTD",
+      "page": 189,
+      "level": 3,
+      "school": "V",
+      "time": [
+        {
+          "number": 1,
+          "unit": "bonus"
+        }
+      ],
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "self"
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true,
+        "m": "scales or fangs of a venomous snake"
+      },
+      "duration": [
+        {
+          "type": "timed",
+          "duration": {
+            "type": "minute",
+            "amount": 1
+          }
+        }
+      ],
+      "entries": [
+        "You emit a baleful aura which disorients creatures who approach you. Any creatures that start their turn within 10 feet of you are poisoned until the start of their next turn."
+      ],
+      "conditionInflict": ["poisoned"]
+    },
+    {
+      "name": "Vanish to the Space Between Worlds",
+      "source": "SCGTD",
+      "page": 195,
+      "level": 3,
+      "school": "A",
+      "contaminated": true,
+      "time": [
+        {
+          "number": 1,
+          "unit": "reaction",
+          "condition": "which you take when you take damage"
+        }
+      ],
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "self"
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true,
+        "m": "a delerium chip worth 10 gp"
+      },
+      "duration": [
+        {
+          "type": "timed",
+          "duration": {
+            "type": "round",
+            "amount": 1
+          }
+        }
+      ],
+      "entries": [
+        "When you cast this spell, you vanish from your current plane of existence and appear in the Space Between Worlds (avoiding the triggering damage). At the start of your next turn, you return to an unoccupied space of your choice within 30 feet of the space you vanished from. If no unoccupied space is available within that range, you appear in the nearest unoccupied space (chosen at random if more than one space is equally near).",
+        "While within the Space Between Worlds, you can see and hear the plane you originated from, which is cast as a roiling blur, and you can’t see anything there more than 60 feet away. You can only affect and be affected by other creatures in the Space Between Worlds. Creatures that aren’t there can’t perceive you or interact with you, unless they have the ability to do so."
+      ]
+    }
+  ]
+}
