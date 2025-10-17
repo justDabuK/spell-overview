@@ -4,15 +4,29 @@ import SpellDescriptionEntryList from "./SpellDescriptionEntryList.astro";
 
 interface Props {
   entryList: CollectionEntry<"spells">["data"]["spell"][0]["entries"];
-    entriesHigherLevelList: CollectionEntry<"spells">["data"]["spell"][0]["entriesHigherLevel"];
+  entriesHigherLevelList: CollectionEntry<"spells">["data"]["spell"][0]["entriesHigherLevel"];
+  isContaminated?: boolean;
   class?: string;
 }
 
-const { class: className, entryList, entriesHigherLevelList,...rest } = Astro.props;
+const {
+  class: className,
+  entryList,
+  entriesHigherLevelList,
+  isContaminated,
+  ...rest
+} = Astro.props;
 ---
 
 <div class:list={[className]} {...rest}>
   <!-- TODO: maybe do something details and summary? -->
+  {
+    isContaminated ? (
+      <p>
+        <em>When you cast this spell, you gain 1 Contamination Level.</em>
+      </p>
+    ) : null
+  }
   {
     entryList.map((entry) => {
       if (typeof entry === "string") {
@@ -22,7 +36,11 @@ const { class: className, entryList, entriesHigherLevelList,...rest } = Astro.pr
       }
     })
   }
-    {
-      entriesHigherLevelList !== undefined ? entriesHigherLevelList.map((entry) => (<SpellDescriptionEntryList entryListObject={entry} />)) : null
+  {
+    entriesHigherLevelList !== undefined
+      ? entriesHigherLevelList.map((entry) => (
+          <SpellDescriptionEntryList entryListObject={entry} />
+        ))
+      : null
   }
 </div>
