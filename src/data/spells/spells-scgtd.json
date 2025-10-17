@@ -883,6 +883,96 @@
       "conditionInflict": ["poisoned"]
     },
     {
+      "name": "Controlled Mutation",
+      "source": "SCGTD",
+      "page": 194,
+      "level": 2,
+      "school": "T",
+      "contaminated": true,
+      "time": [
+        {
+          "number": 1,
+            "unit": "action"
+        }
+      ],
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "feet",
+          "amount": 30
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true,
+        "m": "a delerium chip worth 100 gp"
+      },
+      "duration": [
+        {
+          "type": "timed",
+          "duration": {
+            "type": "hour",
+            "amount": 1
+          },
+          "concentration": true
+        }
+      ],
+      "entries": [
+        "You weave contaminated energy to temporarily imbue a creature within range with a beneficial mutation. Choose one of the following effects; the target gains that effect until the spell ends.",
+        {
+          "type": "entries",
+          "name": "Strength",
+          "entries": [
+            "The target has advantage on Strength attack rolls, ability checks, and saving throws. The target can choose to gain a Contamination Level. If it does, its melee weapon attacks deal an additional 2d6 necrotic damage for the spell’s duration."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Constitution",
+          "entries": [
+            "The target has advantage on Constitution checks and saving throws. The target can choose to gain a Contamination Level. If it does, it gains resistance to bludgeoning, piercing, and slashing damage for the spell’s duration."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Dexterity",
+          "entries": [
+            "The target has advantage on Dexterity attack rolls, ability checks, and saving throws. The target can choose to gain a Contamination Level. If it does, its attacks with ranged and finesse weapons score a critical hit on an 18–20 for the spell’s duration."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Intelligence",
+          "entries": [
+            "The target has advantage on Intelligence ability checks and saving throws, as well as spell attack rolls. The target can also choose to gain a Contamination Level. If it does, for the duration of this spell, while the target is concentrating on a spell it has cast, it’s concentration can’t be broken as a result of taking damage."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Wisdom",
+          "entries": [
+            "The target has advantage on Wisdom ability checks and saving throws, as well as spell attack rolls. The target can also choose to gain a Contamination Level. If it does, for the duration of this spell, it gains blindsight to a range of 60 feet and can’t be surprised while it is conscious."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Charisma",
+          "entries": [
+            "The target has advantage on Charisma ability checks and saving throws, as well as spell attack rolls. In addition, the target can choose to gain a Contamination Level. If it does, for the duration of this spell, when the target makes a Charisma (Persuasion) or Charisma (Deception) check, it can treat a d20 roll of 9 or lower as a 10."
+          ]
+        }
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "Using a Higher-Level Spell Slot",
+          "entries": [
+            "When you cast this spell using a spell slot of 3rd level or higher, you can choose one additional effect for every two slot levels above 2nd."
+          ]
+        }
+      ]
+    },
+    {
       "name": "Vanish to the Space Between Worlds",
       "source": "SCGTD",
       "page": 195,

@@ -55,7 +55,10 @@ const needsConcentration = durationList.some((duration) =>
 
     &.concentration {
       background: var(--teal);
-      color: var(--background-color);
+
+      [data-icon] {
+        color: var(--background-color) !important;
+      }
     }
   }
 
