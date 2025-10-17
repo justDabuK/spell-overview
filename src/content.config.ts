@@ -87,6 +87,7 @@ const spells = defineCollection({
         basicRules2024: z.boolean().optional(),
         level: z.number(),
         school: z.string(),
+        contaminated: z.boolean().optional(),
         time: z.array(
           z.object({
             number: z.number(),

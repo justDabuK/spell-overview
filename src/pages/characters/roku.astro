@@ -1,0 +1,30 @@
+---
+import SpellCardLayout from "../../layouts/SpellCardLayout.astro";
+import { type CollectionEntry } from "astro:content";
+
+const characterSpellNameList: CollectionEntry<"spells">["data"]["spell"][0]["name"][] =
+  [
+    "Guidance",
+    "Light",
+    "Thaumaturgy",
+    "Toll the Dead",
+    "Command",
+    "Create or Destroy Water",
+    "Fog Cloud",
+    "Thunderwave",
+    "Shield of Faith",
+    "Gust of Wind",
+    "Locate Object",
+    "Shatter",
+    "Silence",
+    "Call Lightning",
+    "Sleet Storm",
+    "Spirit Guardians",
+    "Magic Circle",
+    "Dispel Magic",
+    "Mass Healing Word",
+    "Vanish to the Space Between Worlds",
+  ];
+---
+
+<SpellCardLayout characterSpellNameList={characterSpellNameList} />
