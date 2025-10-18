@@ -1,0 +1,29 @@
+---
+import SpellCardLayout from "../../layouts/SpellCardLayout.astro";
+import { type CollectionEntry } from "astro:content";
+
+const characterSpellNameList: CollectionEntry<"spells">["data"]["spell"][0]["name"][] =
+  [
+    "Eldritch Blast",
+    "Toll the Dead",
+    "Minor Illusion",
+    "Prestidigitation",
+    "Guidance",
+    "Mind Sliver",
+    "Thaumaturgy",
+    "Suggestion",
+    "Invisibility",
+    "Misty Step",
+    "Hold Person",
+    "Hex",
+    "Detect Magic",
+    "Detect Thoughts",
+    "Dissonant Whispers",
+    "Phantasmal Force",
+    "Tasha's Hideous Laughter",
+    "Identify",
+    "Alarm",
+  ];
+---
+
+<SpellCardLayout characterSpellNameList={characterSpellNameList} />

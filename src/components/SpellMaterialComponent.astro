@@ -1,6 +1,5 @@
 ---
 import { type CollectionEntry } from "astro:content";
-import { Icon } from "astro-icon/components";
 
 interface Props {
   materialComponents: CollectionEntry<"spells">["data"]["spell"][0]["components"]["m"];
@@ -17,11 +16,7 @@ const isSimpleString = typeof materialComponents === "string";
     isSimpleString ? (
       <span>{materialComponents}</span>
     ) : (
-      <template>
-        <span>{materialComponents?.text}</span>
-        <span>{materialComponents?.cost}</span>
-        <span>{materialComponents?.consume}</span>
-      </template>
+      <span>{materialComponents?.text}</span>
     )
   }
 </div>
