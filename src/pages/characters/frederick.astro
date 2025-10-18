@@ -1,0 +1,32 @@
+---
+import SpellCardLayout from "../../layouts/SpellCardLayout.astro";
+import { type CollectionEntry } from "astro:content";
+
+const characterSpellNameList: CollectionEntry<"spells">["data"]["spell"][0]["name"][] =
+  [
+    "Guidance",
+    "Infestation",
+    "Toll the Dead",
+    "Poison Spray",
+    "Spare the Dying",
+    "Acid Splash",
+    "Shocking Grasp",
+    "False Life",
+    "Inflict Wounds",
+    "Gentle Repose",
+    "Invigorate",
+    "Revivify",
+    "Lightning Bolt",
+    "Pestilence",
+    "Hypnotic Pattern",
+    "Purge Contamination",
+    "Unseen Servant",
+    "Grasping Ghost",
+    "Speak with Dead",
+    "Controlled Mutation",
+    "Feign Death",
+    "Haste",
+  ];
+---
+
+<SpellCardLayout characterSpellNameList={characterSpellNameList} />

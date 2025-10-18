@@ -9,13 +9,13 @@ interface Props {
 const { characterSpellNameList } = Astro.props;
 
 const spells = await getCollection("spells");
-const spellList = spells.flatMap<CollectionEntry<"spells">["data"]["spell"]>(
+const spellList = spells.flatMap<CollectionEntry<"spells">["data"]["spell"][0]>(
   (spellCollection: CollectionEntry<"spells">) => spellCollection.data.spell,
 );
 
 const compareActions = (
-  a: CollectionEntry<"spells">["data"]["spell"],
-  b: CollectionEntry<"spells">["data"]["spell"],
+  a: CollectionEntry<"spells">["data"]["spell"][0],
+  b: CollectionEntry<"spells">["data"]["spell"][0],
 ) => {
   const actionOrder = ["action", "bonus", "reaction", "minute", "hour", "day"];
   const aIndex = actionOrder.indexOf(a.time[0]?.unit ?? "action");
@@ -25,14 +25,15 @@ const compareActions = (
 
 const characterSpellList = spellList
   .filter(
-    (spell: CollectionEntry<"spells">["data"]["spell"]) =>
-      characterSpellNameList.includes(spell.name) && spell.reprintedAs === undefined,
+    (spell: CollectionEntry<"spells">["data"]["spell"][0]) =>
+      characterSpellNameList.includes(spell.name) && !spell.reprintedAs,
   )
   .sort(
     (a, b) =>
       a.level - b.level || compareActions(a, b) || a.name.localeCompare(b.name),
   );
-const groupedAsLists: CollectionEntry<"spells">["data"]["spell"][][] = [];
+
+const groupedAsLists: CollectionEntry<"spells">["data"]["spell"][0][][] = [];
 let currentLevel = -1;
 
 for (const spell of characterSpellList) {
@@ -49,7 +50,13 @@ const isListsNotMatching =
 ---
 
 <BaseLayout>
-  <h1>Spell list {isListsNotMatching ? `(${characterSpellList.length}/${characterSpellNameList.length})` : ''}</h1>
+  <h1>
+    Spell list {
+      isListsNotMatching
+        ? `(${characterSpellList.length}/${characterSpellNameList.length})`
+        : ""
+    }
+  </h1>
   <div class="spell-card-layout">
     {
       groupedAsLists.map((spellSubList) => (
