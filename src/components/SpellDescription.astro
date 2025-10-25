@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import SpellDescriptionEntryList from "./SpellDescriptionEntryList.astro";
+import { highlightSpecialParts } from "./highlightSpecialParts.ts";
 
 interface Props {
   entryList: CollectionEntry<"spells">["data"]["spell"][0]["entries"];
@@ -30,7 +31,7 @@ const {
   {
     entryList.map((entry) => {
       if (typeof entry === "string") {
-        return <p>{entry}</p>;
+        return <p set:html={highlightSpecialParts(entry)} />;
       } else {
         return <SpellDescriptionEntryList entryListObject={entry} />;
       }

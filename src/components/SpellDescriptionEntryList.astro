@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
+import { highlightSpecialParts } from "./highlightSpecialParts.ts";
 
 interface Props {
   entryListObject: CollectionEntry<"spells">["data"]["spell"][0]["entries"][0];
@@ -14,7 +15,7 @@ const { class: className, entryListObject, ...rest } = Astro.props;
   {
     entryListObject.entries?.map((subEntry) => {
       if (typeof subEntry === "string") {
-        return <span>{subEntry}</span>;
+        return <span set:html={highlightSpecialParts(subEntry)} />;
       } else {
         return <span>{JSON.stringify(subEntry, undefined, 2)}</span>;
       }
