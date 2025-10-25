@@ -33,15 +33,6 @@ const characterSpellList = spellList
       a.level - b.level || compareActions(a, b) || a.name.localeCompare(b.name),
   );
 
-console.group("duration investigation");
-console.table(
-  characterSpellList.map((spell) => ({
-    name: spell.name,
-    duration: JSON.stringify(spell.duration),
-  })),
-);
-console.groupEnd();
-
 const groupedAsLists: CollectionEntry<"spells">["data"]["spell"][0][][] = [];
 let currentLevel = -1;
 
