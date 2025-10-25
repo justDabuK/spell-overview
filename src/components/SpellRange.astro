@@ -11,6 +11,7 @@ const { class: className, range, ...rest } = Astro.props;
 
 const rangeIcon = {
   feet: "bow-arrow",
+  miles: "bow-arrow",
   touch: "gesture-tap",
   self: "account-cowboy-hat",
 }[range.distance?.type ?? ""];
@@ -19,7 +20,7 @@ const rangeIcon = {
 <div class={className} {...rest}>
   {
     rangeIcon ? (
-      <Icon name={rangeIcon}></Icon>
+      <Icon name={rangeIcon} />
     ) : (
       <div>
         <span>{range.type}</span>
@@ -28,7 +29,7 @@ const rangeIcon = {
   }
   {
     range.distance?.amount ? (
-      <span>{`${range.distance.amount} ft.`}</span>
+      <span>{`${range.distance.amount} ${range.distance.type}`}</span>
     ) : null
   }
 </div>
