@@ -118,13 +118,13 @@ const spells = defineCollection({
             .optional(),
         }),
         duration: z.array(
-          z.union([
+          z.discriminatedUnion("type", [
             z.object({
-              type: z.string(), // instant
+              type: z.literal("instant"), // instant
               concentration: z.boolean().optional(),
             }),
             z.object({
-              type: z.string(), // timed
+              type: z.literal("timed"), // timed
               duration: z
                 .object({
                   type: z.string(),
@@ -134,9 +134,12 @@ const spells = defineCollection({
               concentration: z.boolean().optional(),
             }),
             z.object({
-              type: z.string(), // permanent
+              type: z.literal("permanent"), // permanent
               ends: z.array(z.string()),
               concentration: z.boolean().optional(),
+            }),
+            z.object({
+              type: z.literal("special"),
             }),
           ]),
         ),

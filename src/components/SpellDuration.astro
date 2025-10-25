@@ -24,7 +24,7 @@ const needsConcentration = durationList.some((duration) =>
           <div>
             <Icon name="timelapse" />
             {duration.duration ? (
-              <span>{`${duration.duration.amount} ${duration.duration.type}`}</span>
+              <span>{`${duration.duration.amount} ${duration.duration.type}${duration.duration.amount > 1 ? "s" : ""}`}</span>
             ) : null}
           </div>
         );
@@ -59,6 +59,12 @@ const needsConcentration = durationList.some((duration) =>
       [data-icon] {
         color: var(--background-color) !important;
       }
+
+      span {
+        color: var(--background-color);
+        font-weight: bold;
+        padding: var(--size-4);
+      }
     }
   }
 
@@ -67,5 +73,9 @@ const needsConcentration = durationList.some((duration) =>
 
     width: var(--icon-size);
     height: var(--icon-size);
+  }
+
+  span {
+    font-size: var(--font-size-12);
   }
 </style>
