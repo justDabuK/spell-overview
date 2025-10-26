@@ -1,0 +1,18 @@
+---
+import SpellCardLayout from "../../layouts/SpellCardLayout.astro";
+import { type CollectionEntry } from "astro:content";
+
+const characterSpellNameList: CollectionEntry<"spells">["data"]["spell"][0]["name"][] =
+  [
+    "Summon Beast",
+    "Spike Growth",
+    "Magic Weapon",
+    "Speak with Animals",
+    "Ensnaring Strike",
+    "Hail of Thorns",
+    "Hunter's Quarry",
+    "Spider's Quarry",
+  ];
+---
+
+<SpellCardLayout characterSpellNameList={characterSpellNameList} />
