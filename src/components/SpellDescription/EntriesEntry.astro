@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
+import { highlightSpecialParts } from "../highlightSpecialParts.ts";
 interface Props {
   entryListObject: CollectionEntry<"spells">["data"]["spell"][0]["entries"][0];
   class?: string;
@@ -8,4 +9,10 @@ interface Props {
 const { class: className, entryListObject, ...rest } = Astro.props;
 ---
 
-<p class:list={[className]} {...rest}>entries magic</p>
+<p class:list={[className]} {...rest}>
+  <strong>{entryListObject.name}</strong>{
+    entryListObject.entries.map((subEntry) => (
+      <span set:html={highlightSpecialParts(subEntry)} />
+    ))
+  }
+</p>
