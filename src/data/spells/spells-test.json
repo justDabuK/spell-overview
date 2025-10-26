@@ -33,7 +33,16 @@
         "Simple string",
         {
           "type": "list",
-          "items": ["item 1", "item 2", "item 3"]
+          "items": [
+            "item 1",
+            "item 2",
+            "item 3",
+            {
+              "type": "item",
+              "name": "item 4",
+              "entries": ["sub-item 4a", "sub-item 4b"]
+            }
+          ]
         },
         {
           "type": "entries",

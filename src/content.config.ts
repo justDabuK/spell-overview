@@ -76,6 +76,12 @@ const entryTableType = z.object({
   ),
 });
 
+const entryEntriesType = z.object({
+  type: z.literal("entries"), // entries
+  name: z.string(),
+  entries: z.array(z.union([z.string(), entryListType])),
+});
+
 const spells = defineCollection({
   loader: glob({ pattern: "**/spells-*.json", base: "./src/data/spells" }),
   schema: z.object({
@@ -153,14 +159,12 @@ const spells = defineCollection({
         entries: z.array(
           z.union([
             z.string(),
-            entryListType,
-            z.object({
-              type: z.literal("entries"), // entries
-              name: z.string(),
-              entries: z.array(z.union([z.string(), entryListType])),
-            }),
-            entryTableType,
-            entryInsetType,
+            z.discriminatedUnion("type", [
+              entryListType,
+              entryEntriesType,
+              entryTableType,
+              entryInsetType,
+            ]),
           ]),
         ),
         entriesHigherLevel: z

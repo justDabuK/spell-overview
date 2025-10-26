@@ -8,4 +8,25 @@ interface Props {
 const { class: className, entryListObject, ...rest } = Astro.props;
 ---
 
-<p class:list={[className]} {...rest}>list magic</p>
+<ul class:list={[className]} {...rest}>
+  {
+    entryListObject.items.map((item) => {
+      if (typeof item === "string") {
+        return <li>{item}</li>;
+      } else if (item.type === "item") {
+        return (
+          <li>
+            <span>{item.name}</span>
+            <ul>
+              {item.entries.map((subItem) => (
+                <li>{subItem}</li>
+              ))}
+            </ul>
+          </li>
+        );
+      } else {
+        return <li>ERROR: no clue what this is {JSON.stringify(item)}</li>;
+      }
+    })
+  }
+</ul>
