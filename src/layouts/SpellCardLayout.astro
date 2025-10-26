@@ -2,11 +2,13 @@
 import BaseLayout from "./BaseLayout.astro";
 import { getCollection, type CollectionEntry } from "astro:content";
 import SpellCard from "../components/SpellCard.astro";
+import { Icon } from "astro-icon/components";
 
 interface Props {
   characterSpellNameList: CollectionEntry<"spells">["data"]["spell"][0]["name"][];
+  characterName: string;
 }
-const { characterSpellNameList } = Astro.props;
+const { characterSpellNameList, characterName } = Astro.props;
 
 const spells = await getCollection("spells");
 const spellList = spells.flatMap<CollectionEntry<"spells">["data"]["spell"][0]>(
@@ -50,13 +52,16 @@ const isListsNotMatching =
 ---
 
 <BaseLayout>
-  <h1>
-    Spell list {
-      isListsNotMatching
-        ? `(${characterSpellList.length}/${characterSpellNameList.length})`
-        : ""
-    }
-  </h1>
+  <header>
+    <a href="/characters"><Icon name="arrow-left" /></a>
+    <h1>
+      {characterName}s Spell list {
+        isListsNotMatching
+          ? `(${characterSpellList.length}/${characterSpellNameList.length})`
+          : ""
+      }
+    </h1>
+  </header>
   <div class="spell-card-layout">
     {
       groupedAsLists.map((spellSubList) => (
@@ -71,6 +76,19 @@ const isListsNotMatching =
 </BaseLayout>
 
 <style>
+  header {
+    display: flex;
+    gap: var(--size-16);
+    align-items: center;
+
+    [data-icon] {
+      --icon-size: var(--size-32);
+
+      width: var(--icon-size);
+      height: var(--icon-size);
+    }
+  }
+
   .spell-card-layout {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(var(--size-384), 1fr));
