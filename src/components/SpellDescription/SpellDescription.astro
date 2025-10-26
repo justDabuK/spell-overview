@@ -1,7 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import SpellDescriptionEntryList from "./SpellDescriptionEntryList.astro";
-import { highlightSpecialParts } from "./highlightSpecialParts.ts";
+import { highlightSpecialParts } from "../highlightSpecialParts.ts";
+import NonStringEntry from "./NonStringEntry.astro";
 
 interface Props {
   entryList: CollectionEntry<"spells">["data"]["spell"][0]["entries"];
@@ -32,15 +32,15 @@ const {
     entryList.map((entry) => {
       if (typeof entry === "string") {
         return <p set:html={highlightSpecialParts(entry)} />;
-      } else {
-        return <SpellDescriptionEntryList entryListObject={entry} />;
       }
+
+      return <NonStringEntry entryListObject={entry} />;
     })
   }
   {
     entriesHigherLevelList !== undefined
       ? entriesHigherLevelList.map((entry) => (
-          <SpellDescriptionEntryList entryListObject={entry} />
+          <NonStringEntry entryListObject={entry} />
         ))
       : null
   }

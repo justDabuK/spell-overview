@@ -1,0 +1,63 @@
+{
+  "spell": [
+    {
+      "name": "Entry TEST",
+      "source": "TEST",
+      "page": 0,
+      "level": 0,
+      "school": "A",
+      "time": [
+        {
+          "number": 1,
+          "unit": "minute"
+        }
+      ],
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "feet",
+          "amount": 30
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true
+      },
+      "duration": [
+        {
+          "type": "permanent",
+          "ends": ["dispel"]
+        }
+      ],
+      "entries": [
+        "Simple string",
+        {
+          "type": "list",
+          "items": ["item 1", "item 2", "item 3"]
+        },
+        {
+          "type": "entries",
+          "name": "extra entries",
+          "entries": ["extra entry"]
+        },
+        {
+          "type": "table",
+          "caption": "Test table",
+          "colStyles": ["col-2 text-center", "col-10"],
+          "colLabels": ["label 1", "label 2"],
+          "rows": [
+            ["1", "entry 1"],
+            ["2", "entry 2"]
+          ]
+        },
+        {
+          "type": "inset",
+          "source": "FTD",
+          "page": 190,
+          "name": "Dragonnel Steeds",
+          "entries": ["Some inset advice?"]
+        }
+      ]
+    }
+  ]
+}

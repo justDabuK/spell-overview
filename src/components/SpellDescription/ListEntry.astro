@@ -1,0 +1,11 @@
+---
+import type { CollectionEntry } from "astro:content";
+interface Props {
+  entryListObject: CollectionEntry<"spells">["data"]["spell"][0]["entries"][0];
+  class?: string;
+}
+
+const { class: className, entryListObject, ...rest } = Astro.props;
+---
+
+<p class:list={[className]} {...rest}>list magic</p>

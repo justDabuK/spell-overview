@@ -1,0 +1,15 @@
+---
+import SpellCardLayout from "../../layouts/SpellCardLayout.astro";
+import { type CollectionEntry, getCollection } from "astro:content";
+
+const spells = await getCollection("spells");
+const spellList = spells.flatMap<
+  CollectionEntry<"spells">["data"]["spell"][0]["name"]
+>((spellCollection: CollectionEntry<"spells">) =>
+  spellCollection.data.spell
+    .filter((spell) => spell.source === "TEST")
+    .map((spell) => spell.name),
+);
+---
+
+<SpellCardLayout characterSpellNameList={spellList} />

@@ -1,0 +1,27 @@
+---
+import type { CollectionEntry } from "astro:content";
+import ListEntry from "./ListEntry.astro";
+import TableEntry from "./TableEntry.astro";
+import InsetEntry from "./InsetEntry.astro";
+import EntriesEntry from "./EntriesEntry.astro";
+interface Props {
+  entryListObject: CollectionEntry<"spells">["data"]["spell"][0]["entries"][0];
+  class?: string;
+}
+
+const { class: className, entryListObject, ...rest } = Astro.props;
+
+const entryComponentMap = {
+  list: ListEntry,
+  table: TableEntry,
+  inset: InsetEntry,
+  entries: EntriesEntry,
+};
+
+const EntryComponent =
+  entryComponentMap[
+    entryListObject!.type as unknown as keyof typeof entryComponentMap
+  ] || EntriesEntry;
+---
+
+<EntryComponent entryListObject={entryListObject} />

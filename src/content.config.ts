@@ -33,19 +33,13 @@ const entryListType = z.object({
   items: z.array(
     z.union([
       z.object({
-        type: z.string(), // item
+        type: z.literal("item"), // item
         name: z.string(),
         entries: z.array(z.string()),
       }),
       z.string(),
     ]),
   ),
-});
-
-const entryQuoteType = z.object({
-  type: z.literal("quote"), // quote
-  entries: z.array(z.string()),
-  by: z.string(),
 });
 
 const entryInsetType = z.object({
@@ -160,7 +154,6 @@ const spells = defineCollection({
           z.union([
             z.string(),
             entryListType,
-            entryQuoteType,
             z.object({
               type: z.literal("entries"), // entries
               name: z.string(),
