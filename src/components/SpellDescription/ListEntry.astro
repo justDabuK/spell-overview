@@ -17,12 +17,10 @@ const { class: className, entryListObject, ...rest } = Astro.props;
       } else if (item.type === "item") {
         return (
           <li>
-            <span>{item.name}</span>
-            <ul>
-              {item.entries.map((subItem) => (
-                <li set:html={highlightSpecialParts(subItem)} />
-              ))}
-            </ul>
+            <strong>{item.name}</strong>
+            {item.entries.map((subItem) => (
+              <span set:html={highlightSpecialParts(subItem)} />
+            ))}
           </li>
         );
       } else {
