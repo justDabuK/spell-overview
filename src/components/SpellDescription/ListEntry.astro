@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
+import { highlightSpecialParts } from "../highlightSpecialParts.ts";
 interface Props {
   entryListObject: CollectionEntry<"spells">["data"]["spell"][0]["entries"][0];
   class?: string;
@@ -12,20 +13,24 @@ const { class: className, entryListObject, ...rest } = Astro.props;
   {
     entryListObject.items.map((item) => {
       if (typeof item === "string") {
-        return <li>{item}</li>;
+        return <li set:html={highlightSpecialParts(item)} />;
       } else if (item.type === "item") {
         return (
           <li>
             <span>{item.name}</span>
             <ul>
               {item.entries.map((subItem) => (
-                <li>{subItem}</li>
+                <li set:html={highlightSpecialParts(subItem)} />
               ))}
             </ul>
           </li>
         );
       } else {
-        return <li>ERROR: no clue what this is {JSON.stringify(item)}</li>;
+        return (
+          <li>
+            <strong>ERROR</strong>: no clue what this is {JSON.stringify(item)}
+          </li>
+        );
       }
     })
   }
