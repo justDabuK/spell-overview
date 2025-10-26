@@ -28,7 +28,7 @@ const scalingLevelDiceType = z.object({
 });
 
 const entryListType = z.object({
-  type: z.string(), // list
+  type: z.literal("list"), // list
   style: z.string().optional(),
   items: z.array(
     z.union([
@@ -43,13 +43,21 @@ const entryListType = z.object({
 });
 
 const entryQuoteType = z.object({
-  type: z.string(), // quote
+  type: z.literal("quote"), // quote
   entries: z.array(z.string()),
   by: z.string(),
 });
 
+const entryInsetType = z.object({
+  type: z.literal("inset"), // quote
+  source: z.string(),
+  page: z.number(),
+  name: z.string(),
+  entries: z.array(z.string()),
+});
+
 const entryTableType = z.object({
-  type: z.string(), // table
+  type: z.literal("table"), // table
   caption: z.string().optional(),
   colLabels: z.array(z.string()),
   colStyles: z.array(z.string()),
@@ -154,17 +162,18 @@ const spells = defineCollection({
             entryListType,
             entryQuoteType,
             z.object({
-              type: z.string(), // entries
+              type: z.literal("entries"), // entries
               name: z.string(),
               entries: z.array(z.union([z.string(), entryListType])),
             }),
             entryTableType,
+            entryInsetType,
           ]),
         ),
         entriesHigherLevel: z
           .array(
             z.object({
-              type: z.string(), // entries
+              type: z.literal("entries"), // entries
               name: z.string(),
               entries: z.array(z.string()),
             }),
