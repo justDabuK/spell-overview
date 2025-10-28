@@ -1,0 +1,26 @@
+---
+import SpellCardLayout from "../../layouts/SpellCardLayout.astro";
+import { type CollectionEntry } from "astro:content";
+
+const characterSpellNameList: CollectionEntry<"spells">["data"]["spell"][0]["name"][] =
+  [
+    "Vicious Mockery",
+    "Blade Ward",
+    "Thaumaturgy",
+    "Poison Spray",
+    "Healing Word",
+    "Dissonant Whispers",
+    "Heroism",
+    "Charm Person",
+    "Ray of Sickness",
+    "Shatter",
+    "Enhance Ability",
+    "Prestidigitation",
+    "Lesser Restoration",
+  ];
+---
+
+<SpellCardLayout
+  characterSpellNameList={characterSpellNameList}
+  characterName="Kaleth"
+/>
