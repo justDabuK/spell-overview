@@ -5,6 +5,7 @@ export const highlightSpecialParts = (text: string) => {
       /\{@scaledamage \d+d\d+\|\d-\d\|(\d+d\d+)}/g,
       "<strong>$1</strong>",
     )
+    .replace(/\{@scaledice \d+d\d+\|\d-\d\|(\d+d\d+)}/g, "<strong>$1</strong>")
     .replace(/\{@dice ([^}]+)}/g, "<strong>$1</strong>")
     .replace(/\{@dc ([^}]+)}/g, "<strong>DC $1</strong>")
     .replace(
