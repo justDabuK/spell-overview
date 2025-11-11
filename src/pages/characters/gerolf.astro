@@ -1,0 +1,23 @@
+---
+import SpellCardLayout from "../../layouts/SpellCardLayout.astro";
+import { type CollectionEntry } from "astro:content";
+
+const characterSpellNameList: CollectionEntry<"spells">["data"]["spell"][0]["name"][] =
+  [
+    "Hunter's Mark",
+    "Disguise Self",
+    "Absorb Elements",
+    "Ensnaring Strike",
+    "Zephyr Strike",
+    "Rope Trick",
+    "Light",
+    "Summon Beast",
+    "Spike Growth",
+    "Locate Object",
+  ];
+---
+
+<SpellCardLayout
+  characterSpellNameList={characterSpellNameList}
+  characterName="Gerolf"
+/>
