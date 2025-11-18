@@ -4,26 +4,19 @@ import { type CollectionEntry } from "astro:content";
 
 const characterSpellNameList: CollectionEntry<"spells">["data"]["spell"][0]["name"][] =
   [
-    "Blade Ward",
-    "Poison Spray",
+    "Eldritch Blast",
+    "Minor Illusion",
     "Prestidigitation",
-    "Thaumaturgy",
-    "Vicious Mockery",
-    "Dissonant Whispers",
-    "Healing Word",
-    "Heroism",
-    "Enhance Ability",
-    "Heat Metal",
     "Hold Person",
-    "Lesser Restoration",
-    "Ray of Sickness",
-    "Shatter",
-    "Dispel Magic",
+    "Darkness",
+    "Hex",
+    "Charm Person",
+    "Misty Step",
     "Hypnotic Pattern",
   ];
 ---
 
 <SpellCardLayout
   characterSpellNameList={characterSpellNameList}
-  characterName="Kaleth"
+  characterName="Nikd"
 />
