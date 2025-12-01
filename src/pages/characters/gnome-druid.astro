@@ -1,0 +1,22 @@
+---
+import SpellCardLayout from "../../layouts/SpellCardLayout.astro";
+import { type CollectionEntry } from "astro:content";
+
+const characterSpellNameList: CollectionEntry<"spells">["data"]["spell"][0]["name"][] =
+  [
+    "Starry Wisp",
+    "Shillelagh",
+    "Elementalism",
+    "Minor Illusion",
+    "Speak with Animals",
+    "Faerie Fire",
+    "Thunderwave",
+    "Healing Word",
+    "Detect Magic",
+  ];
+---
+
+<SpellCardLayout
+  characterSpellNameList={characterSpellNameList}
+  characterName="Gnome Druid"
+/>

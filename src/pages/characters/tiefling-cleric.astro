@@ -1,0 +1,28 @@
+---
+import SpellCardLayout from "../../layouts/SpellCardLayout.astro";
+import { type CollectionEntry } from "astro:content";
+
+const characterSpellNameList: CollectionEntry<"spells">["data"]["spell"][0]["name"][] =
+  [
+    // Cantrips (3 + 1)
+    "Guidance",
+    "Toll the Dead",
+    "Spare the Dying",
+    "Word of Radiance",
+    "Thaumaturgy", // Tiefling
+    "Poison Spray", // Tiefling
+    "Sacred Flame", // Magic Initiate
+    "Mending", // Magic Initiate
+    // prepared spells (4)
+    "Bless", // Magic Initiate
+    "Shield of Faith",
+    "Healing Word",
+    "Command",
+    "Inflict Wounds",
+  ];
+---
+
+<SpellCardLayout
+  characterSpellNameList={characterSpellNameList}
+  characterName="Tiefling Cleric"
+/>
