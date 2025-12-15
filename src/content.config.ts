@@ -172,7 +172,7 @@ const spells = defineCollection({
             z.object({
               type: z.literal("entries"), // entries
               name: z.string(),
-              entries: z.array(z.string()),
+              entries: z.array(z.union([z.string(), entryTableType])),
             }),
           )
           .optional(),
