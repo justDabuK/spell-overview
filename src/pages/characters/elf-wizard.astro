@@ -1,0 +1,34 @@
+---
+import SpellCardLayout from "../../layouts/SpellCardLayout.astro";
+import { type CollectionEntry } from "astro:content";
+
+const characterSpellNameList: CollectionEntry<"spells">["data"]["spell"][0]["name"][] =
+  [
+    // Cantrips: 3 + 2 (initiate)
+    "Fire Bolt",
+    "Shocking Grasp",
+    "Minor Illusion",
+    "Mage Hand",
+    "Mold Earth",
+    "Prestidigitation", // elf
+    // Spellbook: 10 + 1 (initiate)
+    //   rituals in book
+    "Detect Magic",
+    "Comprehend Languages",
+    "Find Familiar",
+    "Identify",
+    "Alarm",
+    //   prepared spells 5 + 1 (initiate)
+    "Mage Armor", // initiate
+    "Shield",
+    "Silvery Barbs",
+    "Thunderwave",
+    "Sleep",
+    "Spellfire Flare",
+  ];
+---
+
+<SpellCardLayout
+  characterSpellNameList={characterSpellNameList}
+  characterName="Elf Wizard"
+/>
