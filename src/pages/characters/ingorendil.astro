@@ -1,0 +1,60 @@
+---
+import SpellCardLayout from "../../layouts/SpellCardLayout.astro";
+import { type CollectionEntry } from "astro:content";
+
+const characterSpellNameList: CollectionEntry<"spells">["data"]["spell"][0]["name"][] =
+  [
+    "Minor Illusion",
+    "Prestidigitation",
+    "Fire Bolt",
+    "Mage Hand",
+    "Shocking Grasp",
+    "Mind Sliver",
+    "Chill Touch",
+    "Toll the Dead",
+    "Mold Earth",
+    "Summon Beast",
+    "Summon Fey",
+    "Mage Armor",
+    "Shield",
+    "Find Familiar",
+    "Sleep",
+    "Fog Cloud",
+    "Detect Magic",
+    "Comprehend Languages",
+    "Invisibility",
+    "Misty Step",
+    "Enlarge/Reduce",
+    "Enhance Ability",
+    "Phantasmal Force",
+    "Mirror Image",
+    "Blur",
+    "Magic Mouth",
+    "Counterspell",
+    "Fireball",
+    "Hypnotic Pattern",
+    "Haste",
+    "Slow",
+    "Major Image",
+    "Fear",
+    "Water Breathing",
+    "Leomund's Tiny Hut",
+    "Dimension Door",
+    "Greater Invisibility",
+    "Polymorph",
+    "Wall of Fire",
+    "Phantasmal Killer",
+    "Divination",
+    "Cone of Cold",
+    "Seeming",
+    "Wall of Force",
+    "Creation",
+    "Contact Other Plane",
+    "Rary's Telepathic Bond",
+  ];
+---
+
+<SpellCardLayout
+  characterSpellNameList={characterSpellNameList}
+  characterName="Ingorendil"
+/>

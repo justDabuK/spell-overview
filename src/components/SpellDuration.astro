@@ -37,6 +37,12 @@ const needsConcentration = durationList.some((duration) =>
             ))}
           </div>
         );
+      } else if (duration.type === "special") {
+        return (
+          <div>
+            <Icon name="infinity" />
+          </div>
+        );
       } else {
         return <pre>{JSON.stringify(duration, undefined, 2)}</pre>;
       }
