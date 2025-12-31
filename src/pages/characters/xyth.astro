@@ -1,0 +1,40 @@
+---
+import SpellCardLayout from "../../layouts/SpellCardLayout.astro";
+import { type CollectionEntry } from "astro:content";
+
+const characterSpellNameList: CollectionEntry<"spells">["data"]["spell"][0]["name"][] =
+  [
+    "Starry Wisp",
+    "Shillelagh",
+    "Druidcraft",
+    "Elementalism",
+    "Light",
+    "Guidance",
+    "Speak with Animals",
+    "Cure Wounds",
+    "Moonbeam",
+    "Conjure Animals",
+    "Fount of Moonlight",
+    "Mass Cure Wounds",
+    "Call Lightning",
+    "Aura of Vitality",
+    "Conjure Minor Elementals",
+    "Control Water",
+    "Insect Plague",
+    "Cone of Cold",
+    "Awaken",
+    "Conjure Woodland Beings",
+    "Greater Restoration",
+    "Pass without Trace",
+    "Aid",
+    "Enhance Ability",
+    "Sleet Storm",
+    "Ice Storm",
+    "Heat Metal",
+  ];
+---
+
+<SpellCardLayout
+  characterSpellNameList={characterSpellNameList}
+  characterName="Xÿth"
+/>
