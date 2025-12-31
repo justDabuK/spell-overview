@@ -6,6 +6,7 @@ import SpellComponents from "./SpellComponents.astro";
 import SpellMaterialComponent from "./SpellMaterialComponent.astro";
 import SpellDuration from "./SpellDuration.astro";
 import SpellDescription from "./SpellDescription/SpellDescription.astro";
+import { Icon } from "astro-icon/components";
 
 interface Props {
   spell: CollectionEntry<"spells">["data"]["spell"][0];
@@ -31,6 +32,8 @@ const actionColorMap = {
 };
 
 const isContaminated = spell.contaminated ?? false;
+const actionColor =
+  actionColorMap[spell.time[0]?.unit] ?? actionColorMap["unknown"];
 ---
 
 <div
@@ -39,9 +42,12 @@ const isContaminated = spell.contaminated ?? false;
     numberWordArray[spell.level],
     isContaminated ? "contaminated" : "",
   ]}
-  style={`--action-color: ${spell.meta?.ritual ? "var(--green)" : (actionColorMap[spell.time[0]?.unit] ?? actionColorMap["unknown"])};`}
+  style={`--action-color: ${actionColor};`}
 >
-  <div class="name">{spell.name}{spell.meta?.ritual ? "*" : ""}</div>
+  <div class="name">
+    <span>{spell.name}</span>
+    {spell.meta?.ritual ? <Icon name="pentagram" /> : null}
+  </div>
   <SpellSchool class="school" school={spell.school} />
   <SpellDuration class="duration" durationList={spell.duration} />
   <SpellRange class="range" range={spell.range} />
@@ -99,9 +105,19 @@ const isContaminated = spell.contaminated ?? false;
     .name {
       grid-area: name;
       display: flex;
+      gap: var(--size-8);
       justify-content: center;
       align-items: center;
       text-align: center;
+
+      [data-icon] {
+        color: var(--teal);
+        --icon-size: var(--size-32);
+
+        width: var(--icon-size);
+        height: var(--icon-size);
+        padding-bottom: var(--size-8);
+      }
     }
     .range {
       grid-area: range;
