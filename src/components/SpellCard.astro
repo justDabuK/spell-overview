@@ -39,9 +39,9 @@ const isContaminated = spell.contaminated ?? false;
     numberWordArray[spell.level],
     isContaminated ? "contaminated" : "",
   ]}
-  style={`--action-color: ${actionColorMap[spell.time[0]?.unit] ?? actionColorMap["unknown"]};`}
+  style={`--action-color: ${spell.meta?.ritual ? "var(--green)" : (actionColorMap[spell.time[0]?.unit] ?? actionColorMap["unknown"])};`}
 >
-  <div class="name">{spell.name}</div>
+  <div class="name">{spell.name}{spell.meta?.ritual ? "*" : ""}</div>
   <SpellSchool class="school" school={spell.school} />
   <SpellDuration class="duration" durationList={spell.duration} />
   <SpellRange class="range" range={spell.range} />
