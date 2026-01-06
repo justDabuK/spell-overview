@@ -1,0 +1,23 @@
+---
+import SpellCardLayout from "../../layouts/SpellCardLayout.astro";
+import { type CollectionEntry } from "astro:content";
+
+const characterSpellNameList: CollectionEntry<"spells">["data"]["spell"][0]["name"][] =
+  [
+    "Speak with Animals",
+    "Poison Spray",
+    "Resistance",
+    "Mending",
+    "Animal Friendship",
+    "Cure Wounds",
+    "Fog Cloud",
+    "Jump",
+    "Entangle",
+    "Find Familiar",
+  ];
+---
+
+<SpellCardLayout
+  characterSpellNameList={characterSpellNameList}
+  characterName="Akakia"
+/>
