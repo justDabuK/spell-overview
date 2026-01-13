@@ -1,0 +1,26 @@
+---
+import SpellCardLayout from "../../layouts/SpellCardLayout.astro";
+import { type CollectionEntry } from "astro:content";
+
+const characterSpellNameList: CollectionEntry<"spells">["data"]["spell"][0]["name"][] =
+  [
+    // Drow
+    "Dancing Lights",
+    "Faerie Fire",
+    // prepared spells: 4
+    "Bless",
+    "Searing Smite",
+    "Command",
+    "Shield of Faith",
+    // paladin's smite
+    "Divine Smite",
+    // vengeance
+    "Bane",
+    "Hunter's Mark",
+  ];
+---
+
+<SpellCardLayout
+  characterSpellNameList={characterSpellNameList}
+  characterName="Elf Paladin"
+/>
