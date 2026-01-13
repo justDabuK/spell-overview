@@ -4,17 +4,23 @@ import { type CollectionEntry } from "astro:content";
 
 const characterSpellNameList: CollectionEntry<"spells">["data"]["spell"][0]["name"][] =
   [
+    // canrips: 2
     "Vicious Mockery",
     "Minor Illusion",
+    // prepared spells: 6
     "Silvery Barbs",
     "Tasha's Hideous Laughter",
-    "Charm Person",
     "Thunderwave",
     "Silent Image",
+    "Invisibility",
+    "Suggestion",
+    // college of glamour
+    "Charm Person",
+    "Mirror Image",
   ];
 ---
 
 <SpellCardLayout
   characterSpellNameList={characterSpellNameList}
-  characterName="Satyr Bard"
+  characterName="Surgenfrei"
 />
