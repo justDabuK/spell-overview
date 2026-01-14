@@ -34,6 +34,8 @@ const actionColorMap = {
 const isContaminated = spell.contaminated ?? false;
 const actionColor =
   actionColorMap[spell.time[0]?.unit] ?? actionColorMap["unknown"];
+const tooltipTag = `ritual-tooltip-${spell.name.replace(/\s+/g, "-").toLowerCase()}`;
+
 ---
 
 <div
@@ -46,7 +48,26 @@ const actionColor =
 >
   <div class="name">
     <span>{spell.name}</span>
-    {spell.meta?.ritual ? <Icon name="pentagram" /> : null}
+    {
+      spell.meta?.ritual ? (
+        <button
+          command="toggle-popover"
+          commandfor={tooltipTag}
+          interestfor={tooltipTag}
+          style={`anchor-name: --${tooltipTag};`}
+        >
+          <Icon name="pentagram" />
+        </button>
+        <div
+          class="tooltip"
+          popover="hint"
+          id={tooltipTag}
+          style={`position-anchor: --${tooltipTag};`}
+        >
+          Ritual
+        </div>
+      ) : null
+    }
   </div>
   <SpellSchool class="school" school={spell.school} />
   <SpellDuration class="duration" durationList={spell.duration} />
@@ -69,6 +90,36 @@ const actionColor =
 </div>
 
 <style>
+  .tooltip {
+    font-size: var(--font-size-12);
+    padding: var(--size-8);
+
+    position-area: block-start center;
+    background-color: var(--surface0);
+    color: var(--text-color);
+    border-radius: var(--size-8);
+    border: none;
+
+    transition-property: translate, opacity, display, overlay;
+    transition-duration: 0.45s;
+    transition-behavior: allow-discrete;
+
+    translate: 0 calc(0 - var(--size-32));
+    opacity: 0;
+    display: none;
+
+    &:popover-open {
+      opacity: 1;
+      display: block;
+      translate: 0 calc(0 - var(--size-32));
+
+      @starting-style {
+        opacity: 0;
+        translate: 0 0;
+      }
+    }
+  }
+
   .spell-card {
     --action-color: var(--teal);
     --min-size: var(--size-32);
@@ -118,6 +169,11 @@ const actionColor =
         height: var(--icon-size);
         padding-bottom: var(--size-8);
       }
+
+      button {
+        background: none;
+        border: none;
+      }
     }
     .range {
       grid-area: range;
@@ -159,6 +215,7 @@ const actionColor =
       text-align: center;
       justify-content: center;
       align-items: center;
+      pointer-events: none;
     }
 
     &.zero {
