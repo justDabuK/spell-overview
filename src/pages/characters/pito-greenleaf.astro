@@ -1,0 +1,21 @@
+---
+import SpellCardLayout from "../../layouts/SpellCardLayout.astro";
+import { type CollectionEntry } from "astro:content";
+
+const characterSpellNameList: CollectionEntry<"spells">["data"]["spell"][0]["name"][] =
+  [
+    // cantrips: 3
+    "Mage Hand",
+    "Minor Illusion",
+    "Booming Blade",
+    // prepared spells: 3
+    "Disguise Self",
+    "Silent Image",
+    "Witch Bolt",
+  ];
+---
+
+<SpellCardLayout
+  characterSpellNameList={characterSpellNameList}
+  characterName="Pito Greenleaf"
+/>
