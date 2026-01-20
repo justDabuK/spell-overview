@@ -48,6 +48,7 @@ const tooltipTag = `ritual-tooltip-${spell.name.replace(/\s+/g, "-").toLowerCase
 >
   <div class="name">
     <span>{spell.name}</span>
+    <span class="level">({spell.level})</span>
     {
       spell.meta?.ritual ? (
         <button
@@ -149,6 +150,12 @@ const tooltipTag = `ritual-tooltip-${spell.name.replace(/\s+/g, "-").toLowerCase
       }
     }
 
+    @media print {
+      &.contaminated {
+        color: var(--text-color);
+      }
+    }
+
     .duration {
       grid-area: duration;
     }
@@ -173,6 +180,15 @@ const tooltipTag = `ritual-tooltip-${spell.name.replace(/\s+/g, "-").toLowerCase
       button {
         background: none;
         border: none;
+      }
+
+      .level {
+        display: none;
+      }
+      @media print {
+        .level {
+          display: inline;
+        }
       }
     }
     .range {
@@ -266,6 +282,12 @@ const tooltipTag = `ritual-tooltip-${spell.name.replace(/\s+/g, "-").toLowerCase
     &.nine {
       &::after {
         content: "9";
+      }
+    }
+
+    @media print {
+      &::after {
+        display: none;
       }
     }
   }

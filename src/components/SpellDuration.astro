@@ -48,6 +48,11 @@ const needsConcentration = durationList.some((duration) =>
       }
     })
   }
+  {
+    needsConcentration ? (
+      <span class="concentration-hint">(concentration)</span>
+    ) : null
+  }
 </div>
 
 <style>
@@ -60,7 +65,7 @@ const needsConcentration = durationList.some((duration) =>
     border-radius: var(--border-radius);
 
     &.concentration {
-      background: var(--teal);
+      background-color: var(--teal);
 
       [data-icon] {
         color: var(--background-color) !important;
@@ -70,6 +75,29 @@ const needsConcentration = durationList.some((duration) =>
         color: var(--background-color);
         font-weight: bold;
         padding: 0 var(--size-4) var(--size-4) var(--size-4);
+      }
+
+      .concentration-hint {
+        display: none;
+      }
+
+      @media print {
+        background-color: transparent;
+
+        [data-icon] {
+          color: var(--teal) !important;
+        }
+
+        span {
+          color: var(--teal);
+          font-weight: unset;
+          padding: 0;
+        }
+
+        .concentration-hint {
+          display: inline;
+          font-style: italic;
+        }
       }
     }
   }

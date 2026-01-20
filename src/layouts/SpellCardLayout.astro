@@ -101,4 +101,15 @@ const isListsNotMatching =
       gap: inherit;
     }
   }
+
+  @media print {
+    .spell-card-layout {
+      grid-template-columns: repeat(2, 1fr);
+
+      .same-level-list {
+        break-inside: avoid;
+        margin-top: var(--size-16);
+      }
+    }
+  }
 </style>
