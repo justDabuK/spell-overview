@@ -11,24 +11,28 @@ const characterSpellNameList: CollectionEntry<"spells">["data"]["spell"][0]["nam
     "Mage Hand",
     "Mold Earth",
     "Prestidigitation", // elf
-    // Spellbook: 10 + 1 (initiate)
+    // Spellbook: 12 + 1 (initiate) + 2 (evoker)
     //   rituals in book
     "Detect Magic",
     "Comprehend Languages",
     "Find Familiar",
     "Identify",
     "Alarm",
-    //   prepared spells 5 + 1 (initiate)
-    "Mage Armor", // initiate
-    "Shield",
+    "Sleep",
     "Silvery Barbs",
     "Thunderwave",
-    "Sleep",
+    //   prepared spells 6 + 1 (initiate)
+    "Mage Armor", // initiate
+    "Shield",
     "Spellfire Flare",
+    "Shatter", // evoker
+    "Scorching Ray", // evoker
+    "Dragon's Breath",
+    "Misty Step",
   ];
 ---
 
 <SpellCardLayout
   characterSpellNameList={characterSpellNameList}
-  characterName="Elf Wizard"
+  characterName="Megumin"
 />
