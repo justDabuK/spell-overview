@@ -1,0 +1,26 @@
+---
+import SpellCardLayout from "../../layouts/SpellCardLayout.astro";
+import { type CollectionEntry } from "astro:content";
+
+const characterSpellNameList: CollectionEntry<"spells">["data"]["spell"][0]["name"][] =
+  [
+    // Cantrips: 3 + 1 (tinker's magic) + 1 gnome
+    "Mending", // tinker's magic & gnome
+    "Prestidigitation", // gnome
+    "Fire Bolt",
+    "Guidance",
+    "Thorn Whip",
+    // prepared: 4 + 2 (artillerist)
+    "Shield", // artillerist
+    "Thunderwave", // artillerist
+    "Faerie Fire",
+    "Tasha's Caustic Brew",
+    "Cure Wounds",
+    "Grease",
+  ];
+---
+
+<SpellCardLayout
+  characterSpellNameList={characterSpellNameList}
+  characterName="Gnome Artificer"
+/>
