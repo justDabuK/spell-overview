@@ -1,0 +1,25 @@
+---
+import SpellCardLayout from "../../layouts/SpellCardLayout.astro";
+import { type CollectionEntry } from "astro:content";
+
+const characterSpellNameList: CollectionEntry<"spells">["data"]["spell"][0]["name"][] =
+  [
+    // noble genies
+    "Elementalism",
+    "Chromatic Orb",
+    "Thunderous Smite",
+    // Paladin's Smite
+    "Divine Smite",
+    // prepared spells: 5
+    "Bless",
+    "Searing Smite",
+    "Command",
+    "Divine Favor",
+    "Shield of Faith",
+  ];
+---
+
+<SpellCardLayout
+  characterSpellNameList={characterSpellNameList}
+  characterName="Nasir"
+/>
