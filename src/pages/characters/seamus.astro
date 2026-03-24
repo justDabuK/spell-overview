@@ -4,19 +4,32 @@ import { type CollectionEntry } from "astro:content";
 
 const characterSpellNameList: CollectionEntry<"spells">["data"]["spell"][0]["name"][] =
   [
-    "Starry Wisp",
+    // cantrips: 3
     "Shillelagh",
     "Elementalism",
+    "Guidance",
+    // forest gnome
     "Minor Illusion",
     "Speak with Animals",
-    "Faerie Fire",
+    // moon spells
+    "Starry Wisp",
+    "Cure Wounds",
+    "Moonbeam",
+    "Conjure Animals",
+    // prepared spells: 9
     "Thunderwave",
     "Healing Word",
     "Detect Magic",
+    "Entangle",
+    "Summon Beast",
+    "Wither and Bloom",
+    "Enhance Ability",
+    "Aid",
+    "Call Lightning",
   ];
 ---
 
 <SpellCardLayout
   characterSpellNameList={characterSpellNameList}
-  characterName="Gnome Druid"
+  characterName="Seamus"
 />
