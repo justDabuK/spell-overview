@@ -441,7 +441,7 @@
           "type": "entries",
           "name": "Using a Higher-Level Spell Slot",
           "entries": [
-            "If you cast this spell using a spell slot of 3rd level or higher, the damage increases by {@damage 1d8 for each slot level above 2nd."
+            "If you cast this spell using a spell slot of 3rd level or higher, the damage increases by {@damage 1d8} for each slot level above 2nd."
           ]
         }
       ],
@@ -892,7 +892,7 @@
       "time": [
         {
           "number": 1,
-            "unit": "action"
+          "unit": "action"
         }
       ],
       "range": {
