@@ -17,7 +17,7 @@ export const highlightSpecialParts = (text: string) => {
       /\{@variantrule [^|]+\|\w+\|([^|]+)}/g,
       "<em><strong>$1</strong></em>",
     )
-    .replace(/\{@condition ([^|]+)\|\w+}/g, "<em><strong>$1</strong></em>")
+    .replace(/\{@condition ([^|]+)(\|\w+)?}/g, "<em><strong>$1</strong></em>")
     .replace(/\{@status ([^|]+)\|\w+}/g, "<em><strong>$1</strong></em>")
     .replace(/\{@skill ([^|]+)\|\w+}/g, "<em><strong>$1</strong></em>")
     .replace(/\{@spell ([^|]+)\|\w+}/g, "<em><strong>$1</strong></em>")
@@ -25,5 +25,6 @@ export const highlightSpecialParts = (text: string) => {
     .replace(/\{@creature ([^|]+)\|\w+}/g, "<em><strong>$1</strong></em>")
     .replace(/\{@action ([^|]+)\|\w+}/g, "<em><strong>$1</strong></em>")
     .replace(/\{@action [^|]+\|\w+\|([^|]+)}/g, "<em><strong>$1</strong></em>")
+    .replace(/\{@filter ([^|]+)(\|.+)*}/g, "<em><strong>$1</strong></em>")
     .replace(/(\w+ saving throw)/g, "<em><strong>$1</strong></em>");
 };
