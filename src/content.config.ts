@@ -237,6 +237,7 @@ const items = defineCollection({
           )
           .optional(),
         wondrous: z.boolean().optional(),
+        tattoo: z.boolean().optional(),
         modifySpeed: z
           .object({
             equal: z

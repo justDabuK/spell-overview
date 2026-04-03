@@ -1,0 +1,65 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { type CollectionEntry, getCollection } from "astro:content";
+import { Image } from "astro:assets";
+import tattooShop from "../../assets/tattoo-shop.webp";
+
+const itemCollectionList = await getCollection("items");
+const tattooItems = itemCollectionList.flatMap(
+  (itemCollection: CollectionEntry<"items">) =>
+    itemCollection.data.item.filter((item) => item.tattoo === true),
+);
+
+const tattooItemsByRarity = {};
+
+tattooItems.forEach((item: CollectionEntry<"items">["data"]["item"][0]) => {
+  const currentRarity = item.rarity;
+
+  if (tattooItemsByRarity[currentRarity] === undefined)
+    tattooItemsByRarity[currentRarity] = [item];
+  else tattooItemsByRarity[currentRarity].push(item);
+});
+
+const headlineByRarity = {
+  common: "Common: One hand or foot or a quarter of a limb",
+  uncommon: "Uncommon: Half a limb or the scalp",
+  rare: "Rare: One limb",
+  "very rare": "Very Rare: Two limbs or the chest or upper back",
+  legendary: "Legendary: Two limbs and the torso",
+};
+
+const rarityList = ["common", "uncommon", "rare"];
+---
+
+<BaseLayout title="S.H.E.E.P.">
+  <h1>S.H.E.E.P.</h1>
+  <Image src={tattooShop} alt="an Orc tattooing an elf" />
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Cost</th>
+      </tr>
+    </thead>
+    <tbody>
+      {
+        rarityList.map((rarity) => (
+          <>
+            <tr>
+              <td>
+                <em>{headlineByRarity[rarity]}</em>
+              </td>
+              <td />
+            </tr>
+            {tattooItemsByRarity[rarity].map((item) => (
+              <tr>
+                <td>{item.name}</td>
+                <td>moneyzz</td>
+              </tr>
+            ))}
+          </>
+        ))
+      }
+    </tbody>
+  </table>
+</BaseLayout>
