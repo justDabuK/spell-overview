@@ -3,6 +3,8 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import { type CollectionEntry, getCollection } from "astro:content";
 import { Image } from "astro:assets";
 import tattooShop from "../../assets/tattoo-shop.webp";
+import { highlightSpecialParts } from "../../components/highlightSpecialParts.ts";
+import NonStringEntry from "../../components/SpellDescription/NonStringEntry.astro";
 
 const itemCollectionList = await getCollection("items");
 const tattooItems = itemCollectionList.flatMap(
@@ -38,6 +40,7 @@ const rarityList = ["common", "uncommon", "rare"];
     <thead>
       <tr>
         <th>Name</th>
+        <th>Description</th>
         <th>Cost</th>
       </tr>
     </thead>
@@ -50,10 +53,20 @@ const rarityList = ["common", "uncommon", "rare"];
                 <em>{headlineByRarity[rarity]}</em>
               </td>
               <td />
+              <td />
             </tr>
             {tattooItemsByRarity[rarity].map((item) => (
               <tr>
                 <td>{item.name}</td>
+                <td>
+                  {item.entries.map((entry) => {
+                    if (typeof entry === "string") {
+                      return <p set:html={highlightSpecialParts(entry)} />;
+                    }
+
+                    return <NonStringEntry entryListObject={entry} />;
+                  })}
+                </td>
                 <td>moneyzz</td>
               </tr>
             ))}
