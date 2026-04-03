@@ -299,7 +299,20 @@ const items = defineCollection({
         basicRules2024: z.boolean().optional(),
         basicRules: z.boolean().optional(),
         charges: z.union([z.number(), z.string()]).optional(),
-        entries: z.unknown().optional(),
+        entries: z
+          .array(
+            z.union([
+              z.string(),
+              z.discriminatedUnion("type", [
+                entryListType,
+                entryEntriesType,
+                entryTableType,
+                entryInsetType,
+              ]),
+              z.unknown(),
+            ]),
+          )
+          .optional(),
         light: z
           .array(
             z.object({
