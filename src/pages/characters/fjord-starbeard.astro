@@ -4,15 +4,25 @@ import { type CollectionEntry } from "astro:content";
 
 const characterSpellNameList: CollectionEntry<"spells">["data"]["spell"][0]["name"][] =
   [
-    // cantrips: 3 + 1 (primal order) + 2 (magic initiate)
+    // 0. magic initiate: Wizard
+    "True Strike",
+    "Minor Illusion",
+    "Shield",
+    // 1. druidic
+    "Speak with Animals",
+    // 1. primal order: Magician
+    "Druidcraft",
+    // 2. Wild Companion
+    "Find Familiar",
+    // 3. Starmap
+    "Guidance",
+    "Guiding Bolt",
+    // 4. Telekinetic
+    "Mage Hand",
+    // cantrips: 3
     "Elementalism",
-    "Message",
-    "Shillelagh",
     "Starry Wisp",
     "Thorn Whip",
-    "Druidcraft",
-    "Guidance", // circle of stars
-    "Mage Hand", // telekinetic
     // prepared spells: 9
     "Healing Word",
     "Aid",
@@ -23,10 +33,6 @@ const characterSpellNameList: CollectionEntry<"spells">["data"]["spell"][0]["nam
     "Call Lightning",
     "Summon Fey",
     "Detect Magic",
-    "Thunderwave", // magic initiate
-    "Find Familiar", // wild companion
-    "Guiding Bolt", // circle of stars
-    "Speak with Animals", // druidic
   ];
 ---
 
