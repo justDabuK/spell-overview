@@ -49,6 +49,9 @@ for (const spell of characterSpellList) {
 
 const isListsNotMatching =
   characterSpellList.length !== characterSpellNameList.length;
+const missingSpellList = characterSpellNameList.filter(
+  (spellName) => !characterSpellList.some((spell) => spell.name === spellName),
+);
 ---
 
 <BaseLayout title={characterName}>
@@ -61,6 +64,7 @@ const isListsNotMatching =
           : ""
       }
     </h1>
+    {isListsNotMatching ? <p>{missingSpellList.join(", ")}</p> : null}
   </header>
   <div class="spell-card-layout">
     {
