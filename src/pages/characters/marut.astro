@@ -1,0 +1,40 @@
+---
+import SpellCardLayout from "../../layouts/SpellCardLayout.astro";
+import { type CollectionEntry } from "astro:content";
+
+const characterSpellNameList: CollectionEntry<"spells">["data"]["spell"][0]["name"][] =
+  [
+    // magic initiate
+    "Mage Hand",
+    "Minor Illusion",
+    "Shield",
+    // pathogenist
+    "Chill Touch",
+    "Infect",
+    "Inflict Wounds",
+    "Blindness/Deafness",
+    "Biohazard",
+    "Pestilence",
+    "Venomous Aura",
+    // Cantrips: 4
+    "Poison Needle",
+    "Guidance",
+    "Spare the Dying",
+    "Thaumaturgy",
+    // spells: 9
+    "Corrosive Blast",
+    "Dispel Magic",
+    "Hypnotic Pattern",
+    "Mass Healing Word",
+    "Slow",
+    "Speak with Dead",
+    "Vampiric Touch",
+    "Healing Word",
+    "Detect Magic",
+  ];
+---
+
+<SpellCardLayout
+  characterSpellNameList={characterSpellNameList}
+  characterName="Marut"
+/>
