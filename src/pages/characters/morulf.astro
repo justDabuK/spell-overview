@@ -1,0 +1,35 @@
+---
+import SpellCardLayout from "../../layouts/SpellCardLayout.astro";
+import { type CollectionEntry } from "astro:content";
+
+const characterSpellNameList: CollectionEntry<"spells">["data"]["spell"][0]["name"][] =
+  [
+    // cantrips: 3
+    "Shillelagh",
+    "Elementalism",
+    "Guidance",
+    // druid
+    "Speak with Animals",
+    // moon spells
+    "Starry Wisp",
+    "Cure Wounds",
+    "Moonbeam",
+    "Conjure Animals",
+    // prepared spells: 10
+    "Thunderwave",
+    "Healing Word",
+    "Detect Magic",
+    "Entangle",
+    "Summon Beast",
+    "Wither and Bloom",
+    "Enhance Ability",
+    "Aid",
+    "Call Lightning",
+    "Syluné's Viper",
+  ];
+---
+
+<SpellCardLayout
+  characterSpellNameList={characterSpellNameList}
+  characterName="Morulf"
+/>
