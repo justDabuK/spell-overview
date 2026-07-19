@@ -679,7 +679,7 @@
       "damageInflict": ["acid"]
     },
     {
-      "name": "Ferid Blade",
+      "name": "Fetid Blade",
       "source": "SCGTD",
       "page": 188,
       "level": 3,
@@ -699,7 +699,7 @@
       "components": {
         "v": true,
         "s": true,
-        "m": "a drop of acid and a pinch of iron dust)"
+        "m": "a drop of acid and a pinch of iron dust"
       },
       "duration": [
         {
@@ -850,7 +850,7 @@
       "source": "SCGTD",
       "page": 189,
       "level": 3,
-      "school": "V",
+      "school": "T",
       "time": [
         {
           "number": 1,
@@ -881,6 +881,927 @@
         "You emit a baleful aura which disorients creatures who approach you. Any creatures that start their turn within 10 feet of you are poisoned until the start of their next turn."
       ],
       "conditionInflict": ["poisoned"]
+    },
+    {
+      "name": "Blood Worm",
+      "source": "SCGTD",
+      "page": 189,
+      "level": 4,
+      "school": "N",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "feet",
+          "amount": 30
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true,
+        "m": "a jar full of leeches"
+      },
+      "duration": [
+        {
+          "type": "timed",
+          "duration": {
+            "type": "minute",
+            "amount": 1
+          },
+          "concentration": true
+        }
+      ],
+      "entries": [
+        "You infect a creature you can see within range with a magical disease in the form of a malignant parasite. Once per turn when a creature hits the infected target with a weapon attack, that attack deals an additional {@damage 4d6} necrotic damage, and the attacker regains hit points equal to the necrotic damage dealt. Each time the infected target takes this necrotic damage, it makes a Constitution saving throw against the spell. If the saving throw succeeds, the spell ends."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "Using a Higher-Level Spell Slot",
+          "entries": [
+            "When you cast this spell using a spell slot of 5th level or higher, the necrotic damage increases by {@damage 1d6} for each slot level above 4th."
+          ]
+        }
+      ],
+      "damageInflict": ["necrotic"],
+      "savingThrow": ["constitution"]
+    },
+    {
+      "name": "Corpse Explosion",
+      "source": "SCGTD",
+      "page": 189,
+      "level": 4,
+      "school": "N",
+      "time": [
+        {
+          "number": 1,
+          "unit": "reaction",
+          "condition": "which you take when a creature you can see dies within 120 feet of you"
+        }
+      ],
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "feet",
+          "amount": 120
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true
+      },
+      "duration": [
+        {
+          "type": "instant"
+        }
+      ],
+      "entries": [
+        "You cause the triggering creature’s body to explode in a violent shower of gore and infected flesh. Creatures within 10 feet of a point centered on the triggering creature’s body take {@damage 4d8} necrotic damage and {@damage 4d8} acid damage, or half as much damage on a successful Dexterity saving throw."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "Using a Higher-Level Spell Slot",
+          "entries": [
+            "If you cast this spell using a spell slot of 5th level or higher, the damage increases by {@damage 1d8} acid damage for each slot level above 4th."
+          ]
+        }
+      ],
+      "damageInflict": ["necrotic", "acid"],
+      "savingThrow": ["dexterity"]
+    },
+    {
+      "name": "Corrupting Spores",
+      "source": "SCGTD",
+      "page": 190,
+      "level": 4,
+      "school": "N",
+      "time": [
+        {
+          "number": 1,
+          "unit": "bonus"
+        }
+      ],
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "feet",
+          "amount": 120
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true,
+        "m": "a dried mushroom"
+      },
+      "duration": [
+        {
+          "type": "timed",
+          "duration": {
+            "type": "minute",
+            "amount": 1
+          },
+          "concentration": true
+        }
+      ],
+      "entries": [
+        "A small patch of three poison mushrooms magically sprout in a 5-foot square that you can see within range. The mushrooms emit toxic spores, and any creature that starts its turn within 10 feet of the mushroom patch must make a Constitution saving throw. On a failed save, the creature takes {@damage 1d8} poison damage for each mushroom in the patch and is poisoned until the start of its next turn.",
+        "Until the spell ends, you can use a bonus action on your turn to cause an additional mushroom to sprout within the patch."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "Using a Higher-Level Spell Slot",
+          "entries": [
+            "When you cast this spell using a spell slot of 5th level or higher, one additional mushroom sprouts with the initial patch for each slot level above 4th."
+          ]
+        }
+      ],
+      "damageInflict": ["poison"],
+      "conditionInflict": ["poisoned"],
+      "savingThrow": ["constitution"]
+    },
+    {
+      "name": "Last Rites",
+      "source": "SCGTD",
+      "page": 190,
+      "level": 4,
+      "school": "A",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "feet",
+          "amount": 120
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true,
+        "m": "a small piece of brass, a rose petal, and a drop of holy water"
+      },
+      "duration": [
+        {
+          "type": "instant"
+        }
+      ],
+      "entries": [
+        "You target a creature you can see within range with a beam of holy light that shines down upon them. The target must make a Wisdom saving throw. The target takes {@damage 8d8} radiant damage on a failed save, or half as much on a successful one. This spell has no effect on celestials or constructs.",
+        "If you target an undead or fiend, it makes the saving throw with disadvantage, and the spell deals maximum damage to it. If an undead or fiend is reduced to 0 hit points by this spell, it dies and its body is reduced to ash."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "Using a Higher-Level Spell Slot",
+          "entries": [
+            "When you cast this spell using a spell slot of 5th level or higher, you may target an additional creature within 30 feet of each other for each spell level above 5th."
+          ]
+        }
+      ],
+      "damageInflict": ["radiant"],
+      "savingThrow": ["wisdom"]
+    },
+    {
+      "name": "Poison Wave",
+      "source": "SCGTD",
+      "page": 190,
+      "level": 4,
+      "school": "C",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "range": {
+        "type": "sphere",
+        "distance": {
+          "type": "feet",
+          "amount": 30
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true,
+        "m": "a withered root and a drop of vinegar"
+      },
+      "duration": [
+        {
+          "type": "instant"
+        }
+      ],
+      "entries": [
+        "A wave of poisonous fumes emanates from you. Creatures within 30 feet of you must make a Constitution saving throw. On a failed save, each creature takes {@damage 4d12} poison damage and is poisoned until the end of your next turn. On a successful saving throw, a creature takes half as much damage and does not become poisoned."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "Using a Higher-Level Spell Slot",
+          "entries": [
+            "If you cast this spell using a spell slot of 5th level or higher, the damage increases by {@damage 1d12} for each slot level above 4th."
+          ]
+        }
+      ],
+      "damageInflict": ["poison"],
+      "conditionInflict": ["poisoned"],
+      "savingThrow": ["constitution"]
+    },
+    {
+      "name": "Summon the Thing with the Writhing Tail",
+      "source": "SCGTD",
+      "page": 190,
+      "level": 4,
+      "school": "C",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "feet",
+          "amount": 90
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true,
+        "m": "a tuft of cat hair and a dead rat"
+      },
+      "duration": [
+        {
+          "type": "timed",
+          "duration": {
+            "type": "hour",
+            "amount": 1
+          },
+          "concentration": true
+        }
+      ],
+      "entries": [
+        "You call forth The Thing with the Writhing Tail. It manifests in an unoccupied space that you can see within range. This corporeal form uses the stat block below. The creature disappears when it drops to 0 hit points or when the spell ends.",
+        "The creature is an ally to you and your companions. In combat, the creature shares your initiative count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you). If you don’t issue any, it takes the Dodge action and uses its move to avoid danger."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "Using a Higher-Level Spell Slot",
+          "entries": [
+            "When you cast this spell using a spell slot of 5th level or higher, use the higher level wherever the spell’s level appears in the stat block."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Vitriol Ichor",
+      "source": "SCGTD",
+      "page": 191,
+      "level": 4,
+      "school": "T",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "feet",
+          "amount": 30
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true,
+        "m": "a vial of nitric acid and a flask of water"
+      },
+      "duration": [
+        {
+          "type": "timed",
+          "duration": {
+            "type": "minute",
+            "amount": 1
+          },
+          "concentration": true
+        }
+      ],
+      "entries": [
+        "Choose a creature within range that has natural armor or is wearing armor. You magically cause the creature’s natural or manufactured armor to become corroded and brittle for the spell’s duration. While its armor is corroded, the creature’s AC becomes 10 + the creature’s Dexterity modifier."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "Using a Higher-Level Spell Slot",
+          "entries": [
+            "When you cast this spell using a spell slot of 5th level or higher, you may target one additional creature for each slot level above 4th."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Acid Rain",
+      "source": "SCGTD",
+      "page": 191,
+      "level": 5,
+      "school": "C",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "feet",
+          "amount": 150
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true,
+        "m": "a pinch of sulfur and ground coal"
+      },
+      "duration": [
+        {
+          "type": "timed",
+          "duration": {
+            "type": "minute",
+            "amount": 1
+          },
+          "concentration": true
+        }
+      ],
+      "entries": [
+        "Until the spell ends, acid rain falls in a 40-foot-tall {@variantrule Cylinder [Area of Effect]|XPHB|Cylinder} with a 40-foot radius centered on a point you choose within range. The area is lightly obscured, and exposed flames in the area are doused.",
+        "Chemical acids accumulate on the ground in the area, making it difficult terrain. When a creature enters the spell’s area for the first time on a turn or starts its turn there, it takes {@damage 3d6} acid damage and must make a Dexterity saving throw. On a failed save, it falls prone in the pools, taking an additional {@damage 3d6} acid damage."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "Using a Higher-Level Spell Slot",
+          "entries": [
+            "When you cast this spell using a spell slot of 6th level or higher, the acid damage increases by {@damage 1d6} for each slot level above 5th."
+          ]
+        }
+      ],
+      "damageInflict": ["acid"],
+      "conditionInflict": ["prone"],
+      "savingThrow": ["dexterity"]
+    },
+    {
+      "name": "Nerve Gas",
+      "source": "SCGTD",
+      "page": 191,
+      "level": 5,
+      "school": "N",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "feet",
+          "amount": 120
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true,
+        "m": "samples of phosphate and chlorine mixed with a drop of pure alcohol"
+      },
+      "duration": [
+        {
+          "type": "timed",
+          "duration": {
+            "type": "minute",
+            "amount": 10
+          },
+          "concentration": true
+        }
+      ],
+      "entries": [
+        "You create a 10-foot-radius {@variantrule Sphere [Area of Effect]|XPHB|Sphere} of toxic fog centered on a point you choose within range. The fog spreads around corners. It lasts for the duration or until strong wind disperses the fog, ending the spell. The fog’s area is heavily obscured.",
+        "When a creature enters the spell’s area for the first time on a turn or starts its turn there, that creature must make an Intelligence saving throw. On a failed saving throw, the creature takes {@damage 3d6} psychic damage and becomes stunned until the start of its next turn. On a successful saving throw, the creature takes half as much damage and is not stunned. Creatures are affected even if they hold their breath or don’t need to breathe."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "Using a Higher-Level Spell Slot",
+          "entries": [
+            "If you cast this spell using a spell slot of 6th level or higher, the damage increases by {@damage 1d6} psychic damage for each slot level above 5th."
+          ]
+        }
+      ],
+      "damageInflict": ["psychic"],
+      "conditionInflict": ["stunned"],
+      "savingThrow": ["intelligence"]
+    },
+    {
+      "name": "Neutralizing Field",
+      "source": "SCGTD",
+      "page": 192,
+      "level": 5,
+      "school": "A",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "range": {
+        "type": "radius",
+        "distance": {
+          "type": "feet",
+          "amount": 10
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true,
+        "m": "a delerium crystal or holy relic worth 1,000 gp"
+      },
+      "duration": [
+        {
+          "type": "timed",
+          "duration": {
+            "type": "hour",
+            "amount": 1
+          },
+          "concentration": true
+        }
+      ],
+      "entries": [
+        "You negate contaminated magical energies in a 10-foot-radius sphere. Until the spell ends, the sphere moves with you, centered on you. Creatures in the sphere (including you) can’t gain Contamination Levels and have resistance to necrotic damage. Contaminated spells can’t be cast by creatures in the area.",
+        {
+          "type": "entries",
+          "name": "Researching the Spell",
+          "entries": [
+            "A character who can cast 5th level spells, knows the purge contamination spell, and has created at least 1 dose of aqua expurgo may research neutralizing field."
+          ]
+        }
+      ],
+      "damageResist": ["necrotic"]
+    },
+    {
+      "name": "Septic Shock",
+      "source": "SCGTD",
+      "page": 192,
+      "level": 5,
+      "school": "N",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "feet",
+          "amount": 150
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true,
+        "m": "a piece of a rotten liver"
+      },
+      "duration": [
+        {
+          "type": "instant"
+        }
+      ],
+      "entries": [
+        "Choose a creature you can see within range that doesn’t have all its hit points. You infect the target’s wounds with putrefying bacteria. The target must make a Constitution saving throw. If it has less than half its maximum hit points remaining, it makes the saving throw with disadvantage. On a failed save, the target takes {@damage 10d8} necrotic damage and gains 1 level of exhaustion. On a successful save, it takes half as much damage and does not gain any exhaustion levels."
+      ],
+      "damageInflict": ["necrotic"],
+      "savingThrow": ["constitution"]
+    },
+    {
+      "name": "Toxic Barrage",
+      "source": "SCGTD",
+      "page": 192,
+      "level": 5,
+      "school": "C",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "feet",
+          "amount": 120
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true,
+        "m": "four death cap mushrooms"
+      },
+      "duration": [
+        {
+          "type": "instant"
+        }
+      ],
+      "entries": [
+        "You create four rays of pure poison and hurl them at targets within range. You can hurl them at one target or several.",
+        "Make a ranged spell attack for each ray. On a hit, the target takes {@damage 3d6} poison damage. If the target is hit by one or more of these rays, it must make a Constitution saving throw. On a failed save, the target is poisoned for 1 minute. While poisoned in this way, the target can repeat the saving throw at the end of each of its turns. On a success, it is no longer poisoned."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "Using a Higher-Level Spell Slot",
+          "entries": [
+            "When you cast this spell using a spell slot of 6th level or higher, you create one additional ray for each slot level above 5th."
+          ]
+        }
+      ],
+      "damageInflict": ["poison"],
+      "conditionInflict": ["poisoned"],
+      "spellAttack": ["R"],
+      "savingThrow": ["constitution"]
+    },
+    {
+      "name": "Mephitic Vapors",
+      "source": "SCGTD",
+      "page": 192,
+      "level": 6,
+      "school": "C",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "feet",
+          "amount": 120
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true,
+        "m": "a vial of chlorine"
+      },
+      "duration": [
+        {
+          "type": "timed",
+          "duration": {
+            "type": "minute",
+            "amount": 10
+          },
+          "concentration": true
+        }
+      ],
+      "entries": [
+        "You douse a 20-foot radius area centered on a point you can see within range with acrid slime, which remains for the spell’s duration. The area becomes difficult terrain, and any creature wholly within the area is blinded and can’t take reactions. A creature who starts its turn in the area must succeed on a Constitution saving throw or take {@damage 2d8} poison damage and {@damage 2d8} acid damage and gain one level of exhaustion."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "Using a Higher-Level Spell Slot",
+          "entries": [
+            "If you cast this spell using a spell slot of 7th level or higher, the damage increases by {@damage 1d8} poison damage and {@damage 1d8} acid damage for each slot level above 6th."
+          ]
+        }
+      ],
+      "damageInflict": ["poison", "acid"],
+      "conditionInflict": ["blinded"],
+      "savingThrow": ["constitution"]
+    },
+    {
+      "name": "Vile Necrosis",
+      "source": "SCGTD",
+      "page": 192,
+      "level": 6,
+      "school": "N",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "feet",
+          "amount": 120
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true,
+        "m": "a vial of coagulated blood"
+      },
+      "duration": [
+        {
+          "type": "instant"
+        }
+      ],
+      "entries": [
+        "You point your finger towards a creature within range, projecting a pale green beam of debilitating energy at them. Make a ranged spell attack against the target. On a hit, the target takes {@damage 12d6} necrotic damage, and it becomes weakened. While weakened by this spell, a target deals half damage with weapon attacks and spells.",
+        "A weakened target can make a Constitution saving throw at the end of each of its turns. On a successful save, the weakness ends."
+      ],
+      "damageInflict": ["necrotic"],
+      "spellAttack": ["R"],
+      "savingThrow": ["constitution"]
+    },
+    {
+      "name": "Contamination Immunity",
+      "source": "SCGTD",
+      "page": 192,
+      "level": 7,
+      "school": "A",
+      "time": [
+        {
+          "number": 1,
+          "unit": "minute"
+        }
+      ],
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "touch"
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true,
+        "m": "an eldritch lily mixed into 250 gp worth of purified fluids per target, which the spell consumes"
+      },
+      "duration": [
+        {
+          "type": "timed",
+          "duration": {
+            "type": "hour",
+            "amount": 24
+          }
+        }
+      ],
+      "entries": [
+        "Until the spell ends, one willing creature you touch is immune to necrotic damage and cannot gain Contamination Levels. The affected creature may rest normally within the Haze.",
+        "This spell ends immediately if the affected creature casts a contaminated spell.",
+        {
+          "type": "entries",
+          "name": "Researching the Spell",
+          "entries": [
+            "A character who can cast 7th level spells, knows the neutralizing field spell, and who has visited the Delerium Heart can research contamination immunity."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Grievous Wounds",
+      "source": "SCGTD",
+      "page": 193,
+      "level": 7,
+      "school": "N",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "feet",
+          "amount": 120
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true,
+        "m": "a needle and several stitches"
+      },
+      "duration": [
+        {
+          "type": "instant"
+        }
+      ],
+      "entries": [
+        "Choose a creature you can see within range. You momentarily strip the target’s physiology of all resilience, enough that a mere scratch can become a terrible injury. Until the end of your next turn, the target loses any damage resistances or immunities, becomes vulnerable to all damage, and makes all its saving throws with disadvantage."
+      ]
+    },
+    {
+      "name": "Miasma",
+      "source": "SCGTD",
+      "page": 193,
+      "level": 7,
+      "school": "V",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "feet",
+          "amount": 120
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true,
+        "m": "a freshly harvested corpse lily"
+      },
+      "duration": [
+        {
+          "type": "timed",
+          "duration": {
+            "type": "minute",
+            "amount": 1
+          },
+          "concentration": true
+        }
+      ],
+      "entries": [
+        "You create a wall of sickly, yellowish green, toxic fumes on a solid surface within range. You can make the wall up to 60 feet long, 20 feet high, and 1 foot thick, or a ringed wall up to 20 feet in diameter, 20 feet high, and 1 foot thick. The wall is opaque and lasts for the duration.",
+        "When the wall appears, each creature within its area must make a Dexterity saving throw. On a failed save, a creature takes {@damage 10d4} acid damage, or half as much damage on a successful save.",
+        "One side of the wall, selected by you when you cast this spell, emits toxic fumes. It deals {@damage 8d8} poison damage to each creature that ends its turn on that side of or inside the wall. A creature takes the same damage when it enters the wall for the first time on a turn. The other side of the wall deals no damage.",
+        "A creature who takes poison damage from the wall must make a Constitution saving throw or become poisoned for the duration of the spell."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "Using a Higher-Level Spell Slot",
+          "entries": [
+            "When you cast this spell using a spell slot of 8th level or higher, the damage increases by {@damage 2d8} for each slot level above 7th."
+          ]
+        }
+      ],
+      "damageInflict": ["acid", "poison"],
+      "conditionInflict": ["poisoned"],
+      "savingThrow": ["dexterity", "constitution"]
+    },
+    {
+      "name": "Breath of Nightshade",
+      "source": "SCGTD",
+      "page": 193,
+      "level": 8,
+      "school": "C",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "range": {
+        "type": "cone",
+        "distance": {
+          "type": "feet",
+          "amount": 60
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true,
+        "m": "a pair of deadly nightshade flowers"
+      },
+      "duration": [
+        {
+          "type": "instant"
+        }
+      ],
+      "entries": [
+        "You exhale a 60-foot {@variantrule Cone [Area of Effect]|XPHB|Cone} of lethal poison. Each creature in the area when you cast the spell must make a Constitution saving throw. On a failed save, the creature becomes poisoned for 1 hour. While poisoned by this spell, the creature is paralyzed.",
+        "The spell ends for an affected creature if it takes any damage."
+      ],
+      "conditionInflict": ["poisoned", "paralyzed"],
+      "savingThrow": ["constitution"]
+    },
+    {
+      "name": "Plague Wind",
+      "source": "SCGTD",
+      "page": 193,
+      "level": 8,
+      "school": "C",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "range": {
+        "type": "cone",
+        "distance": {
+          "type": "feet",
+          "amount": 120
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true,
+        "m": "mucus from a ghoul"
+      },
+      "duration": [
+        {
+          "type": "instant"
+        }
+      ],
+      "entries": [
+        "You summon a roiling wind of flesh devouring disease and excruciating blood boiling fumes that sweeps over the area emanating from you in a 120-foot {@variantrule Cone [Area of Effect]|XPHB|Cone}. Creatures in the area must make a Constitution saving throw. On a failed saving throw a creature takes {@damage 5d8} poison damage and {@damage 5d8} necrotic damage or half as much damage on a success. After taking this damage, any affected creature with 25 hit points or fewer remaining immediately dies and is reduced to a weathered skeleton as their flesh and soft tissue blows off like ash."
+      ],
+      "damageInflict": ["poison", "necrotic"],
+      "savingThrow": ["constitution"]
+    },
+    {
+      "name": "Pandemic",
+      "source": "SCGTD",
+      "page": 193,
+      "level": 9,
+      "school": "C",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "feet",
+          "amount": 60
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true,
+        "m": "the fetid corpse of a plague rat"
+      },
+      "duration": [
+        {
+          "type": "instant"
+        }
+      ],
+      "entries": [
+        "You infect one creature you can see within range with a deadly and highly infectious disease which lasts until it is cured by greater restoration, heal or wish. Other spells and magical effects which remove diseases fail to cure the infection caused by this spell.",
+        "While infected, a creature must make a Constitution saving throw at the start of each of its turns. On a failed saving throw, it takes {@damage 10d8} necrotic damage and becomes incapacitated until the start of its next turn. On a successful save, it takes half as much damage and is not incapacitated. An infected creature must make the saving throw at the start of each of its turns until it dies or is cured.",
+        "A creature who starts its turn within 10 feet of a creature infected by this spell must make a Constitution saving throw. On a failed saving throw, that creature contracts the infection.",
+        "When you cast the spell, you can choose yourself and up to eight other creatures to be unaffected by the infection caused by this casting of the spell."
+      ],
+      "damageInflict": ["necrotic"],
+      "conditionInflict": ["incapacitated"],
+      "savingThrow": ["constitution"]
+    },
+    {
+      "name": "Touch of Death",
+      "source": "SCGTD",
+      "page": 193,
+      "level": 9,
+      "school": "N",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "touch"
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true,
+        "m": "the finger of a hag"
+      },
+      "duration": [
+        {
+          "type": "instant"
+        }
+      ],
+      "entries": [
+        "Make a melee spell attack against a target within 5 feet of you. On a hit, the target takes 200 poison damage. This damage ignores any resistance or immunity the creature has to poison damage, and can’t be reduced or prevented in any way.",
+        "The potent poison lingers in the targets body and pulls it towards death. A target reduced to zero hit points by this poison damage automatically fails death saving throws until it finishes a long rest. A heal or greater restoration spell cast on the target also ends this effect."
+      ],
+      "damageInflict": ["poison"],
+      "spellAttack": ["M"]
     },
     {
       "name": "Controlled Mutation",
@@ -1010,6 +1931,575 @@
         "When you cast this spell, you vanish from your current plane of existence and appear in the Space Between Worlds (avoiding the triggering damage). At the start of your next turn, you return to an unoccupied space of your choice within 30 feet of the space you vanished from. If no unoccupied space is available within that range, you appear in the nearest unoccupied space (chosen at random if more than one space is equally near).",
         "While within the Space Between Worlds, you can see and hear the plane you originated from, which is cast as a roiling blur, and you can’t see anything there more than 60 feet away. You can only affect and be affected by other creatures in the Space Between Worlds. Creatures that aren’t there can’t perceive you or interact with you, unless they have the ability to do so."
       ]
+    },
+    {
+      "name": "Comet Shards",
+      "source": "SCGTD",
+      "page": 194,
+      "level": 1,
+      "school": "V",
+      "contaminated": true,
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "feet",
+          "amount": 120
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true,
+        "m": "a delerium chip worth 10 gp, which the spell consumes"
+      },
+      "duration": [
+        {
+          "type": "instant"
+        }
+      ],
+      "entries": [
+        "You shatter the delerium fragment in your hand into three glowing comet-like motes of magical force which you hurl at your foes. Each comet hits a creature of your choice that you can see within range. A comet deals {@damage 2d4} + your spellcasting ability modifier force damage to its target and pushes it 10 feet away from you. The comets all strike simultaneously, and you can direct them to hit one creature or several."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "Using a Higher-Level Spell Slot",
+          "entries": [
+            "When you cast this spell using a spell slot of 2nd level or higher, the spell creates one more comet for each slot level above 1st."
+          ]
+        }
+      ],
+      "damageInflict": ["force"]
+    },
+    {
+      "name": "Corrupted Cure",
+      "source": "SCGTD",
+      "page": 194,
+      "level": 1,
+      "school": "V",
+      "contaminated": true,
+      "time": [
+        {
+          "number": 1,
+          "unit": "bonus"
+        }
+      ],
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "feet",
+          "amount": 90
+        }
+      },
+      "components": {
+        "v": true,
+        "m": "a delerium chip worth 10 gp"
+      },
+      "duration": [
+        {
+          "type": "instant"
+        }
+      ],
+      "entries": [
+        "A creature of your choice that you can see within range regains hit points equal to {@dice 4d6} + your spellcasting ability modifier. This spell has no effect on undead or constructs.",
+        "When you cast this spell, the target can choose to gain a Contamination Level as well. If it does, it instead regains hit points equal to {@dice 8d6} + your spellcasting ability modifier."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "Using a Higher-Level Spell Slot",
+          "entries": [
+            "When you cast this spell using a spell slot of 2nd level or higher, the healing increases by {@dice 2d6} for each slot level above first, or {@dice 4d6} if the target chooses to gain a Contamination Level."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Weave the Elder Sign",
+      "source": "SCGTD",
+      "page": 195,
+      "level": 3,
+      "school": "I",
+      "contaminated": true,
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "feet",
+          "amount": 120
+        }
+      },
+      "components": {
+        "s": true,
+        "m": "a delerium chip worth 10 gp, which the spell consumes"
+      },
+      "duration": [
+        {
+          "type": "timed",
+          "duration": {
+            "type": "minute",
+            "amount": 1
+          },
+          "concentration": true
+        }
+      ],
+      "entries": [
+        "You weave an impossible sign from an inscrutable reality in the air inside a 30-foot {@variantrule Cube [Area of Effect]|XPHB|Cube} within range. It appears for only a moment before vanishing. Each creature in the area who sees the sign must make an Intelligence saving throw. On a failed save, the creature becomes blinded and stunned for the spell’s duration. On a successful saving throw, the creature is blinded until the end of your next turn.",
+        "The spell ends for a stunned creature if it takes any damage, or if someone else uses an action to shake the creature out of its stupor. When the spell ends for a stunned creature, it takes {@damage 3d6} psychic damage."
+      ],
+      "damageInflict": ["psychic"],
+      "conditionInflict": ["blinded", "stunned"],
+      "savingThrow": ["intelligence"]
+    },
+    {
+      "name": "Horrific Transformation",
+      "source": "SCGTD",
+      "page": 195,
+      "level": 4,
+      "school": "T",
+      "contaminated": true,
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "touch"
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true,
+        "m": "see description"
+      },
+      "duration": [
+        {
+          "type": "timed",
+          "duration": {
+            "type": "minute",
+            "amount": 1
+          },
+          "concentration": true
+        }
+      ],
+      "entries": [
+        "This spell transforms a willing creature that you touch into a horrific monstrosity. The spell has no effect on a shapechanger or a creature with 0 hit points. The transformation lasts for the duration, or until the target drops to 0 hit points or dies.",
+        "The new form can be an aberration with a Challenge Rating of 4 or lower.",
+        "The target’s game statistics, including mental ability scores, are replaced by the statistics of the chosen aberration. It retains its alignment and personality.",
+        "The target assumes the hit points of its new form. When it reverts to its normal form, the creature returns to the number of hit points it had before it transformed. If it reverts as a result of dropping to 0 hit points, any excess damage carries over to its normal form. As long as the excess damage doesn’t reduce the creature’s normal form to 0 hit points, it isn’t knocked unconscious.",
+        "The creature is limited in the actions it can perform by the nature of its new form, and it can’t speak, cast spells, or take any other action that requires hands or speech.",
+        "The target’s gear melds into the new form. The creature can’t activate, use, wield, or otherwise benefit from any of its equipment.",
+        "In addition to a delerium fragment worth 100 gp, you must provide either the heart or brain (or equivalent organ in the case of aberrations with a truly alien physiology) taken from a creature of the same type: the organ must either be recently harvested or magically preserved via gentle repose or similar magic. As part of casting the spell, you drive the delerium fragment into the organ, and both are consumed by the spell. The Game Master determines if an aberration’s physiology makes its organs suitable for use with this spell."
+      ]
+    },
+    {
+      "name": "Siphon Time",
+      "source": "SCGTD",
+      "page": 196,
+      "level": 4,
+      "school": "T",
+      "contaminated": true,
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "feet",
+          "amount": 120
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true,
+        "m": "a broken clock, and a delerium fragment worth 100 gp, which the spell consumes"
+      },
+      "duration": [
+        {
+          "type": "timed",
+          "duration": {
+            "type": "minute",
+            "amount": 1
+          },
+          "concentration": true
+        }
+      ],
+      "entries": [
+        "You seize upon the flow of time around up to three creatures of your choice within range, drawing seconds from them to use them yourself. Each target must succeed on a Wisdom saving throw or be affected by this spell for the duration.",
+        "An affected target can’t take reactions. On its turn, it must choose to either move, take an action, or a bonus action: a target can do only one of the three.",
+        "A creature affected by this spell can spend its action to try to pull back the threads of time. If it does, it can make another Wisdom saving throw. On a successful save, the effect ends for it.",
+        "While at least one other creature is affected by this spell, you gain an additional action on each of your turns. That action can be used only to take the Attack (one weapon attack only), Cast a Spell, Dash, Disengage, Hide, or Use an Object action. If you use this action to cast a spell, that spell must be a cantrip with a casting time of one action."
+      ],
+      "savingThrow": ["wisdom"]
+    },
+    {
+      "name": "Summon Delerium Elemental",
+      "source": "SCGTD",
+      "page": 196,
+      "level": 4,
+      "school": "C",
+      "contaminated": true,
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "feet",
+          "amount": 90
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true,
+        "m": "a delerium fragment worth 100 gp, which the spell consumes"
+      },
+      "duration": [
+        {
+          "type": "timed",
+          "duration": {
+            "type": "hour",
+            "amount": 1
+          },
+          "concentration": true
+        }
+      ],
+      "entries": [
+        "You call forth a contaminated elemental to do your bidding. Choose air, earth, fire, or water. Eldritch energy conjures a contaminated elemental of the chosen type, which appears in an unoccupied space within range: either an animated sludge (water), entropic flame (fire), living haze (air), or walking geode (earth). Each uses the summoned delerium elemental stat block below, but gains different traits based on the chosen element used to conjure the elemental. The elemental disappears when it drops to 0 hit points or when the spell ends.",
+        "The elemental is friendly to you and your companions for the duration of the spell. In combat, the creature shares your initiative count, but it takes its turn immediately after yours. It obeys any verbal command that you give it (no action required by you). If you don’t give any commands, it attacks the closest hostile creature it can see, moving towards it by the most direct route.",
+        "The elemental doesn’t disappear if you lose concentration on this spell. Instead, you lose control of the elemental, it becomes hostile toward you and your companions, and it attacks you. An uncontrolled elemental can’t be dismissed by you, and it remains until it is destroyed."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "Using a Higher-Level Spell Slot",
+          "entries": [
+            "When you cast this spell using a spell slot of 5th level or higher, use the higher level wherever the spell’s level appears in the stat block."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Contaminated Hands",
+      "source": "SCGTD",
+      "page": 197,
+      "level": 5,
+      "school": "V",
+      "contaminated": true,
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "feet",
+          "amount": 120
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true,
+        "m": "a delerium fragment worth 100 gp, which the spell consumes"
+      },
+      "duration": [
+        {
+          "type": "timed",
+          "duration": {
+            "type": "minute",
+            "amount": 1
+          },
+          "concentration": true
+        }
+      ],
+      "entries": [
+        "You create two hands of shimmering, octarine force in an unoccupied space that you can see within range. The hands last for the spell’s duration. The hands move at your command, mimicking the movements of your own hands.",
+        "Each hand is an object that has AC 20 and hit points equal to your hit point maximum. If one or both of the hands drop to 0 hit points, the spell ends. Each hand has a Strength of 26 (+8) and a Dexterity of 10 (+0) and occupies its space.",
+        "When you cast the spell, and as an action on your subsequent turns, you can move the hands up to 60 feet and then cause one of the following effects with each. Both hands can perform the same action, or different ones. The two hands must move to remain within 30 feet of each other.",
+        {
+          "type": "entries",
+          "name": "Arcane Slam",
+          "entries": [
+            "The hand strikes one creature or object within 5 feet of it. Make a melee spell attack for the hand using your game statistics. On a hit, the target takes {@damage 4d12} necrotic damage. If you direct both hands to attack the same target, they gain advantage on the attack roll."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Forceful Throw",
+          "entries": [
+            "The hand attempts to push a creature within 5 feet of it in a direction you choose. Make a check with the hand’s Strength contested by the Strength (Athletics) check of the target. If the target is Medium or smaller, you have advantage on the check. If you succeed, the hand pushes the target up to 5 feet plus a number of feet equal to five times your spellcasting ability modifier. The hand moves with the target to remain within 5 feet of it. If both hands are used against the same target, you can throw them ten times your spellcasting ability modifier, and gain advantage on the check against a Large or smaller target."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Eldritch Grip",
+          "entries": [
+            "The hand attempts to grapple a Huge or smaller creature within 5 feet of it. You use the hand’s Strength score to resolve the grapple. If the target is Medium or smaller, you have advantage on the check. If both the hands are used against the same target, they can grapple a creature regardless of its size, and you have advantage on the grapple check against a Large or smaller target."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Contaminated Crush",
+          "entries": [
+            "You can have a hand crush a target it is grappling. When you do so, the target takes bludgeoning damage equal to {@damage 2d12} + your spellcasting ability modifier. In addition, the target must make a Constitution saving throw or gain 1 Contamination Level.",
+            "If both the hands are grappling the same target, you can have them rip the grappled target limb from limb. They deal an extra {@damage 4d12} necrotic damage."
+          ]
+        }
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "Using a Higher-Level Spell Slot",
+          "entries": [
+            "When you cast this spell using a spell slot of 6th level or higher, the damage from the arcane slam and contaminated crush options increases by {@damage 2d12} and the damage from the eldritch grip increases by {@damage 2d6} for each slot level above 5th."
+          ]
+        }
+      ],
+      "damageInflict": ["necrotic", "bludgeoning"],
+      "spellAttack": ["M"],
+      "conditionInflict": ["grappled"],
+      "savingThrow": ["constitution"]
+    },
+    {
+      "name": "Storm of Contamination",
+      "source": "SCGTD",
+      "page": 197,
+      "level": 6,
+      "school": "V",
+      "contaminated": true,
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "feet",
+          "amount": 150
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true,
+        "m": "a delerium fragment worth 100 gp, which the spell consumes"
+      },
+      "duration": [
+        {
+          "type": "instant"
+        }
+      ],
+      "entries": [
+        "You create an arcing bolt of eldritch lightning that strikes a target of your choice that you can see within range. Multiple bolts then leap from that target to up to five other targets, each of which must be within 30 feet of the first target. A target can be a creature or an object and can be targeted by only one of the bolts.",
+        "A target must make a Dexterity saving throw. The target takes {@damage 10d12} lightning damage on a failed save, or half as much damage on a successful one. In addition, a target which fails the saving throw gains 1 Contamination Level."
+      ],
+      "damageInflict": ["lightning"],
+      "savingThrow": ["dexterity"]
+    },
+    {
+      "name": "Octarine Sword",
+      "source": "SCGTD",
+      "page": 197,
+      "level": 7,
+      "school": "V",
+      "contaminated": true,
+      "time": [
+        {
+          "number": 1,
+          "unit": "bonus"
+        }
+      ],
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "feet",
+          "amount": 60
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true,
+        "m": "a delerium fragment worth 100 gp, and a dagger"
+      },
+      "duration": [
+        {
+          "type": "timed",
+          "duration": {
+            "type": "minute",
+            "amount": 1
+          }
+        }
+      ],
+      "entries": [
+        "You create a sword-shaped plane of contaminated energy that hovers within range. It lasts for the duration or until you cast this spell again.",
+        "When the sword appears, you make a melee spell attack against a target of your choice within 5 feet of the sword. On a hit, the target takes {@damage 4d10} force damage, and the target must make a Constitution saving throw. On a failed save, the target takes an additional {@damage 4d6} necrotic damage and gains 1 Contamination Level.",
+        "Until the spell ends, you can use a bonus action on each of your turns to move the sword up to 30 feet to a spot you can see and repeat this attack against the same target or a different one."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "Using a Higher-Level Spell Slot",
+          "entries": [
+            "When you cast this spell using a spell slot of 8th level or higher, the force damage increases by {@damage 1d10} and the necrotic damage increases by {@damage 1d6} for each slot level above 7th."
+          ]
+        }
+      ],
+      "damageInflict": ["force", "necrotic"],
+      "spellAttack": ["M"],
+      "savingThrow": ["constitution"]
+    },
+    {
+      "name": "Unbind Gravity",
+      "source": "SCGTD",
+      "page": 198,
+      "level": 7,
+      "school": "T",
+      "contaminated": true,
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "feet",
+          "amount": 100
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true,
+        "m": "a delerium fragment worth 100 gp, which the spell consumes"
+      },
+      "duration": [
+        {
+          "type": "timed",
+          "duration": {
+            "type": "minute",
+            "amount": 1
+          },
+          "concentration": true
+        }
+      ],
+      "entries": [
+        "This spell allows you to control gravity in a 100-foot {@variantrule Cube [Area of Effect]|XPHB|Cube} centered on a point within range. When you cast this spell and at the start of each of your turns for the spell’s duration, you decide which direction gravity pulls within the area. All creatures and objects that aren’t somehow anchored to the ground in the area fall in the direction you choose until they reach the edge of the area. A creature can make a Dexterity saving throw to grab onto a fixed object it can reach, thus avoiding the fall.",
+        "If some solid object (such as a ceiling) is encountered in this fall, falling objects and creatures strike it just as they would during a normal downward fall. If an object or creature reaches the edge of the area without striking anything, it remains there, oscillating slightly, for the duration.",
+        "Alternatively, you can decide to prevent gravity from acting within the area. When you do so, creatures within the area levitate in midair, and must move by pushing or pulling against a fixed object or surface within reach (such as a wall or a ceiling), which allows them to move as if they were climbing. Unattended objects float around randomly.",
+        "At the end of the duration, affected objects and creatures fall back down."
+      ],
+      "savingThrow": ["dexterity"]
+    },
+    {
+      "name": "Banish to the Space Between Worlds",
+      "source": "SCGTD",
+      "page": 198,
+      "level": 8,
+      "school": "C",
+      "contaminated": true,
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "feet",
+          "amount": 60
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true,
+        "m": "a delerium fragment worth 100 gp, which the spell consumes"
+      },
+      "duration": [
+        {
+          "type": "timed",
+          "duration": {
+            "type": "minute",
+            "amount": 10
+          },
+          "concentration": true
+        }
+      ],
+      "entries": [
+        "You banish a creature that you can see within range into the Space Between Worlds. Upon this roiling plane of chaotic potential, the target wanders incomprehensible vistas searching for a way back via strange and absurd exits. The target remains there for the duration or until it escapes.",
+        "The target can use its action to attempt to escape. When it does so, it makes an Intelligence check against your spell save DC. If it succeeds, it escapes, and the spell ends. On a failed check, the target takes {@damage 4d6} psychic damage.",
+        "When the spell ends, the target reappears in the space it left or, if that space is occupied, in the nearest unoccupied space.",
+        "Time passes differently for the target within the Space Between Worlds, and it perceives its time spent there as having lasted hundreds or perhaps thousands of years, even if it was only gone for rounds or minutes in the mortal world.",
+        "A creature which dies in the Space Between Worlds does not return."
+      ],
+      "damageInflict": ["psychic"],
+      "abilityCheck": ["intelligence"]
+    },
+    {
+      "name": "Delerium Meteor Swarm",
+      "source": "SCGTD",
+      "page": 198,
+      "level": 9,
+      "school": "V",
+      "contaminated": true,
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "miles",
+          "amount": 1
+        }
+      },
+      "components": {
+        "v": true,
+        "s": true,
+        "m": "an igneous rock and a delerium fragment worth 100 gp, which the spell consumes"
+      },
+      "duration": [
+        {
+          "type": "timed",
+          "duration": {
+            "type": "minute",
+            "amount": 1
+          }
+        }
+      ],
+      "entries": [
+        "You call down eldritch falling stars that crash into the earth at four points you can see within range. Each creature within a 40-foot-radius {@variantrule Sphere [Area of Effect]|XPHB|Sphere} centered on each point you choose must make a Dexterity saving throw. The sphere spreads around corners. A creature takes {@damage 10d6} radiant damage, {@damage 10d6} necrotic damage, {@damage 10d6} thunder damage, {@damage 10d6} psychic damage, and {@damage 10d6} force damage on a failed save, or half as much damage on a successful one. A creature in the area of more than one burst is affected only once.",
+        "The falling stars leave lasting contamination in the areas they affect, which lasts for one hour. A creature that starts its turn within the affected area must make a Constitution saving throw. On a failed saving throw, the creature takes {@damage 5d6} necrotic damage and gains 1 Contamination Level. It takes half as much damage and does not gain any Contamination Levels on a successful save.",
+        "A creature reduced to 0 hit points by this damage immediately undergoes a Monstrous Transformation as if they had gained 6 Contamination Levels.",
+        "The spell damages structures and objects in the area that aren’t being worn or carried."
+      ],
+      "damageInflict": ["radiant", "necrotic", "thunder", "psychic", "force"],
+      "savingThrow": ["dexterity", "constitution"]
     }
   ]
 }

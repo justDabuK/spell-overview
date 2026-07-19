@@ -24,7 +24,8 @@ pnpm format                       # prettier --write . (prettier-plugin-astro)
 
 **The `5etools-src/` git submodule** is the upstream source for that data format and the raw spell/item JSON — it is the reference when extending schemas or importing new spells. It is excluded from prettier (`.prettierignore`).
 
-**Character pages** (`src/pages/characters/*.astro`) are the main content. Each page is a thin wrapper: it declares an array of spell *names* and passes it to `SpellCardLayout`. The layout (`src/layouts/SpellCardLayout.astro`) does the real work:
+**Character pages** (`src/pages/characters/*.astro`) are the main content. Each page is a thin wrapper: it declares an array of spell _names_ and passes it to `SpellCardLayout`. The layout (`src/layouts/SpellCardLayout.astro`) does the real work:
+
 - looks spells up by name across all collection files,
 - filters out any spell that has `reprintedAs` (so reprints don't duplicate),
 - sorts by level → casting-time (action/bonus/reaction/minute/hour/day) → name, grouped into per-level rows,
