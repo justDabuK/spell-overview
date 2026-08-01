@@ -11,11 +11,11 @@
   },
   "dependencies": {
     "@fontsource/inclusive-sans": "^5.2.8",
-    "astro": "^7.1.1",
+    "astro": "^7.1.6",
     "astro-icon": "^1.1.5",
     "sharp": "^0.34.5"
   },
-  "packageManager": "pnpm@11.14.0+sha512.66c1ac4c7d4762d6d7dde44c7f3e5a73591ed0a0806e751d4ed32d4f004f25b2285a906b1fd8a9e3e621df3b4e2858bf88e50e0cf626bedbe977fe434a5caf85",
+  "packageManager": "pnpm@11.18.0+sha512.33d83c77da82f49fba836925c6f1b841181ec3132b670639bd012f7075f5c7cf634c5f870147c19aae7478fac01df09d8892e880454896edd23ee9b33757563c",
   "devDependencies": {
     "prettier": "^3.9.5",
     "prettier-plugin-astro": "^0.14.1"
