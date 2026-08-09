@@ -1,0 +1,45 @@
+---
+import SpellCardLayout from "../../layouts/SpellCardLayout.astro";
+import { type CollectionEntry } from "astro:content";
+
+const characterSpellNameList: CollectionEntry<"spells">["data"]["spell"][0]["name"][] =
+  [
+    // cantrips: 3
+    "Eldritch Blast",
+    "Minor Illusion",
+    "Mage Hand",
+    // Invocations
+    "Find Familiar",
+    "Mage Armor",
+    "Alter Self",
+    "Contact Other Plane",
+    // archfey
+    "Calm Emotions",
+    "Faerie Fire",
+    "Misty Step",
+    "Phantasmal Force",
+    "Sleep",
+    "Blink",
+    "Plant Growth",
+    "Dominate Beast",
+    "Greater Invisibility",
+    "Dominate Person",
+    "Seeming",
+    // prepared spells: 10
+    "Hex",
+    "Tasha's Hideous Laughter",
+    "Suggestion",
+    "Hunger of Hadar",
+    "Counterspell",
+    "Hypnotic Pattern",
+    "Banishment",
+    "Dimension Door",
+    "Hold Monster",
+    "Synaptic Static"
+  ];
+---
+
+<SpellCardLayout
+  characterSpellNameList={characterSpellNameList}
+  characterName="Nico Pyo"
+/>
