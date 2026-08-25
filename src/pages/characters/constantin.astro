@@ -1,0 +1,36 @@
+---
+import SpellCardLayout from "../../layouts/SpellCardLayout.astro";
+import { type CollectionEntry } from "astro:content";
+
+const characterSpellNameList: CollectionEntry<"spells">["data"]["spell"][0]["name"][] =
+  [
+    // cantrips: 6
+    "Sorcerous Burst",
+    "Prestidigitation",
+    "Shocking Grasp",
+    "Mage Hand",
+    "Minor Illusion",
+    "Mind Sliver",
+    // prepared: 15
+    "Shield",
+    "Misty Step",
+    "Suggestion",
+    "Scorching Ray",
+    "Hold Person",
+    "Counterspell",
+    "Fireball",
+    "Hypnotic Pattern",
+    "Dimension Door",
+    "Wall of Fire",
+    "Polymorph",
+    "Banishment",
+    "Hold Monster",
+    "Cone of Cold",
+    "Telekinesis"
+  ];
+---
+
+<SpellCardLayout
+  characterSpellNameList={characterSpellNameList}
+  characterName="Constantin"
+/>
