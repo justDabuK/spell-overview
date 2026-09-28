@@ -1,0 +1,30 @@
+---
+import SpellCardLayout from "../../layouts/SpellCardLayout.astro";
+import { type CollectionEntry } from "astro:content";
+
+const characterSpellNameList: CollectionEntry<"spells">["data"]["spell"][0]["name"][] =
+  [
+    // elf
+    "Prestidigitation",
+    // magic initiate
+    "Fire Bolt",
+    "True Strike",
+    "Mage Armor",
+    // cantrips: 3
+    "Mage Hand",
+    "Minor Illusion",
+    "Acid Splash",
+    // book: 6, prepared 4
+    "Shield",
+    "Witch Bolt",
+    "Sleep",
+    "Magic Missile",
+    "Find Familiar",
+    "Comprehend Languages",
+  ];
+---
+
+<SpellCardLayout
+  characterSpellNameList={characterSpellNameList}
+  characterName="Pearl"
+/>
