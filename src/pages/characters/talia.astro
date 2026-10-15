@@ -1,0 +1,30 @@
+---
+import SpellCardLayout from "../../layouts/SpellCardLayout.astro";
+import { type CollectionEntry } from "astro:content";
+
+const characterSpellNameList: CollectionEntry<"spells">["data"]["spell"][0]["name"][] =
+  [
+    // cantrips: 2 + 1 (tinker's magic) + 1 (gnome)
+    "Mending",
+    "Prestidigitation",
+    "Fire Bolt",
+    "Guidance",
+    // Artillerist (always prepared)
+    "Shield",
+    "Thunderwave",
+    "Scorching Ray",
+    "Shatter",
+    // prepared spells: 6
+    "Faerie Fire",
+    "Cure Wounds",
+    "Grease",
+    "Web",
+    "Invisibility",
+    "Enlarge/Reduce",
+  ];
+---
+
+<SpellCardLayout
+  characterSpellNameList={characterSpellNameList}
+  characterName="Talia"
+/>

@@ -1,0 +1,41 @@
+---
+import SpellCardLayout from "../../layouts/SpellCardLayout.astro";
+import { type CollectionEntry } from "astro:content";
+
+const characterSpellNameList: CollectionEntry<"spells">["data"]["spell"][0]["name"][] =
+  [
+    // cantrips: 3 + 1 (thaumaturge) + 1 (level 4)
+    "Guidance",
+    "Toll the Dead",
+    "Sacred Flame",
+    "Thaumaturgy",
+    "Resistance",
+    // Magic Initiate (druid)
+    "Thorn Whip",
+    "Druidcraft",
+    "Entangle",
+    // Grave Domain (always prepared)
+    "Spare the Dying",
+    "Detect Evil and Good",
+    "False Life",
+    "Gentle Repose",
+    "Ray of Enfeeblement",
+    "Revivify",
+    "Vampiric Touch",
+    // prepared spells: 9
+    "Bless",
+    "Healing Word",
+    "Guiding Bolt",
+    "Shield of Faith",
+    "Aid",
+    "Spiritual Weapon",
+    "Lesser Restoration",
+    "Spirit Guardians",
+    "Dispel Magic",
+  ];
+---
+
+<SpellCardLayout
+  characterSpellNameList={characterSpellNameList}
+  characterName="Bogborn Cleric"
+/>

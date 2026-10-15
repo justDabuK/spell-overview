@@ -1,0 +1,46 @@
+---
+import SpellCardLayout from "../../layouts/SpellCardLayout.astro";
+import { type CollectionEntry } from "astro:content";
+
+const characterSpellNameList: CollectionEntry<"spells">["data"]["spell"][0]["name"][] =
+  [
+    // cantrips: 4 + 2 (initiate)
+    "Minor Illusion",
+    "Prestidigitation",
+    "Fire Bolt",
+    "Mage Hand",
+    "Shocking Grasp",
+    "Mind Sliver",
+    "Chill Touch",
+    "Toll the Dead",
+    // Magic Initiate
+    "Mage Armor",
+    // elf (High Elf lineage)
+    "Detect Magic",
+    "Misty Step",
+    // prepared spells: 9
+    "Shield",
+    "Sleep",
+    "Fog Cloud",
+    "Invisibility",
+    "Web",
+    "Mirror Image",
+    "Counterspell",
+    "Fireball",
+    "Hypnotic Pattern",
+    // spellbook, not prepared (rituals castable via Ritual Adept)
+    "Find Familiar",
+    "Comprehend Languages",
+    "Magic Missile",
+    "Enlarge/Reduce",
+    "Enhance Ability",
+    "Phantasmal Force",
+    "Blur",
+    "Magic Mouth",
+  ];
+---
+
+<SpellCardLayout
+  characterSpellNameList={characterSpellNameList}
+  characterName="Ingorendil (Level 5)"
+/>

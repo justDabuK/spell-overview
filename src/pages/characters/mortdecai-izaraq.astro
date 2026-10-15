@@ -1,0 +1,42 @@
+---
+import SpellCardLayout from "../../layouts/SpellCardLayout.astro";
+import { type CollectionEntry } from "astro:content";
+
+const characterSpellNameList: CollectionEntry<"spells">["data"]["spell"][0]["name"][] =
+  [
+    // cantrips: 3
+    "Eldritch Blast",
+    "Minor Illusion",
+    "Mind Sliver",
+    // Great Old One (always prepared)
+    "Detect Thoughts",
+    "Dissonant Whispers",
+    "Phantasmal Force",
+    "Tasha's Hideous Laughter",
+    "Clairvoyance",
+    "Hunger of Hadar",
+    // Pact of the Tome: 3 cantrips + 2 rituals
+    "Guidance",
+    "Mage Hand",
+    "Message",
+    "Comprehend Languages",
+    "Detect Magic",
+    // Fey Touched (always prepared, 1 / LR free)
+    "Misty Step",
+    "Hex",
+    // Mask of Many Faces (at will)
+    "Disguise Self",
+    // prepared spells: 6
+    "Charm Person",
+    "Invisibility",
+    "Suggestion",
+    "Hold Person",
+    "Counterspell",
+    "Hypnotic Pattern",
+  ];
+---
+
+<SpellCardLayout
+  characterSpellNameList={characterSpellNameList}
+  characterName="Mortdecai Izaraq"
+/>
