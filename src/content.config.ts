@@ -276,6 +276,7 @@ const items = defineCollection({
               "A", // ammunition
               "A|XPHB",
               "Vst|EGW", // Vestige of Divergence
+              "Evo|AU", // Evolving Item (Arcana Unleashed)
             ]),
           )
           .optional(),
